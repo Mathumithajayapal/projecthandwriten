@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Sign Up | InkWhisper – Begin Your Botanical Ritual</title>
+
+  <!-- Tailwind + Font Awesome + Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" type="image/jpeg" href="Images\favicon.jpg">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+            'script': ['Great Vibes', 'cursive'],
+            'serif': ['Playfair Display', 'serif']
+          },
+          colors: {
+            primary: "#4A2E1F",
+            accent: "#BF7F3A",
+            soft: "#FEF8F0",
+            light: "#FFE8D4"
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Reset for perfect mobile fit */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem;
+    }
+
+    /* ========== ENHANCED DARK MODE ========== */
+    html.dark body {
+      background-color: #1a1410 !important;
+    }
+
+    html.dark .signup-card {
+      background-color: #2a221c !important;
+      border-color: #3d3228 !important;
+    }
+
+    html.dark .input-field {
+      background-color: #1a1410 !important;
+      border-color: #5a4a38 !important;
+      color: #FEF8F0 !important;
+    }
+
+    html.dark .input-field:focus {
+      border-color: #FFCF9A !important;
+      outline: none;
+    }
+
+    html.dark .input-field::placeholder {
+      color: #b8a88c !important;
+    }
+
+    html.dark label,
+    html.dark .text-primary-dark,
+    html.dark .logo-subtext,
+    html.dark .signup-subtitle,
+    html.dark .terms-text,
+    html.dark .or-text,
+    html.dark .login-link-text {
+      color: #FEF8F0 !important;
+    }
+
+    html.dark .divider-line {
+      background-color: #5a4a38 !important;
+    }
+
+    html.dark .social-btn {
+      border-color: #5a4a38 !important;
+      background-color: #2a221c !important;
+    }
+
+    html.dark .social-btn:hover {
+      background-color: #3d3228 !important;
+      border-color: #FFCF9A !important;
+    }
+
+    html.dark .social-icon i {
+      color: #e8dccc !important;
+    }
+
+    html.dark .accent-link {
+      color: #FFCF9A !important;
+    }
+
+    html.dark .accent-link:hover {
+      color: #FFD89C !important;
+    }
+
+    html.dark .top-control-btn {
+      background-color: #2a221c !important;
+      color: #FEF8F0 !important;
+      border-color: #3d3228 !important;
+    }
+
+    html.dark .top-control-btn:hover {
+      background-color: #3d3228 !important;
+    }
+
+    html.dark .checkbox-custom {
+      color: #e8dccc !important;
+    }
+
+    /* RTL Support */
+    html[dir="rtl"] .rtl-flip {
+      transform: scaleX(-1);
+    }
+
+    html[dir="rtl"] .social-btn {
+      flex-direction: row-reverse !important;
+    }
+
+    html[dir="rtl"] .social-btn i {
+      margin-left: 0.5rem;
+      margin-right: 0;
+    }
+
+    html[dir="rtl"] .login-btn-icon {
+      transform: scaleX(-1);
+    }
+
+    /* Input focus ring */
+    .input-field:focus {
+      border-color: #BF7F3A;
+      outline: none;
+    }
+
+    /* Custom checkbox */
+    input[type="checkbox"] {
+      accent-color: #BF7F3A;
+    }
+
+    /* Main container */
+    .signup-container {
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .signup-card {
+      width: 100%;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+    }
+
+    /* ========== PERFECT MOBILE RESPONSIVE (360x740 optimized) ========== */
+    @media (max-width: 400px) {
+      body {
+        padding: 0.5rem;
+      }
+      
+      .signup-card {
+        padding: 1rem !important;
+        border-radius: 1.25rem !important;
+      }
+      
+      .logo-icon {
+        font-size: 1.5rem !important;
+      }
+      
+      .logo-title {
+        font-size: 1.35rem !important;
+      }
+      
+      .logo-subtext {
+        font-size: 0.5rem !important;
+      }
+      
+      .signup-subtitle {
+        font-size: 0.75rem !important;
+        margin-top: 0.25rem !important;
+      }
+      
+      .welcome-divider {
+        margin-top: 0.5rem !important;
+        width: 2rem !important;
+      }
+      
+      .form-label {
+        font-size: 0.7rem !important;
+        margin-bottom: 0.25rem !important;
+      }
+      
+      .form-label i {
+        font-size: 0.65rem !important;
+      }
+      
+      .input-field {
+        padding: 0.55rem 0.85rem !important;
+        font-size: 0.8rem !important;
+        border-radius: 0.875rem !important;
+      }
+      
+      .login-btn {
+        padding: 0.65rem !important;
+        font-size: 0.8rem !important;
+      }
+      
+      .social-btn {
+        padding: 0.45rem 0.2rem !important;
+      }
+      
+      .social-btn i {
+        font-size: 0.9rem !important;
+      }
+      
+      .social-btn span {
+        font-size: 0.65rem !important;
+      }
+      
+      .or-text {
+        font-size: 0.65rem !important;
+      }
+      
+      .terms-text {
+        font-size: 0.65rem !important;
+      }
+      
+      .login-link-text {
+        font-size: 0.7rem !important;
+        margin-top: 0.75rem !important;
+      }
+      
+      .divider-gap {
+        margin: 0.75rem 0 !important;
+      }
+      
+      .form-spacing {
+        gap: 0.75rem !important;
+      }
+      
+      .top-controls {
+        top: 0.5rem !important;
+        right: 0.5rem !important;
+        gap: 0.4rem !important;
+      }
+      
+      .top-control-btn {
+        padding: 0.35rem 0.6rem !important;
+        font-size: 0.65rem !important;
+      }
+      
+      .top-control-btn i {
+        font-size: 0.65rem !important;
+      }
+      
+      .checkbox-custom {
+        font-size: 0.65rem !important;
+      }
+      
+      .checkbox-custom input {
+        width: 0.85rem !important;
+        height: 0.85rem !important;
+      }
+    }
+
+    /* For very small heights (adjust spacing) */
+    @media (max-height: 680px) {
+      .signup-card {
+        padding: 0.875rem !important;
+      }
+      .form-spacing {
+        gap: 0.6rem !important;
+      }
+      .divider-gap {
+        margin: 0.6rem 0 !important;
+      }
+      .login-link-text {
+        margin-top: 0.6rem !important;
+      }
+    }
+
+    /* Touch-friendly */
+    button, a, .social-btn {
+      touch-action: manipulation;
+      cursor: pointer;
+    }
+
+    /* Smooth icon animation */
+    .login-btn-icon {
+      transition: transform 0.2s ease;
+    }
+    
+    button:hover .login-btn-icon {
+      transform: translateX(3px);
+    }
+    
+    html[dir="rtl"] button:hover .login-btn-icon {
+      transform: translateX(-3px);
+    }
+  </style>
+</head>
+
+<body class="bg-[#FEF8F0] font-sans antialiased">
+
+  <!-- TOP RIGHT CONTROLS -->
+  <div class="fixed top-3 right-3 flex items-center gap-2 z-50 top-controls">
+    <button id="darkModeToggle"
+      class="top-control-btn flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-medium bg-[#FFE8D4] dark:bg-[#2a221c] text-[#4A2E1F] dark:text-[#FEF8F0] shadow-md hover:bg-[#FFDDB5] dark:hover:bg-[#3d3228] transition">
+      <i id="darkIcon" class="fas fa-moon text-xs"></i>
+      <span id="darkLabel">Dark</span>
+    </button>
+
+    <button id="rtlToggleBtn"
+      class="top-control-btn flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-medium bg-[#FFE8D4] dark:bg-[#2a221c] text-[#4A2E1F] dark:text-[#FEF8F0] shadow-md hover:bg-[#FFDDB5] dark:hover:bg-[#3d3228] transition">
+      <i id="rtlIcon" class="fas fa-globe text-xs"></i>
+      <span id="rtlLabel">LTR</span>
+    </button>
+  </div>
+
+  <!-- Main Container -->
+  <div class="signup-container">
+    <!-- Sign Up Card -->
+    <div class="signup-card bg-white rounded-2xl shadow-xl border border-[#FFE0B5] dark:border-[#3d3228] transition-all">
+
+      <!-- Logo Area - matches About page exactly -->
+      <div class="text-center mb-3 logo-section">
+        <a href="index.html" class="inline-flex items-center justify-center gap-2 group">
+          <i class="fas fa-feather-alt text-[#BF7F3A] text-2xl transition-transform group-hover:rotate-3 logo-icon"></i>
+          <div class="flex flex-col leading-tight text-left">
+            <h1 class="text-[#4A2E1F] dark:text-[#FEF8F0] text-2xl font-bold tracking-tight logo-title" 
+                style="font-family: 'Inter', system-ui, sans-serif;">
+              InkWhisper
+            </h1>
+            <span class="text-[#8B694A] dark:text-[#C9BDA8] text-[0.6rem] font-semibold uppercase tracking-wider -mt-0.5 logo-subtext">
+              botanical essence
+            </span>
+          </div>
+        </a>
+        <div class="mt-1.5">
+          <p class="text-[#6F523B] dark:text-[#E8DCCC] text-sm font-medium signup-subtitle"
+            style="font-family: 'Playfair Display', serif;">
+            Begin your botanical journey
+          </p>
+          <div class="w-10 h-0.5 bg-[#D9B574] dark:bg-[#FFCF9A] mx-auto mt-1.5 rounded-full welcome-divider"></div>
+        </div>
+      </div>
+
+      <!-- Sign Up Form -->
+      <form id="signupForm" class="space-y-3 form-spacing">
+        <!-- Full Name -->
+        <div>
+          <label class="form-label block text-xs font-semibold text-[#4A2E1F] dark:text-[#FEF8F0] mb-1 tracking-wide">
+            <i class="fas fa-user text-[#BF7F3A] text-[11px] mr-1"></i> Full Name
+          </label>
+          <input type="text" id="fullName"
+            class="input-field w-full px-3 py-2 rounded-xl border border-[#FFE0B5] dark:border-[#5a4a38] bg-[#FEF8F0] dark:bg-[#1a1410] text-[#3E2C1C] dark:text-[#FEF8F0] focus:outline-none focus:ring-2 focus:ring-[#BF7F3A]/50 focus:border-[#BF7F3A] text-sm transition"
+            placeholder="Elara Wren">
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label class="form-label block text-xs font-semibold text-[#4A2E1F] dark:text-[#FEF8F0] mb-1 tracking-wide">
+            <i class="fas fa-envelope text-[#BF7F3A] text-[11px] mr-1"></i> Email
+          </label>
+          <input type="email" id="email"
+            class="input-field w-full px-3 py-2 rounded-xl border border-[#FFE0B5] dark:border-[#5a4a38] bg-[#FEF8F0] dark:bg-[#1a1410] text-[#3E2C1C] dark:text-[#FEF8F0] focus:outline-none focus:ring-2 focus:ring-[#BF7F3A]/50 focus:border-[#BF7F3A] text-sm transition"
+            placeholder="hello@inkwhisper.com">
+        </div>
+
+        <!-- Password -->
+        <div>
+          <label class="form-label block text-xs font-semibold text-[#4A2E1F] dark:text-[#FEF8F0] mb-1 tracking-wide">
+            <i class="fas fa-lock text-[#BF7F3A] text-[11px] mr-1"></i> Password
+          </label>
+          <input type="password" id="password"
+            class="input-field w-full px-3 py-2 rounded-xl border border-[#FFE0B5] dark:border-[#5a4a38] bg-[#FEF8F0] dark:bg-[#1a1410] text-[#3E2C1C] dark:text-[#FEF8F0] focus:outline-none focus:ring-2 focus:ring-[#BF7F3A]/50 focus:border-[#BF7F3A] text-sm transition"
+            placeholder="Create a strong password">
+        </div>
+
+        <!-- Confirm Password -->
+        <div>
+          <label class="form-label block text-xs font-semibold text-[#4A2E1F] dark:text-[#FEF8F0] mb-1 tracking-wide">
+            <i class="fas fa-check-circle text-[#BF7F3A] text-[11px] mr-1"></i> Confirm Password
+          </label>
+          <input type="password" id="confirmPassword"
+            class="input-field w-full px-3 py-2 rounded-xl border border-[#FFE0B5] dark:border-[#5a4a38] bg-[#FEF8F0] dark:bg-[#1a1410] text-[#3E2C1C] dark:text-[#FEF8F0] focus:outline-none focus:ring-2 focus:ring-[#BF7F3A]/50 focus:border-[#BF7F3A] text-sm transition"
+            placeholder="Confirm your password">
+        </div>
+
+        <!-- Terms & Conditions Checkbox -->
+        <label class="checkbox-custom flex items-center gap-2 text-xs text-[#6F523B] dark:text-[#E8DCCC] cursor-pointer">
+          <input type="checkbox" id="termsCheckbox" class="w-3.5 h-3.5 rounded border-[#FFE0B5] text-[#BF7F3A] focus:ring-[#BF7F3A] focus:ring-offset-0">
+          <span class="terms-text">I agree to the <a href="#" class="text-[#BF7F3A] dark:text-[#FFCF9A] hover:underline font-medium accent-link">Terms & Conditions</a></span>
+        </label>
+
+        <!-- Sign Up Button -->
+        <button type="submit"
+          class="login-btn w-full bg-[#4A2E1F] hover:bg-[#6B422A] dark:bg-[#5a3a28] dark:hover:bg-[#7a4f38] text-white font-semibold py-2.5 rounded-full transition shadow-md text-sm flex items-center justify-center gap-2 group">
+          <span>Create Account</span>
+          <i class="fas fa-arrow-right text-xs login-btn-icon"></i>
+        </button>
+      </form>
+
+      <!-- Divider -->
+      <div class="flex items-center gap-2 my-4 divider-gap">
+        <div class="flex-1 h-px bg-[#FFE0B5] dark:bg-[#5a4a38] divider-line"></div>
+        <span class="text-[10px] text-[#8B694A] dark:text-[#C9BDA8] font-medium or-text">OR SIGN UP WITH</span>
+        <div class="flex-1 h-px bg-[#FFE0B5] dark:bg-[#5a4a38] divider-line"></div>
+      </div>
+
+      <!-- Social Login Buttons -->
+      <div class="grid grid-cols-3 gap-2">
+        <!-- Google -->
+        <button class="social-btn flex items-center justify-center gap-1.5 border border-[#FFE0B5] dark:border-[#5a4a38] py-2 rounded-full text-xs font-medium bg-white dark:bg-[#2a221c] hover:bg-[#FFF6EA] dark:hover:bg-[#3d3228] transition shadow-sm">
+          <i class="fab fa-google text-[#DB4437] text-sm"></i>
+          <span class="text-[11px] text-[#4A2E1F] dark:text-[#FEF8F0]">Google</span>
+        </button>
+        <!-- Facebook -->
+        <button class="social-btn flex items-center justify-center gap-1.5 border border-[#FFE0B5] dark:border-[#5a4a38] py-2 rounded-full text-xs font-medium bg-white dark:bg-[#2a221c] hover:bg-[#FFF6EA] dark:hover:bg-[#3d3228] transition shadow-sm">
+          <i class="fab fa-facebook-f text-[#1877F2] text-sm"></i>
+          <span class="text-[11px] text-[#4A2E1F] dark:text-[#FEF8F0]">Facebook</span>
+        </button>
+        <!-- Apple -->
+        <button class="social-btn flex items-center justify-center gap-1.5 border border-[#FFE0B5] dark:border-[#5a4a38] py-2 rounded-full text-xs font-medium bg-white dark:bg-[#2a221c] hover:bg-[#FFF6EA] dark:hover:bg-[#3d3228] transition shadow-sm">
+          <i class="fab fa-apple text-black dark:text-white text-sm"></i>
+          <span class="text-[11px] text-[#4A2E1F] dark:text-[#FEF8F0]">Apple</span>
+        </button>
+      </div>
+
+      <!-- Login Link -->
+      <p class="text-center text-xs text-[#6F523B] dark:text-[#E8DCCC] mt-4 login-link-text">
+        Already have an account?
+        <a href="#" class="text-[#BF7F3A] dark:text-[#FFCF9A] font-semibold hover:underline ml-1 transition accent-link">
+          Login <i class="fas fa-chevron-right text-[10px] rtl-flip"></i>
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const html = document.documentElement;
+
+      // ========== DARK MODE ==========
+      const darkToggle = document.getElementById('darkModeToggle');
+      const darkIcon = document.getElementById('darkIcon');
+      const darkLabel = document.getElementById('darkLabel');
+
+      function updateDarkUI(isDark) {
+        const iconClass = isDark ? 'fas fa-sun text-xs' : 'fas fa-moon text-xs';
+        const label = isDark ? 'Light' : 'Dark';
+        if (darkIcon) darkIcon.className = iconClass;
+        if (darkLabel) darkLabel.innerText = label;
+      }
+
+      if (localStorage.getItem('inkwhisper_dark') === 'enabled') {
+        html.classList.add('dark');
+        updateDarkUI(true);
+      } else {
+        updateDarkUI(false);
+      }
+
+      function toggleDark() {
+        if (html.classList.contains('dark')) {
+          html.classList.remove('dark');
+          localStorage.setItem('inkwhisper_dark', 'disabled');
+          updateDarkUI(false);
+        } else {
+          html.classList.add('dark');
+          localStorage.setItem('inkwhisper_dark', 'enabled');
+          updateDarkUI(true);
+        }
+      }
+
+      if (darkToggle) darkToggle.addEventListener('click', toggleDark);
+
+      // ========== RTL TOGGLE ==========
+      const rtlBtn = document.getElementById('rtlToggleBtn');
+      const rtlLabelSpan = document.getElementById('rtlLabel');
+      const rtlIconSpan = document.getElementById('rtlIcon');
+
+      function setDirection(dir) {
+        html.setAttribute('dir', dir);
+        localStorage.setItem('inkwhisper_dir', dir);
+        const label = dir === 'rtl' ? 'RTL' : 'LTR';
+        if (rtlLabelSpan) rtlLabelSpan.innerText = label;
+        if (rtlIconSpan) {
+          if (dir === 'rtl') {
+            rtlIconSpan.classList.add('rtl-flip');
+          } else {
+            rtlIconSpan.classList.remove('rtl-flip');
+          }
+        }
+        const arrows = document.querySelectorAll('.fa-arrow-right, .fa-chevron-right');
+        arrows.forEach(arrow => {
+          if (dir === 'rtl') arrow.classList.add('rtl-flip');
+          else arrow.classList.remove('rtl-flip');
+        });
+      }
+
+      const savedDir = localStorage.getItem('inkwhisper_dir');
+      setDirection(savedDir === 'rtl' ? 'rtl' : 'ltr');
+
+      function toggleRTL() {
+        const currentDir = html.getAttribute('dir');
+        setDirection(currentDir === 'rtl' ? 'ltr' : 'rtl');
+      }
+
+      if (rtlBtn) rtlBtn.addEventListener('click', toggleRTL);
+
+      // ========== SIGNUP FORM VALIDATION ==========
+      const signupForm = document.getElementById('signupForm');
+      const fullNameInput = document.getElementById('fullName');
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+      const confirmInput = document.getElementById('confirmPassword');
+      const termsCheck = document.getElementById('termsCheckbox');
+
+      if (signupForm) {
+        signupForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          let hasError = false;
+          let errorMessage = '';
+
+          if (!fullNameInput.value.trim()) {
+            errorMessage = 'Please enter your full name.';
+            hasError = true;
+          } else if (!emailInput.value.trim() || !emailInput.value.includes('@')) {
+            errorMessage = 'Please enter a valid email address.';
+            hasError = true;
+          } else if (!passwordInput.value || passwordInput.value.length < 6) {
+            errorMessage = 'Password must be at least 6 characters.';
+            hasError = true;
+          } else if (passwordInput.value !== confirmInput.value) {
+            errorMessage = 'Passwords do not match.';
+            hasError = true;
+          } else if (!termsCheck.checked) {
+            errorMessage = 'Please agree to the Terms & Conditions.';
+            hasError = true;
+          }
+
+          if (hasError) {
+            alert('✨ ' + errorMessage);
+            return;
+          }
+
+          const btn = signupForm.querySelector('button[type="submit"]');
+          const originalHTML = btn.innerHTML;
+          btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating account...';
+          btn.disabled = true;
+
+          setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.disabled = false;
+            alert('🌸 Welcome to InkWhisper! Your botanical journey begins now. (Demo signup successful)');
+            signupForm.reset();
+          }, 1200);
+        });
+      }
+
+      // Apply RTL to social buttons
+      function applyRTLButtons() {
+        const isRTL = html.getAttribute('dir') === 'rtl';
+        const socialBtns = document.querySelectorAll('.social-btn');
+        socialBtns.forEach(btn => {
+          if (isRTL) {
+            btn.style.flexDirection = 'row-reverse';
+          } else {
+            btn.style.flexDirection = 'row';
+          }
+        });
+      }
+
+      const rtlObserver = new MutationObserver(() => {
+        applyRTLButtons();
+      });
+      rtlObserver.observe(html, { attributes: true, attributeFilter: ['dir'] });
+      applyRTLButtons();
+
+      // Touch optimizations
+      const allButtons = document.querySelectorAll('button, a');
+      allButtons.forEach(btn => {
+        btn.style.touchAction = 'manipulation';
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Login | InkWhisper – Botanical Alchemy</title>
+  
+  <!-- Tailwind + Font Awesome + Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" type="image/jpeg" href="Images\favicon.jpg">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+            'script': ['Great Vibes', 'cursive'],
+            'serif': ['Playfair Display', 'serif']
+          },
+          colors: {
+            primary: "#4A2E1F",
+            accent: "#BF7F3A",
+            soft: "#FEF8F0",
+            light: "#FFE8D4"
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* Reset margins for perfect mobile fit */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+    
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    
+    /* Dark mode styles */
+    html.dark body {
+      background-color: #1a1410 !important;
+    }
+    html.dark .login-card {
+      background-color: #2a221c !important;
+      border-color: #3d3228 !important;
+    }
+    html.dark .input-field {
+      background-color: #1a1410 !important;
+      border-color: #5a4a38 !important;
+      color: #FEF8F0 !important;
+    }
+    html.dark .input-field:focus {
+      border-color: #FFCF9A !important;
+      outline: none;
+    }
+    html.dark .input-field::placeholder {
+      color: #b8a88c !important;
+    }
+    html.dark .divider-line {
+      background-color: #5a4a38 !important;
+    }
+    html.dark .social-btn {
+      border-color: #5a4a38 !important;
+      background-color: #2a221c !important;
+      color: #FEF8F0 !important;
+    }
+    html.dark .social-btn:hover {
+      background-color: #3d3228 !important;
+      border-color: #FFCF9A !important;
+    }
+    html.dark .text-primary-dark,
+    html.dark label,
+    html.dark .remember-text,
+    html.dark .or-text,
+    html.dark .signup-text {
+      color: #FEF8F0 !important;
+    }
+    html.dark .accent-link {
+      color: #FFCF9A !important;
+    }
+    html.dark .accent-link:hover {
+      color: #FFD89C !important;
+    }
+    html.dark .checkbox-label {
+      color: #e8dccc !important;
+    }
+    html.dark .footer-divider {
+      background-color: #5a4a38 !important;
+    }
+    html.dark .top-btn {
+      background-color: #2a221c !important;
+      color: #FEF8F0 !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+    html.dark .top-btn:hover {
+      background-color: #3d3228 !important;
+    }
+    
+    /* RTL Support */
+    html[dir="rtl"] .rtl-flip {
+      transform: scaleX(-1);
+    }
+    html[dir="rtl"] .flex-row-reverse-rtl {
+      flex-direction: row-reverse;
+    }
+    html[dir="rtl"] .social-btn i {
+      margin-left: 0.5rem;
+      margin-right: 0;
+    }
+    html[dir="rtl"] .remember-checkbox {
+      margin-left: 0.5rem;
+      margin-right: 0;
+    }
+    html[dir="rtl"] .login-btn-icon {
+      transform: scaleX(-1);
+    }
+    
+    /* Input focus ring */
+    .input-field:focus {
+      border-color: #BF7F3A;
+      outline: none;
+    }
+    
+    /* Custom checkbox accent */
+    input[type="checkbox"] {
+      accent-color: #BF7F3A;
+    }
+    
+    /* Responsive container - perfect for 360x740 */
+    .login-container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .login-card {
+      width: 100%;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+    }
+    
+    /* Mobile optimizations for 360px width */
+    @media (max-width: 400px) {
+      body {
+        padding: 0.75rem;
+      }
+      .login-card {
+        padding: 1.25rem !important;
+        border-radius: 1.25rem !important;
+      }
+      .logo-icon {
+        font-size: 1.75rem !important;
+      }
+      .logo-title {
+        font-size: 1.5rem !important;
+      }
+      .logo-subtext {
+        font-size: 0.55rem !important;
+      }
+      .welcome-text {
+        font-size: 0.85rem !important;
+      }
+      .input-field {
+        padding: 0.6rem 0.9rem !important;
+        font-size: 0.85rem !important;
+      }
+      label {
+        font-size: 0.75rem !important;
+      }
+      .login-btn {
+        padding: 0.7rem !important;
+        font-size: 0.85rem !important;
+      }
+      .social-btn {
+        padding: 0.5rem 0.25rem !important;
+      }
+      .social-btn i {
+        font-size: 1rem !important;
+      }
+      .social-btn span {
+        font-size: 0.7rem !important;
+      }
+      .or-text {
+        font-size: 0.7rem !important;
+      }
+      .remember-text, .forgot-link {
+        font-size: 0.7rem !important;
+      }
+      .signup-text {
+        font-size: 0.75rem !important;
+        margin-top: 1.25rem !important;
+      }
+      .divider-gap {
+        margin: 1rem 0 !important;
+      }
+      .top-controls {
+        gap: 0.5rem !important;
+      }
+      .top-btn {
+        padding: 0.4rem 0.6rem !important;
+        font-size: 0.7rem !important;
+      }
+      .top-btn i {
+        font-size: 0.7rem !important;
+      }
+      .brand-note {
+        font-size: 0.65rem !important;
+        margin-top: 0.75rem !important;
+      }
+      .form-spacing {
+        gap: 1rem !important;
+      }
+      .checkbox-label {
+        font-size: 0.7rem !important;
+      }
+    }
+    
+    /* For very small heights (adjust spacing) */
+    @media (max-height: 700px) {
+      .login-card {
+        padding: 1rem !important;
+      }
+      .logo-section {
+        margin-bottom: 0.75rem !important;
+      }
+      .form-spacing {
+        gap: 0.75rem !important;
+      }
+      .divider-gap {
+        margin: 0.75rem 0 !important;
+      }
+      .signup-text {
+        margin-top: 1rem !important;
+      }
+    }
+    
+    /* Smooth transitions */
+    .login-btn-icon {
+      transition: transform 0.2s ease;
+    }
+    button:hover .login-btn-icon {
+      transform: translateX(3px);
+    }
+    html[dir="rtl"] button:hover .login-btn-icon {
+      transform: translateX(-3px);
+    }
+    
+    /* Ensure content fits without overflow */
+    .login-card {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="bg-[#FEF8F0] font-sans antialiased">
+
+  <!-- TOP RIGHT CONTROLS - Responsive positioning -->
+  <div class="fixed top-3 right-3 flex items-center gap-2 z-50 top-controls">
+    <!-- Dark Mode Toggle -->
+    <button id="darkModeToggle" 
+      class="top-btn flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-medium bg-[#FFE8D4] dark:bg-[#2a221c] text-[#4A2E1F] dark:text-[#FEF8F0] shadow-md hover:bg-[#FFDDB5] dark:hover:bg-[#3d3228] transition">
+      <i id="darkIcon" class="fas fa-moon text-xs"></i>
+      <span id="darkLabel">Dark</span>
+    </button>
+
+    <!-- RTL Toggle -->
+    <button id="rtlToggleBtn" 
+      class="top-btn flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-medium bg-[#FFE8D4] dark:bg-[#2a221c] text-[#4A2E1F] dark:text-[#FEF8F0] shadow-md hover:bg-[#FFDDB5] dark:hover:bg-[#3d3228] transition">
+      <i id="rtlIcon" class="fas fa-globe text-xs"></i>
+      <span id="rtlLabel">LTR</span>
+    </button>
+  </div>
+
+  <!-- Main Container - Perfect responsive wrapper -->
+  <div class="login-container">
+    
+    <!-- Login Card -->
+    <div class="login-card bg-white rounded-2xl shadow-xl border border-[#FFE0B5] dark:border-[#3d3228] transition-all">
+      
+      <!-- Logo Section - Matches about page exactly -->
+      <div class="text-center mb-4 logo-section">
+        <a href="index.html" class="inline-flex items-center justify-center gap-2 group mb-1">
+          <i class="fas fa-feather-alt text-[#BF7F3A] text-2xl md:text-3xl transition-transform group-hover:rotate-3 logo-icon"></i>
+          <div class="flex flex-col leading-tight text-left">
+            <h1 class="text-[#4A2E1F] dark:text-[#FEF8F0] text-2xl sm:text-3xl font-bold tracking-tight logo-title" 
+                style="font-family: 'Inter', system-ui, sans-serif;">
+              InkWhisper
+            </h1>
+            <span class="text-[#8B694A] dark:text-[#C9BDA8] text-[0.6rem] sm:text-[0.65rem] font-semibold uppercase tracking-wider -mt-0.5 logo-subtext">
+              botanical essence
+            </span>
+          </div>
+        </a>
+        <div class="mt-2">
+          <p class="text-[#6F523B] dark:text-[#E8DCCC] text-sm sm:text-base font-medium welcome-text" style="font-family: 'Playfair Display', serif;">
+            Welcome back to your ritual
+          </p>
+          <div class="w-12 h-0.5 bg-[#D9B574] dark:bg-[#FFCF9A] mx-auto mt-2 rounded-full"></div>
+        </div>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="space-y-4 form-spacing">
+        <!-- Email Field -->
+        <div>
+          <label class="block text-sm font-semibold text-[#4A2E1F] dark:text-[#FEF8F0] mb-1.5 tracking-wide">
+            <i class="fas fa-envelope text-[#BF7F3A] text-xs mr-1"></i> Email
+          </label>
+          <input type="email" 
+            class="input-field w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] dark:border-[#5a4a38] bg-[#FEF8F0] dark:bg-[#1a1410] text-[#3E2C1C] dark:text-[#FEF8F0] focus:outline-none focus:ring-2 focus:ring-[#BF7F3A]/50 focus:border-[#BF7F3A] text-sm transition"
+            placeholder="hello@inkwhisper.com">
+        </div>
+
+        <!-- Password Field -->
+        <div>
+          <label class="block text-sm font-semibold text-[#4A2E1F] dark:text-[#FEF8F0] mb-1.5 tracking-wide">
+            <i class="fas fa-lock text-[#BF7F3A] text-xs mr-1"></i> Password
+          </label>
+          <input type="password" 
+            class="input-field w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] dark:border-[#5a4a38] bg-[#FEF8F0] dark:bg-[#1a1410] text-[#3E2C1C] dark:text-[#FEF8F0] focus:outline-none focus:ring-2 focus:ring-[#BF7F3A]/50 focus:border-[#BF7F3A] text-sm transition"
+            placeholder="••••••••">
+        </div>
+
+        <!-- Remember & Forgot Row - Responsive wrap -->
+        <div class="flex flex-wrap items-center justify-between gap-2 text-sm">
+          <label class="flex items-center gap-2 text-[#6F523B] dark:text-[#E8DCCC] cursor-pointer checkbox-label">
+            <input type="checkbox" class="w-3.5 h-3.5 rounded border-[#FFE0B5] text-[#BF7F3A] focus:ring-[#BF7F3A] focus:ring-offset-0">
+            <span class="remember-text text-xs sm:text-sm">Remember me</span>
+          </label>
+          <a href="#" class="text-[#BF7F3A] dark:text-[#FFCF9A] hover:text-[#9B5E2A] dark:hover:text-[#FFD89C] hover:underline font-medium text-xs sm:text-sm transition accent-link forgot-link">
+            Forgot password?
+          </a>
+        </div>
+
+        <!-- Login Button -->
+        <button type="submit" 
+          class="login-btn w-full bg-[#4A2E1F] hover:bg-[#6B422A] dark:bg-[#5a3a28] dark:hover:bg-[#7a4f38] text-white font-semibold py-2.5 rounded-full transition shadow-md text-sm flex items-center justify-center gap-2 group">
+          <span>Login</span>
+          <i class="fas fa-arrow-right text-xs login-btn-icon"></i>
+        </button>
+      </form>
+
+      <!-- Divider -->
+      <div class="flex items-center gap-3 my-5 divider-gap">
+        <div class="flex-1 h-px bg-[#FFE0B5] dark:bg-[#5a4a38] divider-line"></div>
+        <span class="text-xs text-[#8B694A] dark:text-[#C9BDA8] font-medium or-text">OR CONTINUE WITH</span>
+        <div class="flex-1 h-px bg-[#FFE0B5] dark:bg-[#5a4a38] divider-line"></div>
+      </div>
+
+      <!-- Social Login Buttons - Responsive 3-column grid -->
+      <div class="grid grid-cols-3 gap-2">
+        <!-- Google -->
+        <button class="social-btn flex items-center justify-center gap-1.5 border border-[#FFE0B5] dark:border-[#5a4a38] py-2 rounded-full text-xs font-medium bg-white dark:bg-[#2a221c] text-[#4A2E1F] dark:text-[#FEF8F0] hover:bg-[#FFF6EA] dark:hover:bg-[#3d3228] transition shadow-sm">
+          <i class="fab fa-google text-[#DB4437] text-sm"></i>
+          <span class="text-xs">Google</span>
+        </button>
+        <!-- Facebook -->
+        <button class="social-btn flex items-center justify-center gap-1.5 border border-[#FFE0B5] dark:border-[#5a4a38] py-2 rounded-full text-xs font-medium bg-white dark:bg-[#2a221c] text-[#4A2E1F] dark:text-[#FEF8F0] hover:bg-[#FFF6EA] dark:hover:bg-[#3d3228] transition shadow-sm">
+          <i class="fab fa-facebook-f text-[#1877F2] text-sm"></i>
+          <span class="text-xs">Facebook</span>
+        </button>
+        <!-- Apple -->
+        <button class="social-btn flex items-center justify-center gap-1.5 border border-[#FFE0B5] dark:border-[#5a4a38] py-2 rounded-full text-xs font-medium bg-white dark:bg-[#2a221c] text-[#4A2E1F] dark:text-[#FEF8F0] hover:bg-[#FFF6EA] dark:hover:bg-[#3d3228] transition shadow-sm">
+          <i class="fab fa-apple text-black dark:text-white text-sm"></i>
+          <span class="text-xs">Apple</span>
+        </button>
+      </div>
+
+      <!-- Sign Up Link -->
+      <p class="text-center text-sm text-[#6F523B] dark:text-[#E8DCCC] mt-5 signup-text">
+        Don't have an account?
+        <a href="signup.html" class="text-[#BF7F3A] dark:text-[#FFCF9A] font-semibold hover:underline ml-1 transition accent-link">
+          Sign up <i class="fas fa-chevron-right text-xs rtl-flip"></i>
+        </a>
+      </p>
+    </div>
+    
+    <!-- Brand ethos line -->
+    <div class="text-center mt-4 text-xs text-[#8B694A] dark:text-[#C9BDA8] brand-note">
+      <i class="fas fa-seedling text-[#BF7F3A] text-xs mr-1"></i> Rooted in slow alchemy • Handcrafted rituals
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const html = document.documentElement;
+      
+      // ========== DARK MODE ==========
+      const darkToggle = document.getElementById('darkModeToggle');
+      const darkIcon = document.getElementById('darkIcon');
+      const darkLabel = document.getElementById('darkLabel');
+      
+      function updateDarkUI(isDark) {
+        const iconClass = isDark ? 'fas fa-sun text-xs' : 'fas fa-moon text-xs';
+        const label = isDark ? 'Light' : 'Dark';
+        if (darkIcon) darkIcon.className = iconClass;
+        if (darkLabel) darkLabel.innerText = label;
+      }
+      
+      if (localStorage.getItem('inkwhisper_dark') === 'enabled') {
+        html.classList.add('dark');
+        updateDarkUI(true);
+      } else {
+        updateDarkUI(false);
+      }
+      
+      function toggleDark() {
+        if (html.classList.contains('dark')) {
+          html.classList.remove('dark');
+          localStorage.setItem('inkwhisper_dark', 'disabled');
+          updateDarkUI(false);
+        } else {
+          html.classList.add('dark');
+          localStorage.setItem('inkwhisper_dark', 'enabled');
+          updateDarkUI(true);
+        }
+      }
+      
+      if (darkToggle) darkToggle.addEventListener('click', toggleDark);
+      
+      // ========== RTL TOGGLE ==========
+      const rtlBtn = document.getElementById('rtlToggleBtn');
+      const rtlLabelSpan = document.getElementById('rtlLabel');
+      const rtlIconSpan = document.getElementById('rtlIcon');
+      
+      function setDirection(dir) {
+        html.setAttribute('dir', dir);
+        localStorage.setItem('inkwhisper_dir', dir);
+        const label = dir === 'rtl' ? 'RTL' : 'LTR';
+        if (rtlLabelSpan) rtlLabelSpan.innerText = label;
+        if (rtlIconSpan) {
+          if (dir === 'rtl') {
+            rtlIconSpan.classList.add('rtl-flip');
+          } else {
+            rtlIconSpan.classList.remove('rtl-flip');
+          }
+        }
+        // Flip arrow icons
+        const arrows = document.querySelectorAll('.fa-arrow-right, .fa-chevron-right');
+        arrows.forEach(arrow => {
+          if (dir === 'rtl') arrow.classList.add('rtl-flip');
+          else arrow.classList.remove('rtl-flip');
+        });
+      }
+      
+      const savedDir = localStorage.getItem('inkwhisper_dir');
+      setDirection(savedDir === 'rtl' ? 'rtl' : 'ltr');
+      
+      function toggleRTL() {
+        const currentDir = html.getAttribute('dir');
+        setDirection(currentDir === 'rtl' ? 'ltr' : 'rtl');
+      }
+      
+      if (rtlBtn) rtlBtn.addEventListener('click', toggleRTL);
+      
+      // ========== FORM SUBMIT ==========
+      const loginForm = document.getElementById('loginForm');
+      if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const btn = loginForm.querySelector('button[type="submit"]');
+          const originalHTML = btn.innerHTML;
+          btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+          btn.disabled = true;
+          setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.disabled = false;
+            alert('✨ Welcome back to InkWhisper! (Demo authentication)');
+          }, 1000);
+        });
+      }
+      
+      // ========== RTL alignment for social buttons ==========
+      function applyRTLAlignment() {
+        const isRTL = html.getAttribute('dir') === 'rtl';
+        const socialButtons = document.querySelectorAll('.social-btn');
+        socialButtons.forEach(btn => {
+          if (isRTL) {
+            btn.style.flexDirection = 'row-reverse';
+          } else {
+            btn.style.flexDirection = 'row';
+          }
+        });
+      }
+      
+      const observer = new MutationObserver(() => {
+        applyRTLAlignment();
+      });
+      observer.observe(html, { attributes: true, attributeFilter: ['dir'] });
+      applyRTLAlignment();
+      
+      // ========== Additional touch optimizations for 360px ==========
+      // Ensure all buttons have proper touch targets
+      const allButtons = document.querySelectorAll('button, a');
+      allButtons.forEach(btn => {
+        btn.style.touchAction = 'manipulation';
+      });
+      
+      // Fix any overflow issues on very small screens
+      const checkOverflow = () => {
+        const card = document.querySelector('.login-card');
+        if (card && card.scrollWidth > window.innerWidth) {
+          card.style.padding = '1rem';
+        }
+      };
+      window.addEventListener('resize', checkOverflow);
+      checkOverflow();
+      
+      // Preload RTL flip for existing arrows
+      if (html.getAttribute('dir') === 'rtl') {
+        const arrows = document.querySelectorAll('.fa-arrow-right, .fa-chevron-right');
+        arrows.forEach(arrow => arrow.classList.add('rtl-flip'));
+      }
+      
+      // Ensure form inputs are touch-friendly
+      const inputs = document.querySelectorAll('input');
+      inputs.forEach(input => {
+        input.addEventListener('touchstart', function() {
+          // no-op, just ensures focus works well on mobile
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

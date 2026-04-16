@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>InkWhisper | LoveLetter – Botanical Devotion & Community Rituals</title>
+    <script src="tailwind.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { fontFamily: { 'sans': ['Inter', 'system-ui', 'sans-serif'] } } }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/jpeg" href="Images\favicon.jpg">
+
+    <style>
+        * {
+            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+        }
+
+        /* ========== RTL COMPLETE SUPPORT ========== */
+        html[dir="rtl"] .navbar-flex {
+            flex-direction: row-reverse !important;
+        }
+
+        html[dir="rtl"] .nav-links {
+            order: 2;
+        }
+
+        html[dir="rtl"] .logo-area {
+            order: 3;
+        }
+
+        html[dir="rtl"] .controls-area {
+            order: 1;
+        }
+
+        html[dir="rtl"] .home-dropdown {
+            left: auto !important;
+            right: 0 !important;
+        }
+
+        html[dir="rtl"] .fa-arrow-right {
+            transform: scaleX(-1);
+        }
+
+        html[dir="rtl"] .rtl-flip {
+            transform: scaleX(-1);
+        }
+
+        html[dir="rtl"] .text-left,
+        html[dir="rtl"] .sm\:text-left,
+        html[dir="rtl"] .lg\:text-left {
+            text-align: right !important;
+        }
+
+        html[dir="rtl"] .space-x-6> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 1;
+        }
+
+        html[dir="rtl"] .mr-2 {
+            margin-right: 0;
+            margin-left: 0.5rem;
+        }
+
+        html[dir="rtl"] .ml-2 {
+            margin-left: 0;
+            margin-right: 0.5rem;
+        }
+
+        html[dir="rtl"] .flex.items-center.gap-3 {
+            flex-direction: row-reverse;
+        }
+
+        html[dir="rtl"] .flex.items-center.gap-2 {
+            flex-direction: row-reverse;
+        }
+
+        html[dir="rtl"] .mobile-drawer {
+            right: auto;
+            left: 0;
+            transform: translateX(-100%);
+        }
+
+        html[dir="rtl"] .mobile-drawer.open {
+            transform: translateX(0);
+        }
+
+        html[dir="rtl"] .border-l-4 {
+            border-left-width: 0;
+            border-right-width: 4px;
+        }
+
+        /* ========== DARK MODE ENHANCED ========== */
+        html.dark body {
+            background-color: #1a1410 !important;
+        }
+
+        html.dark .nav-bar {
+            background-color: #2a221c !important;
+            border-bottom-color: #3d3228 !important;
+        }
+
+        html.dark .nav-text,
+        html.dark .footer-text,
+        html.dark .dropdown-item,
+        html.dark .text-primary-dark,
+        html.dark .text-secondary-dark,
+        html.dark .footer-link,
+        html.dark .footer-heading,
+        html.dark .logo-subtext,
+        html.dark .hero-badge span,
+        html.dark .letter-card p,
+        html.dark .letter-card h3,
+        html.dark .letter-card span,
+        html.dark .letter-card a,
+        html.dark .text-\[\#3E2C1C\],
+        html.dark .text-\[\#4A2E1F\],
+        html.dark .text-\[\#5E4B34\],
+        html.dark .text-\[\#6F523B\],
+        html.dark .text-\[\#8B694A\],
+        html.dark p,
+        html.dark h1,
+        html.dark h2,
+        html.dark h3,
+        html.dark h4,
+        html.dark li,
+        html.dark .leading-relaxed,
+        html.dark .newsletter-input,
+        html.dark .newsletter-input::placeholder,
+        html.dark input,
+        html.dark button span,
+        html.dark .btn-outline-dark,
+        html.dark .prose p,
+        html.dark .prose span,
+        html.dark .text-\[\#E8DCCC\],
+        html.dark .text-\[\#C9BDA8\],
+        html.dark .poetry p,
+        html.dark .italic {
+            color: #FEF8F0 !important;
+        }
+
+        html.dark .text-\[\#BF7F3A\],
+        html.dark .fa-feather-alt,
+        html.dark .fa-leaf,
+        html.dark .fa-envelope,
+        html.dark .fa-quote-left,
+        html.dark .fa-pen-fancy,
+        html.dark .letter-card i,
+        html.dark .poetry i {
+            color: #FFCF9A !important;
+        }
+
+        html.dark .btn-primary-dark {
+            background-color: #5a3a28 !important;
+            color: #FEF8F0 !important;
+        }
+
+        html.dark .btn-primary-dark:hover {
+            background-color: #7a4f38 !important;
+        }
+
+        html.dark .dropdown-bg {
+            background-color: #2a221c !important;
+            border-color: #3d3228 !important;
+        }
+
+        html.dark .dropdown-item:hover {
+            background-color: #3d3228 !important;
+            color: #FFD89C !important;
+        }
+
+        html.dark .card-dark {
+            background-color: #2a221c !important;
+            border-color: #3d3228 !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        html.dark .footer-dark {
+            background-color: #1a1410 !important;
+            border-top-color: #3d3228 !important;
+        }
+
+        html.dark .mobile-menu-dark {
+            background-color: #2a221c !important;
+        }
+
+        html.dark .mobile-menu-item {
+            border-bottom-color: #3d3228 !important;
+            color: #FEF8F0 !important;
+        }
+
+        html.dark .mobile-toggle-btn {
+            background-color: #3d3228 !important;
+            color: #FEF8F0 !important;
+        }
+
+        html.dark .hero-badge {
+            background-color: #3d3228 !important;
+            color: #FFD89C !important;
+        }
+
+        html.dark .social-icon {
+            color: #e8dccc !important;
+        }
+
+        html.dark .social-icon:hover {
+            color: #FFD89C !important;
+        }
+
+        html.dark .newsletter-input {
+            background-color: #2a221c !important;
+            border-color: #5a4a38 !important;
+        }
+
+        html.dark .bg-white\/60,
+        html.dark .bg-white\/50,
+        html.dark .bg-white\/40 {
+            background-color: rgba(42, 34, 28, 0.85) !important;
+        }
+
+        html.dark .border-\[\#FFE0B5\] {
+            border-color: #4a3a2c !important;
+        }
+
+        html.dark .border-l-\[\#BF7F3A\] {
+            border-left-color: #FFCF9A !important;
+        }
+
+        html.dark .border-l-\[\#FFD89C\] {
+            border-left-color: #FFCF9A !important;
+        }
+
+        html.dark .bg-\[\#4A2E1F\] {
+            background-color: #3d2a1c !important;
+        }
+
+        html.dark .bg-gradient-to-br {
+            background: #1f1813 !important;
+        }
+
+        html.dark .group .absolute.bg-black\/40 {
+            background-color: rgba(0, 0, 0, 0.6) !important;
+        }
+
+        .loveletter-hero {
+            background-image: url('Images/handimg (1).jpg');
+            background-size: cover;
+            background-position: center 40%;
+            position: relative;
+        }
+
+        .loveletter-overlay {
+            background: linear-gradient(135deg, rgba(254, 248, 240, 0.9) 0%, rgba(254, 248, 240, 0.75) 100%);
+        }
+
+        html.dark .loveletter-overlay {
+            background: linear-gradient(135deg, rgba(26, 20, 16, 0.94) 0%, rgba(26, 20, 16, 0.92) 100%);
+        }
+
+        .letter-card {
+            transition: all 0.3s ease;
+        }
+
+        .letter-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 85%;
+            max-width: 380px;
+            height: 100vh;
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            overflow-y: auto;
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-drawer.open {
+            transform: translateX(0);
+        }
+
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+
+        .drawer-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        body.drawer-open {
+            overflow: hidden;
+        }
+
+        html.dark .mobile-drawer {
+            background-color: #2a221c !important;
+            border-left-color: #3d3228 !important;
+        }
+
+        .envelope-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .season-card {
+            transition: transform 0.4s ease;
+        }
+
+        .season-card:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+
+<body class="bg-[#FEF8F0] font-sans antialiased">
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="bg-[#FFD89C] shadow-sm sticky top-0 z-50 w-full border-b border-[#FFCF8A] nav-bar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="navbar-flex flex justify-between items-center h-16 md:h-20">
+                <a href="index.html" class="logo-area flex-shrink-0 flex items-center gap-2 group">
+                    <i
+                        class="fas fa-feather-alt text-[#BF7F3A] text-2xl md:text-3xl transition-transform group-hover:rotate-3"></i>
+                    <div class="flex flex-col leading-tight">
+                        <span
+                            class="text-[#4A2E1F] text-xl md:text-2xl font-bold tracking-tight nav-text">InkWhisper</span>
+                        <span
+                            class="text-[#8B694A] text-[0.65rem] font-semibold uppercase tracking-wider -mt-0.5 logo-subtext">botanical
+                            essence</span>
+                    </div>
+                </a>
+                <div class="nav-links hidden xl:flex items-center space-x-6 xl:space-x-8">
+                    <div class="relative group">
+                        <a href="#"
+                            class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition flex items-center gap-1 nav-text">
+                            Home <i
+                                class="fas fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </a>
+                        <div
+                            class="home-dropdown absolute left-0 mt-2 w-40 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 border border-[#FFE0B5] overflow-hidden dropdown-bg">
+                            <a href="index.html"
+                                class="block px-4 py-2.5 text-sm hover:bg-[#FEF3E4] transition flex items-center gap-2 dropdown-item"><i
+                                    class="fas fa-home text-[#BF7F3A] text-xs"></i> Home 1</a>
+                            <a href="home2.html"
+                                class="block px-4 py-2.5 text-sm hover:bg-[#FEF3E4] transition flex items-center gap-2 border-t border-[#FFEFDF] dropdown-item"><i
+                                    class="fas fa-leaf text-[#BF7F3A] text-xs"></i> Home 2</a>
+                        </div>
+                    </div>
+                    <a href="about.html"
+                        class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition nav-text">About</a>
+                    <a href="service.html"
+                        class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition nav-text">Service</a>
+                    <a href="loveLetter.html"
+                        class="text-[#BF7F3A] font-medium text-sm lg:text-base border-b-2 border-[#BF7F3A] pb-1 nav-text">LoveLetter</a>
+                    <a href="pricing.html"
+                        class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition nav-text">Pricing</a>
+                    <a href="writingArt.html"
+                        class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition nav-text">WritingArt</a>
+                    <a href="contact.html"
+                        class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition nav-text">Contact</a>
+                </div>
+                <div class="controls-area hidden xl:flex items-center gap-3 xl:gap-4">
+                    <a href="Login.html"
+                        class="flex items-center gap-2 bg-[#4A2E1F] text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:bg-[#6B422A] transition btn-primary-dark"><span>Login</span></a>
+                    <div class="h-5 w-px bg-[#D9B574] divider-color"></div>
+                    <button id="darkModeToggle"
+                        class="flex items-center gap-1.5 text-[#4A2E1F] font-medium text-sm hover:text-[#BF7F3A] transition nav-text"><i
+                            id="darkIcon" class="fas fa-moon text-sm"></i> <span id="darkLabel">Dark</span></button>
+                    <div class="h-5 w-px bg-[#D9B574] divider-color"></div>
+                    <button id="rtlToggle"
+                        class="flex items-center gap-1.5 text-[#4A2E1F] font-medium text-sm hover:text-[#BF7F3A] transition nav-text"><i
+                            id="rtlIcon" class="fas fa-globe text-sm"></i> <span id="rtlLabel">LTR</span></button>
+                </div>
+                <div class="flex items-center gap-3 xl:hidden">
+                    <a href="#" class="nav-text hidden xl:block"><i class="far fa-user-circle text-xl"></i></a>
+                    <button id="mobileMenuBtn"
+                        class="nav-text focus:outline-none p-2 rounded-full hover:bg-[#FFCF8A] transition"><i
+                            class="fas fa-bars text-2xl"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="drawerOverlay" class="drawer-overlay"></div>
+    <div id="mobileDrawer" class="mobile-drawer bg-[#FFE2B5] border-l border-[#FFD6A0] shadow-xl mobile-menu-dark">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-between items-center p-5 border-b border-[#FFD6A0]">
+                <div class="flex items-center gap-2"><i class="fas fa-feather-alt text-[#BF7F3A] text-xl"></i><span
+                        class="font-bold text-[#4A2E1F] text-lg nav-text">Menu</span></div>
+                <button id="closeDrawerBtn" class="text-[#4A2E1F] hover:text-[#BF7F3A] transition text-2xl"><i
+                        class="fas fa-times"></i></button>
+            </div>
+            <div class="flex-1 py-6 px-5 space-y-4 overflow-y-auto">
+                <div>
+                    <div
+                        class="flex justify-between items-center py-2 text-[#3E2C1C] font-medium border-b border-[#FFD6A0] nav-text mobile-menu-item">
+                        <span>Home</span><button id="drawerHomeBtn"><i id="drawerChevron"
+                                class="fas fa-chevron-down text-xs transition-transform"></i></button>
+                    </div>
+                    <div id="drawerSubmenu" class="hidden pl-4 mt-2 space-y-2"><a href="index.html"
+                            class="block py-1.5 text-sm hover:text-[#BF7F3A] transition flex items-center gap-2 nav-text"><i
+                                class="fas fa-home text-[#BF7F3A] text-xs"></i> Home 1</a><a href="home2.html"
+                            class="block py-1.5 text-sm hover:text-[#BF7F3A] transition flex items-center gap-2 nav-text"><i
+                                class="fas fa-leaf text-[#BF7F3A] text-xs"></i> Home 2</a></div>
+                </div>
+                <a href="about.html" class="block py-2 border-b border-[#FFD6A0] nav-text mobile-menu-item">About</a>
+                <a href="service.html"
+                    class="block py-2 border-b border-[#FFD6A0] nav-text mobile-menu-item">Service</a>
+                <a href="loveLetter.html"
+                    class="block py-2 border-b border-[#FFD6A0] text-[#BF7F3A] font-medium nav-text mobile-menu-item">LoveLetter</a>
+                <a href="pricing.html"
+                    class="block py-2 border-b border-[#FFD6A0] nav-text mobile-menu-item">Pricing</a>
+                <a href="writingArt.html"
+                    class="block py-2 border-b border-[#FFD6A0] nav-text mobile-menu-item">WritingArt</a>
+                <a href="contact.html"
+                    class="block py-2 border-b border-[#FFD6A0] nav-text mobile-menu-item">Contact</a>
+                <div class="pt-4 space-y-4"><a href="Login.html" class="flex items-center gap-2 nav-text"><i
+                            class="far fa-user-circle"></i> Login</a>
+                    <div class="flex gap-2 pt-2"><button id="drawerDarkToggle"
+                            class="flex-1 flex items-center justify-center gap-2 bg-[#FFD6A0] px-3 py-2 rounded-full text-sm font-medium transition mobile-toggle-btn"><i
+                                id="drawerDarkIcon" class="fas fa-moon text-xs"></i> <span
+                                id="drawerDarkLabel">Dark</span></button><button id="drawerRtlToggle"
+                            class="flex-1 flex items-center justify-center gap-2 bg-[#FFD6A0] px-3 py-2 rounded-full text-sm font-medium transition mobile-toggle-btn"><i
+                                class="fas fa-globe text-xs"></i> <span id="drawerRtlLabel">LTR</span></button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- LoveLetter Hero Section -->
+        <div class="loveletter-hero relative overflow-hidden">
+            <div class="loveletter-overlay absolute inset-0"></div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28">
+                <div class="text-center max-w-3xl mx-auto">
+                    <div
+                        class="inline-flex items-center gap-2 bg-[#FFE8D4] px-4 py-1.5 rounded-full text-[#BF7F3A] text-xs font-semibold uppercase mb-6 hero-badge">
+                        <i class="fas fa-envelope envelope-icon text-xs"></i> <span>from our heart to yours</span>
+                    </div>
+                    <h1
+                        class="text-4xl sm:text-5xl md:text-6xl font-bold text-[#3E2C1C] leading-tight text-primary-dark">
+                        Love<span class="text-[#BF7F3A]">Letter</span></h1>
+                    <p
+                        class="text-base md:text-lg text-[#5E4B34] max-w-2xl mx-auto mt-4 md:mt-6 leading-relaxed text-secondary-dark">
+                        A space for handwritten devotion — letters from our herbalists, community whispers, and tender
+                        rituals that bloom between the lines.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Letter: Editorial Story -->
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+            <div
+                class="bg-white/60 dark:bg-[#2a221c]/60 rounded-2xl p-6 md:p-10 shadow-md border border-[#FFE0B5] card-dark relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 opacity-5"><i class="fas fa-feather-alt text-8xl"></i>
+                </div>
+                <div class="flex items-center gap-3 mb-5"><i
+                        class="fas fa-quote-left text-[#BF7F3A] text-2xl opacity-60"></i><span
+                        class="text-xs uppercase tracking-wider text-[#8B694A]">Featured letter — Autumn Equinox</span>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-[#4A2E1F] text-primary-dark">A Letter to the Gathered
+                    Wild</h2>
+                <div class="flex items-center gap-2 text-xs text-[#8B694A] mt-2 mb-5"><i
+                        class="far fa-calendar-alt"></i> <span>September 22, 2026</span><span
+                        class="w-1 h-1 rounded-full bg-[#D9B574]"></span><i class="far fa-user"></i> <span>By Elara
+                        Wren</span></div>
+                <div class="prose prose-sm md:prose-base max-w-none text-[#5E4B34] text-secondary-dark space-y-4">
+                    <p class="leading-relaxed">Dearest kindred spirit,</p>
+                    <p class="leading-relaxed">As the first amber leaves tumble onto the forest floor and the air turns
+                        crisp with the scent of fallen apples, I find myself reaching for my journal more often. There
+                        is a particular magic in autumn — a softening, a slowing, a whispered invitation to turn inward.
+                        This season, I've been brewing a simple rosehip & cinnamon tea each morning, holding the warm
+                        mug between my palms as a small prayer for gratitude.</p>
+                    <p class="leading-relaxed">InkWhisper was born from such quiet moments: a desire to capture the
+                        ephemeral — the way lavender feels on tired eyelids, how a flickering candle can hold space for
+                        grief or celebration. This LoveLetter is our offering to you: monthly dispatches filled with
+                        botanical musings, ritual prompts, and the tender notes you might write to yourself. May these
+                        words feel like a hand on your shoulder, reminding you that you belong to the earth, and the
+                        earth belongs to you.</p>
+                    <p class="leading-relaxed">With soil-stained hands and a full heart,<br><span
+                            class="font-semibold text-[#BF7F3A]">Elara</span></p>
+                </div>
+                <div
+                    class="mt-6 pt-4 border-t border-[#FFE0B5] border-dark flex flex-wrap justify-between items-center gap-3">
+                    <span class="text-xs text-[#8B694A]"><i class="far fa-heart text-[#BF7F3A]"></i> 284 heartfelt
+                        responses</span><a href="#"
+                        class="text-sm text-[#BF7F3A] font-medium hover:underline flex items-center gap-1">Read full
+                        letter <i class="fas fa-arrow-right text-xs"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Letter Archive Grid -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+            <div class="text-center mb-10 md:mb-14"><span
+                    class="text-[#BF7F3A] text-xs md:text-sm font-semibold uppercase tracking-wider flex items-center justify-center gap-2"><i
+                        class="fas fa-leaf"></i> ink & intention</span>
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-[#3E2C1C] mt-2 text-primary-dark">Recent
+                    LoveLetters</h2>
+                <div class="w-20 h-0.5 bg-[#D9B574] mx-auto mt-4 rounded-full"></div>
+                <p class="text-[#6F523B] max-w-2xl mx-auto mt-3 text-sm md:text-base text-secondary-dark">Words from our
+                    apothecary, workshop attendees, and the wild souls who inspire us daily.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div
+                    class="letter-card bg-white/50 dark:bg-[#2a221c]/50 rounded-xl border border-[#FFE0B5] card-dark overflow-hidden hover:shadow-lg transition-all">
+                    <div class="h-36 overflow-hidden relative"><img src="Images/handimg (2).jpg"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="absolute bottom-2 left-3 bg-[#FFE8D4] dark:bg-[#3d3228] px-2 py-0.5 rounded-full text-[10px] font-semibold text-[#BF7F3A]">
+                            ritual</div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 text-[10px] text-[#8B694A] mb-2"><i
+                                class="far fa-calendar-alt"></i> Oct 5, 2026 <span
+                                class="w-1 h-1 rounded-full bg-[#D9B574]"></span> <i class="far fa-user"></i> Sophia Lin
+                        </div>
+                        <h3 class="text-lg font-bold text-[#4A2E1F] text-primary-dark">On Letting Go: A Candle Ritual
+                            for Release</h3>
+                        <p class="text-sm text-[#5E4B34] mt-2 leading-relaxed text-secondary-dark">How a simple act of
+                            writing what no longer serves us, then watching it burn, can shift seasons within. A guided
+                            practice for the waning moon.</p><a href="#"
+                            class="mt-3 inline-flex items-center text-[#BF7F3A] text-sm font-medium hover:gap-2 transition-all gap-1">Continue
+                            reading <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+                <div
+                    class="letter-card bg-white/50 dark:bg-[#2a221c]/50 rounded-xl border border-[#FFE0B5] card-dark overflow-hidden hover:shadow-lg transition-all">
+                    <div class="h-36 overflow-hidden relative"><img src="Images/handimg (3).jpg"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="absolute bottom-2 left-3 bg-[#FFE8D4] dark:bg-[#3d3228] px-2 py-0.5 rounded-full text-[10px] font-semibold text-[#BF7F3A]">
+                            apothecary</div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 text-[10px] text-[#8B694A] mb-2"><i
+                                class="far fa-calendar-alt"></i> Sept 18, 2026 <span
+                                class="w-1 h-1 rounded-full bg-[#D9B574]"></span> <i class="far fa-user"></i> Elara Wren
+                        </div>
+                        <h3 class="text-lg font-bold text-[#4A2E1F] text-primary-dark">The Medicine of Mugwort: Dreams &
+                            Deep Rest</h3>
+                        <p class="text-sm text-[#5E4B34] mt-2 leading-relaxed text-secondary-dark">Exploring the silvery
+                            herb of dreamwork — how to brew a bedtime infusion smoke-clear your sleep space, and invite
+                            lucid sleep space, and invite
+                            lucid whispers.</p><a href="#"
+                            class="mt-3 inline-flex items-center text-[#BF7F3A] text-sm font-medium hover:gap-2 transition-all gap-1">Continue
+                            reading <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+                <div
+                    class="letter-card bg-white/50 dark:bg-[#2a221c]/50 rounded-xl border border-[#FFE0B5] card-dark overflow-hidden hover:shadow-lg transition-all">
+                    <div class="h-36 overflow-hidden relative"><img src="Images/handimg (4).jpg"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="absolute bottom-2 left-3 bg-[#FFE8D4] dark:bg-[#3d3228] px-2 py-0.5 rounded-full text-[10px] font-semibold text-[#BF7F3A]">
+                            community</div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 text-[10px] text-[#8B694A] mb-2"><i
+                                class="far fa-calendar-alt"></i> Sept 2, 2026 <span
+                                class="w-1 h-1 rounded-full bg-[#D9B574]"></span> <i class="far fa-user"></i> Mara T.
+                        </div>
+                        <h3 class="text-lg font-bold text-[#4A2E1F] text-primary-dark">A Love Letter to the Forest Floor
+                        </h3>
+                        <p class="text-sm text-[#5E4B34] mt-2 leading-relaxed text-secondary-dark">One of our community
+                            members shares how the Forest Bathing workshop helped her reconnect after loss — and the
+                            tiny moss garden she now tends.</p><a href="#"
+                            class="mt-3 inline-flex items-center text-[#BF7F3A] text-sm font-medium hover:gap-2 transition-all gap-1">Continue
+                            reading <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit Your Own Letter -->
+        <div
+            class="bg-gradient-to-br from-[#FFF6EA] to-[#FEF0E2] dark:from-[#1f1813] dark:to-[#1a1410] py-12 md:py-16 border-y border-[#FFE0B5] border-dark my-8 md:my-12">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center"><i
+                    class="fas fa-pen-fancy text-3xl md:text-4xl text-[#BF7F3A] mb-4"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-[#3E2C1C] text-primary-dark">Write Your Own LoveLetter
+                </h2>
+                <p class="text-[#5E4B34] mt-3 text-sm md:text-base text-secondary-dark">We believe every soul has a
+                    story — a ritual, a plant encounter, a moment of quiet magic. Share yours and it may be featured in
+                    our next dispatch.</p>
+                <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center"><a href="#"
+                        class="bg-[#4A2E1F] hover:bg-[#6B422A] text-white font-semibold py-2.5 px-6 rounded-full transition shadow-md flex items-center justify-center gap-2 btn-primary-dark text-sm md:text-base"><i
+                            class="far fa-edit"></i> Submit a letter</a><a href="#"
+                        class="bg-transparent border-2 border-[#D9B574] text-[#4A2E1F] hover:bg-[#FFE8D4] font-semibold py-2.5 px-6 rounded-full transition flex items-center justify-center gap-2 btn-outline-dark text-sm md:text-base"><i
+                            class="far fa-heart"></i> Read archives</a></div>
+            </div>
+        </div>
+
+        <!-- Seasonal LoveLetter Highlights -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+            <div class="text-center mb-10 md:mb-14"><span
+                    class="text-[#BF7F3A] text-xs md:text-sm font-semibold uppercase tracking-wider flex items-center justify-center gap-2"><i
+                        class="fas fa-feather-alt"></i> seasonal whispers</span>
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-[#3E2C1C] mt-2">Letters by Season</h2>
+                <p class="text-[#6F523B] max-w-2xl mx-auto mt-3 text-sm md:text-base">Each season carries a different
+                    emotion — explore letters written in harmony with nature's rhythm.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="season-card group relative overflow-hidden rounded-xl shadow-md cursor-pointer"><img
+                        src="Images/handimg (5).jpg"
+                        class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h3 class="text-lg font-bold">Autumn Letters</h3>
+                        <p class="text-xs opacity-80">Letting go & reflection</p>
+                    </div>
+                </div>
+                <div class="season-card group relative overflow-hidden rounded-xl shadow-md cursor-pointer"><img
+                        src="Images/handimg (6).jpg"
+                        class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h3 class="text-lg font-bold">Winter Letters</h3>
+                        <p class="text-xs opacity-80">Stillness & healing</p>
+                    </div>
+                </div>
+                <div class="season-card group relative overflow-hidden rounded-xl shadow-md cursor-pointer"><img
+                        src="Images/handimg (7).jpg"
+                        class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h3 class="text-lg font-bold">Spring Letters</h3>
+                        <p class="text-xs opacity-80">Growth & renewal</p>
+                    </div>
+                </div>
+                <div class="season-card group relative overflow-hidden rounded-xl shadow-md cursor-pointer"><img
+                        src="Images/handimg (8).jpg"
+                        class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h3 class="text-lg font-bold">Summer Letters</h3>
+                        <p class="text-xs opacity-80">Energy & expression</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Poetry Corner -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+            <div class="text-center mb-8"><span class="text-[#BF7F3A] text-xs font-semibold uppercase tracking-wider"><i
+                        class="fas fa-feather-alt"></i> whisper lines</span>
+                <h3 class="text-xl md:text-2xl font-bold text-[#3E2C1C] mt-1 text-primary-dark">Poetry & short devotions
+                </h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white/40 dark:bg-[#2a221c]/40 rounded-xl p-6 border-l-4 border-[#BF7F3A] card-dark"><i
+                        class="fas fa-leaf text-[#BF7F3A] text-sm mb-2 block"></i>
+                    <p class="italic text-[#5E4B34] text-base md:text-lg leading-relaxed text-secondary-dark">"She
+                        placed the dried lavender under her pillow,<br>and for the first time in months —<br>her dreams
+                        grew soft roots."</p>
+                    <p class="text-xs text-[#8B694A] mt-3">— from 'Small Remedies' by Elara Wren</p>
+                </div>
+                <div class="bg-white/40 dark:bg-[#2a221c]/40 rounded-xl p-6 border-l-4 border-[#FFD89C] card-dark"><i
+                        class="fas fa-moon text-[#BF7F3A] text-sm mb-2 block"></i>
+                    <p class="italic text-[#5E4B34] text-base md:text-lg leading-relaxed text-secondary-dark">"The
+                        candle sputters, then steadies —<br>a reminder that even flickering<br>is a form of burning
+                        bright."</p>
+                    <p class="text-xs text-[#8B694A] mt-3">— community submission, Julia K.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="bg-[#4A2E1F] dark:bg-[#3d2a1c] py-12 md:py-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"><i
+                    class="fas fa-envelope-open-text text-3xl text-[#FFD89C] mb-4"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-[#FFE8D4] mb-3">Receive the LoveLetter</h2>
+                <p class="text-[#E8DCCC] text-base max-w-xl mx-auto mb-6">A monthly botanical letter delivered to your
+                    inbox — with exclusive rituals, plant wisdom, and a touch of poetry.</p>
+                <div class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto"><input type="email"
+                        placeholder="Your dearest email"
+                        class="px-4 py-2.5 rounded-full bg-white/90 text-[#3E2C1C] placeholder:text-[#8B694A] focus:outline-none focus:ring-2 focus:ring-[#FFD89C] flex-1 text-sm"><button
+  class="bg-[#FFD89C] hover:bg-[#FFE0B5] text-[#4A2E1F] 
+         dark:bg-black dark:hover:bg-gray-800 dark:text-white
+         font-bold py-2.5 px-6 rounded-full transition shadow-md text-sm">
+  Subscribe to letters
+</button></div>
+                <p class="text-[#C9BDA8] text-xs mt-5">No spam, only slow magic. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#FFE8D4] border-t border-[#FFDDB5] pt-10 md:pt-12 pb-6 md:pb-8 footer-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="text-center sm:text-left">
+                    <a href="index.html" class="flex items-center justify-center sm:justify-start gap-2 mb-4 group"><i
+                            class="fas fa-feather-alt text-[#BF7F3A] text-2xl transition-transform group-hover:rotate-6"></i><span
+                            class="text-[#4A2E1F] text-xl font-bold tracking-tight footer-heading">InkWhisper</span>
+                    </a>
+                    <p class="text-[#6F523B] text-sm leading-relaxed text-secondary-dark">Where flora meets timeless
+                        ritual. Handcrafted botanical blends for mindful living.</p>
+                    <div class="flex justify-center sm:justify-start gap-4 mt-4"><a href="#"
+                            class="text-[#8B694A] hover:text-[#BF7F3A] transition text-xl social-icon"><i
+                                class="fab fa-instagram"></i></a><a href="#"
+                            class="text-[#8B694A] hover:text-[#BF7F3A] transition text-xl social-icon"><i
+                                class="fab fa-facebook-f"></i></a><a href="#"
+                            class="text-[#8B694A] hover:text-[#BF7F3A] transition text-xl social-icon"><i
+                                class="fab fa-pinterest-p"></i></a><a href="#"
+                            class="text-[#8B694A] hover:text-[#BF7F3A] transition text-xl social-icon"><i
+                                class="fab fa-twitter"></i></a></div>
+                </div>
+                <div class="text-center sm:text-left">
+                    <h4 class="text-[#4A2E1F] font-semibold text-lg mb-4 footer-heading">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#"
+                                class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">Home</a></li>
+                        <li><a href="#" class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">Shop
+                                New Drops</a></li>
+                        <li><a href="#"
+                                class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">Discover
+                                Rituals</a></li>
+                        <li><a href="#"
+                                class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">Collections</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-center sm:text-left">
+                    <h4 class="text-[#4A2E1F] font-semibold text-lg mb-4 footer-heading">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">About
+                                Us</a></li>
+                        <li><a href="#"
+                                class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">Contact</a>
+                        </li>
+                        <li><a href="#"
+                                class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">FAQs</a></li>
+                        <li><a href="#"
+                                class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">Shipping &
+                                Returns</a></li>
+                    </ul>
+                </div>
+                <div class="text-center sm:text-left">
+                    <h4 class="text-[#4A2E1F] font-semibold text-lg mb-4 footer-heading">Mail Box</h4>
+                    <p class="text-[#6F523B] text-sm mb-3 text-secondary-dark">Subscribe for botanical inspiration &
+                        exclusive offers.</p>
+                    <div class="flex flex-col sm:flex-row gap-2"><input type="email" placeholder="Your email"
+                            class="px-4 py-2 rounded-full bg-white/70 border border-[#FFE0B5] focus:outline-none focus:border-[#BF7F3A] text-sm flex-1 newsletter-input">
+                    </div>
+                </div>
+            </div>
+            <div
+                class="border-t border-[#FFDDB5] mt-6 md:mt-8 pt-5 md:pt-6 text-center text-[#8B694A] text-xs footer-border">
+                <p>© 2026 InkWhisper — mindful botanicals. All rights reserved.</p>
+                <div class="flex justify-center gap-4 mt-2"><a href="#"
+                        class="hover:text-[#BF7F3A] transition footer-link">Privacy Policy</a><span>•</span><a href="#"
+                        class="hover:text-[#BF7F3A] transition footer-link">Terms of Service</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+            (function () {
+                const html = document.documentElement;
+                const darkToggle = document.getElementById('darkModeToggle');
+                const darkIcon = document.getElementById('darkIcon');
+                const darkLabel = document.getElementById('darkLabel');
+                const drawerDarkToggle = document.getElementById('drawerDarkToggle');
+                const drawerDarkIcon = document.getElementById('drawerDarkIcon');
+                const drawerDarkLabel = document.getElementById('drawerDarkLabel');
+                function updateDarkUI(isDark) {
+                    const iconClass = isDark ? 'fas fa-sun text-sm' : 'fas fa-moon text-sm';
+                    const label = isDark ? 'Light' : 'Dark';
+                    if (darkIcon) darkIcon.className = iconClass;
+                    if (darkLabel) darkLabel.innerText = label;
+                    if (drawerDarkIcon) drawerDarkIcon.className = iconClass.replace('text-sm', 'text-xs');
+                    if (drawerDarkLabel) drawerDarkLabel.innerText = label;
+                }
+                if (localStorage.getItem('inkwhisper_dark') === 'enabled') { html.classList.add('dark'); updateDarkUI(true); } else { updateDarkUI(false); }
+                function toggleDark() {
+                    if (html.classList.contains('dark')) { html.classList.remove('dark'); localStorage.setItem('inkwhisper_dark', 'disabled'); updateDarkUI(false); }
+                    else { html.classList.add('dark'); localStorage.setItem('inkwhisper_dark', 'enabled'); updateDarkUI(true); }
+                }
+                if (darkToggle) darkToggle.addEventListener('click', toggleDark);
+                if (drawerDarkToggle) drawerDarkToggle.addEventListener('click', toggleDark);
+
+                const rtlBtn = document.getElementById('rtlToggle');
+                const rtlLabelSpan = document.getElementById('rtlLabel');
+                const drawerRtlBtn = document.getElementById('drawerRtlToggle');
+                const drawerRtlLabel = document.getElementById('drawerRtlLabel');
+                const rtlIconSpan = document.getElementById('rtlIcon');
+                function setDirection(dir) {
+                    html.setAttribute('dir', dir);
+                    localStorage.setItem('inkwhisper_dir', dir);
+                    const label = dir === 'rtl' ? 'RTL' : 'LTR';
+                    if (rtlLabelSpan) rtlLabelSpan.innerText = label;
+                    if (drawerRtlLabel) drawerRtlLabel.innerText = label;
+                    if (rtlIconSpan) { if (dir === 'rtl') rtlIconSpan.classList.add('rtl-flip'); else rtlIconSpan.classList.remove('rtl-flip'); }
+                    document.body.style.display = 'none';
+                    document.body.offsetHeight;
+                    document.body.style.display = '';
+                }
+                const savedDir = localStorage.getItem('inkwhisper_dir');
+                setDirection(savedDir === 'rtl' ? 'rtl' : 'ltr');
+                function toggleRTL() { setDirection(html.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'); }
+                if (rtlBtn) rtlBtn.addEventListener('click', toggleRTL);
+                if (drawerRtlBtn) drawerRtlBtn.addEventListener('click', toggleRTL);
+
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+                const drawer = document.getElementById('mobileDrawer');
+                const overlay = document.getElementById('drawerOverlay');
+                const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+                const body = document.body;
+                function openDrawer() { drawer.classList.add('open'); overlay.classList.add('open'); body.classList.add('drawer-open'); }
+                function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('open'); body.classList.remove('drawer-open'); }
+                if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openDrawer);
+                if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
+                if (overlay) overlay.addEventListener('click', closeDrawer);
+                const drawerHomeBtn = document.getElementById('drawerHomeBtn');
+                const drawerSubmenu = document.getElementById('drawerSubmenu');
+                const drawerChevron = document.getElementById('drawerChevron');
+                if (drawerHomeBtn && drawerSubmenu) {
+                    drawerHomeBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const hidden = drawerSubmenu.classList.contains('hidden');
+                        if (hidden) { drawerSubmenu.classList.remove('hidden'); if (drawerChevron) drawerChevron.style.transform = 'rotate(180deg)'; }
+                        else { drawerSubmenu.classList.add('hidden'); if (drawerChevron) drawerChevron.style.transform = 'rotate(0deg)'; }
+                    });
+                }
+                window.addEventListener('resize', () => { if (window.innerWidth >= 1024 && drawer.classList.contains('open')) closeDrawer(); });
+            })();
+    </script>
+</body>
+
+</html>
