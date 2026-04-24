@@ -383,24 +383,32 @@
         </div>
 
         <!-- Password -->
-        <div>
-          <label class="form-label block text-xs font-semibold text-[#4A2E1F] dark:text-[#FEF8F0] mb-1 tracking-wide">
-            <i class="fas fa-lock text-[#BF7F3A] text-[11px] mr-1"></i> Password
-          </label>
-          <input type="password" id="password"
-            class="input-field w-full px-3 py-2 rounded-xl border border-[#FFE0B5] dark:border-[#5a4a38] bg-[#FEF8F0] dark:bg-[#1a1410] text-[#3E2C1C] dark:text-[#FEF8F0] focus:outline-none focus:ring-2 focus:ring-[#BF7F3A]/50 focus:border-[#BF7F3A] text-sm transition"
-            placeholder="Create a strong password">
-        </div>
+      <div class="relative">
+  <label class="form-label block text-xs font-semibold text-[#4A2E1F] dark:text-[#FEF8F0] mb-1 tracking-wide">
+    <i class="fas fa-lock text-[#BF7F3A] text-[11px] mr-1"></i> Password
+  </label>
 
-        <!-- Confirm Password -->
-        <div>
-          <label class="form-label block text-xs font-semibold text-[#4A2E1F] dark:text-[#FEF8F0] mb-1 tracking-wide">
-            <i class="fas fa-check-circle text-[#BF7F3A] text-[11px] mr-1"></i> Confirm Password
-          </label>
-          <input type="password" id="confirmPassword"
-            class="input-field w-full px-3 py-2 rounded-xl border border-[#FFE0B5] dark:border-[#5a4a38] bg-[#FEF8F0] dark:bg-[#1a1410] text-[#3E2C1C] dark:text-[#FEF8F0] focus:outline-none focus:ring-2 focus:ring-[#BF7F3A]/50 focus:border-[#BF7F3A] text-sm transition"
-            placeholder="Confirm your password">
-        </div>
+  <input type="password" id="password"
+    class="input-field w-full px-3 py-2 pr-10 rounded-xl border border-[#FFE0B5] dark:border-[#5a4a38] bg-[#FEF8F0] dark:bg-[#1a1410] text-[#3E2C1C] dark:text-[#FEF8F0] focus:outline-none focus:ring-2 focus:ring-[#BF7F3A]/50 focus:border-[#BF7F3A] text-sm transition"
+    placeholder="Create a strong password">
+
+  <!-- Eye Icon -->
+  <i id="togglePassword"
+     class="fas fa-eye absolute right-3 top-[36px] text-[#8B694A] dark:text-[#C9BDA8] text-sm cursor-pointer"></i>
+</div>
+
+    <div class="relative">
+  <label class="form-label block text-xs font-semibold text-[#4A2E1F] dark:text-[#FEF8F0] mb-1 tracking-wide">
+    <i class="fas fa-check-circle text-[#BF7F3A] text-[11px] mr-1"></i> Confirm Password
+  </label>
+
+  <input type="password" id="confirmPassword"
+    class="input-field w-full px-3 py-2 pr-10 rounded-xl border border-[#FFE0B5] dark:border-[#5a4a38] bg-[#FEF8F0] dark:bg-[#1a1410] text-[#3E2C1C] dark:text-[#FEF8F0] focus:outline-none focus:ring-2 focus:ring-[#BF7F3A]/50 focus:border-[#BF7F3A] text-sm transition"
+    placeholder="Confirm your password">
+
+  <i id="toggleConfirm"
+     class="fas fa-eye absolute right-3 top-[36px] text-[#8B694A] dark:text-[#C9BDA8] text-sm cursor-pointer"></i>
+</div>
 
         <!-- Terms & Conditions Checkbox -->
         <label class="checkbox-custom flex items-center gap-2 text-xs text-[#6F523B] dark:text-[#E8DCCC] cursor-pointer">
@@ -445,7 +453,7 @@
       <!-- Login Link -->
       <p class="text-center text-xs text-[#6F523B] dark:text-[#E8DCCC] mt-4 login-link-text">
         Already have an account?
-        <a href="#" class="text-[#BF7F3A] dark:text-[#FFCF9A] font-semibold hover:underline ml-1 transition accent-link">
+        <a href="Login.html" class="text-[#BF7F3A] dark:text-[#FFCF9A] font-semibold hover:underline ml-1 transition accent-link">
           Login <i class="fas fa-chevron-right text-[10px] rtl-flip"></i>
         </a>
       </p>
@@ -599,6 +607,29 @@
         btn.style.touchAction = 'manipulation';
       });
     })();
+    // Toggle Password
+const togglePassword = document.getElementById("togglePassword");
+const password = document.getElementById("password");
+
+togglePassword.addEventListener("click", () => {
+  const type = password.getAttribute("type") === "password" ? "text" : "password";
+  password.setAttribute("type", type);
+
+  togglePassword.classList.toggle("fa-eye");
+  togglePassword.classList.toggle("fa-eye-slash");
+});
+
+// Toggle Confirm Password
+const toggleConfirm = document.getElementById("toggleConfirm");
+const confirmPassword = document.getElementById("confirmPassword");
+
+toggleConfirm.addEventListener("click", () => {
+  const type = confirmPassword.getAttribute("type") === "password" ? "text" : "password";
+  confirmPassword.setAttribute("type", type);
+
+  toggleConfirm.classList.toggle("fa-eye");
+  toggleConfirm.classList.toggle("fa-eye-slash");
+});
   </script>
 </body>
 </html>
