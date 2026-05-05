@@ -9,7 +9,16 @@
     <script>
         tailwind.config = {
             darkMode: 'class',
-            theme: { extend: { fontFamily: { 'sans': ['Inter', 'system-ui', 'sans-serif'] } } }
+            theme: {
+                extend: {
+                    fontFamily: { 'sans': ['Inter', 'system-ui', 'sans-serif'] },
+                    colors: {
+                        'ink-black': '#0a0a0a',
+                        'charcoal': '#1a1a1a',
+                        'dark-charcoal': '#121212',
+                    }
+                }
+            }
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap"
@@ -90,14 +99,14 @@
             transform: translateX(0);
         }
 
-        /* ========== DARK MODE ENHANCED ========== */
+        /* ========== DARK MODE - BLACK & DARK GREY BACKGROUNDS ========== */
         html.dark body {
-            background-color: #1a1410 !important;
+            background-color: #0a0a0a !important;
         }
 
         html.dark .nav-bar {
-            background-color: #2a221c !important;
-            border-bottom-color: #3d3228 !important;
+            background-color: #111111 !important;
+            border-bottom-color: #2a2a2a !important;
         }
 
         html.dark .nav-text,
@@ -158,99 +167,116 @@
         }
 
         html.dark .btn-primary-dark {
-            background-color: #5a3a28 !important;
-            color: #FEF8F0 !important;
+            background-color: #2a2a2a !important;
+            color: #FFCF9A !important;
+            border: 1px solid #3a3a3a;
         }
 
         html.dark .btn-primary-dark:hover {
-            background-color: #7a4f38 !important;
+            background-color: #3a3a3a !important;
         }
 
         html.dark .dropdown-bg {
-            background-color: #2a221c !important;
-            border-color: #3d3228 !important;
+            background-color: #1a1a1a !important;
+            border-color: #333 !important;
         }
 
         html.dark .dropdown-item:hover {
-            background-color: #3d3228 !important;
-            color: #FFD89C !important;
+            background-color: #2a2a2a !important;
         }
 
         html.dark .card-dark {
-            background-color: #2a221c !important;
-            border-color: #3d3228 !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            background-color: #121212 !important;
+            border-color: #2a2a2a !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
         }
 
         html.dark .footer-dark {
-            background-color: #1a1410 !important;
-            border-top-color: #3d3228 !important;
+            background-color: #0a0a0a !important;
+            border-top-color: #222 !important;
         }
 
         html.dark .mobile-menu-dark {
-            background-color: #2a221c !important;
+            background-color: #111111 !important;
         }
 
         html.dark .mobile-menu-item {
-            border-bottom-color: #3d3228 !important;
+            border-bottom-color: #2a2a2a !important;
             color: #FEF8F0 !important;
         }
 
         html.dark .mobile-toggle-btn {
-            background-color: #3d3228 !important;
+            background-color: #2a2a2a !important;
             color: #FEF8F0 !important;
         }
 
         html.dark .hero-badge {
-            background-color: #3d3228 !important;
-            color: #FFD89C !important;
+            background-color: #1a1a1a !important;
+            color: #FFCF9A !important;
         }
 
         html.dark .social-icon {
-            color: #e8dccc !important;
+            color: #cccccc !important;
         }
 
         html.dark .social-icon:hover {
-            color: #FFD89C !important;
+            color: #FFCF9A !important;
         }
 
         html.dark .newsletter-input {
-            background-color: #2a221c !important;
-            border-color: #5a4a38 !important;
+            background-color: #1a1a1a !important;
+            border-color: #3a3a3a !important;
         }
 
         html.dark .bg-white\/80,
         html.dark .bg-white\/70,
         html.dark .bg-white\/60,
         html.dark .bg-white\/50 {
-            background-color: rgba(42, 34, 28, 0.85) !important;
+            background-color: rgba(18, 18, 18, 0.85) !important;
         }
 
         html.dark .border-\[\#FFE0B5\] {
-            border-color: #4a3a2c !important;
+            border-color: #2a2a2a !important;
         }
 
         html.dark .bg-\[\#FFE8D4\] {
-            background-color: #2a221c !important;
+            background-color: #1a1a1a !important;
         }
 
         html.dark .bg-gradient-to-r {
-            background: #3d2a1c !important;
+            background: #1a1a1a !important;
         }
 
         html.dark .bg-\[\#FFF6EA\] {
-            background-color: #1f1813 !important;
+            background-color: #0a0a0a !important;
         }
 
-        html.dark .gradient-text {
-            background: linear-gradient(135deg, #FFCF9A 0%, #FFD89C 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        html.dark .hero-overlay-custom {
+            background: linear-gradient(125deg, rgba(10, 10, 10, 0.96) 0%, rgba(10, 10, 10, 0.94) 100%) !important;
+        }
+
+        html.dark .glass-morphism {
+            background: rgba(18, 18, 18, 0.75) !important;
+        }
+
+        html.dark .force-black-text {
+            color: #FEF8F0 !important;
+        }
+
+        html.dark .bg-black\/40 {
+            background-color: rgba(0, 0, 0, 0.65) !important;
+        }
+
+        html.dark .bg-white\/10 {
+            background-color: rgba(20, 20, 20, 0.7) !important;
+        }
+
+        html.dark .border-white\/20 {
+            border-color: rgba(255, 255, 255, 0.15) !important;
         }
 
         .home2-hero {
-            background-image: url('images/writen1 (1).jpg');
+            background-image: url('images/writen1 (2).jpg');
             background-size: cover;
             background-position: center 30%;
             position: relative;
@@ -258,10 +284,6 @@
 
         .hero-overlay-custom {
             background: linear-gradient(125deg, rgba(254, 248, 240, 0.92) 0%, rgba(254, 248, 240, 0.7) 100%);
-        }
-
-        html.dark .hero-overlay-custom {
-            background: linear-gradient(125deg, rgba(26, 20, 16, 0.94) 0%, rgba(26, 20, 16, 0.92) 100%);
         }
 
         .floating-leaf {
@@ -340,7 +362,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.7);
             z-index: 999;
             opacity: 0;
             visibility: hidden;
@@ -357,27 +379,8 @@
         }
 
         html.dark .mobile-drawer {
-            background-color: #2a221c !important;
-            border-left-color: #3d3228 !important;
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .marquee-track {
-            animation: marquee 25s linear infinite;
-            width: fit-content;
-        }
-
-        .marquee-container:hover .marquee-track {
-            animation-play-state: paused;
+            background-color: #111111 !important;
+            border-left-color: #2a2a2a !important;
         }
 
         .gradient-text {
@@ -396,25 +399,8 @@
             transition: all 0.3s ease;
         }
 
-        .timeline-dot {
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .timeline-dot i {
-            transition: transform 0.3s ease;
-        }
-
         .timeline-item:hover .timeline-dot {
             transform: scale(1.2);
-            /* reduce slightly for stability */
-        }
-
-        .timeline-item:hover .timeline-dot i {
-            transform: scale(1.2);
-            /* ensures icon scales too */
         }
 
         .glass-morphism {
@@ -423,18 +409,15 @@
         }
 
         html.dark .glass-morphism {
-            background: rgba(26, 20, 16, 0.65);
+            background: rgba(18, 18, 18, 0.75);
         }
-        html.dark .force-black-text {
-    color: #000 !important;
-}
     </style>
 </head>
 
 <body class="bg-[#FEF8F0] font-sans antialiased">
 
     <!-- ========== NAVBAR ========== -->
-    <nav class="bg-[#FFD89C] shadow-sm sticky top-0 z-50 w-full border-b border-[#FFCF8A] nav-bar">
+    <nav class="bg-white shadow-sm sticky top-0 z-50 w-full border-b border-gray-200 nav-bar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="navbar-flex flex justify-between items-center h-16 md:h-20">
                 <a href="index.html" class="logo-area flex-shrink-0 flex items-center gap-2 group">
@@ -451,18 +434,17 @@
                 <div class="nav-links hidden xl:flex items-center space-x-6 xl:space-x-8">
                     <div class="relative group">
                         <a href="#"
-                            class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition flex items-center gap-1 nav-text">
-                            Home <i
-                                class="fas fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
-                        </a>
+                            class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition flex items-center gap-1 nav-text">Home
+                            <i
+                                class="fas fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i></a>
                         <div
                             class="home-dropdown absolute left-0 mt-2 w-40 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 border border-[#FFE0B5] overflow-hidden dropdown-bg">
                             <a href="index.html"
-                                class="block px-4 py-2.5 text-sm hover:bg-[#FEF3E4] transition flex items-center gap-2 dropdown-item"><i
-                                    class="fas fa-home text-[#BF7F3A] text-xs"></i> Home 1</a>
+                                class="block px-4 py-2.5 text-sm hover:bg-[#FEF3E4] transition flex items-center gap-2 dropdown-item">
+                                Home 1</a>
                             <a href="home2.html"
-                                class="block px-4 py-2.5 text-sm hover:bg-[#FEF3E4] transition flex items-center gap-2 border-t border-[#FFEFDF] dropdown-item"><i
-                                    class="fas fa-leaf text-[#BF7F3A] text-xs"></i> Home 2</a>
+                                class="block px-4 py-2.5 text-sm hover:bg-[#FEF3E4] transition flex items-center gap-2 border-t border-[#FFEFDF] dropdown-item">Home
+                                2</a>
                         </div>
                     </div>
                     <a href="about.html"
@@ -491,7 +473,6 @@
                             id="rtlIcon" class="fas fa-globe text-sm"></i> <span id="rtlLabel">LTR</span></button>
                 </div>
                 <div class="flex items-center gap-3 xl:hidden">
-                    <a href="#" class="nav-text hidden xl:block"><i class="far fa-user-circle text-xl"></i></a>
                     <button id="mobileMenuBtn"
                         class="nav-text focus:outline-none p-2 rounded-full hover:bg-[#FFCF8A] transition"><i
                             class="fas fa-bars text-2xl"></i></button>
@@ -514,13 +495,10 @@
                     <div
                         class="flex justify-between items-center py-2 text-[#3E2C1C] font-medium border-b border-[#FFD6A0] nav-text mobile-menu-item">
                         <span>Home</span><button id="drawerHomeBtn"><i id="drawerChevron"
-                                class="fas fa-chevron-down text-xs transition-transform"></i></button>
-                    </div>
+                                class="fas fa-chevron-down text-xs transition-transform"></i></button></div>
                     <div id="drawerSubmenu" class="hidden pl-4 mt-2 space-y-2"><a href="index.html"
-                            class="block py-1.5 text-sm hover:text-[#BF7F3A] transition flex items-center gap-2 nav-text"><i
-                                class="fas fa-home text-[#BF7F3A] text-xs"></i> Home 1</a><a href="home2.html"
-                            class="block py-1.5 text-sm hover:text-[#BF7F3A] transition flex items-center gap-2 nav-text"><i
-                                class="fas fa-leaf text-[#BF7F3A] text-xs"></i> Home 2</a></div>
+                            class="block py-1.5 text-sm hover:text-[#BF7F3A] transition flex items-center gap-2 nav-text">Home 1</a><a href="home2.html"
+                            class="block py-1.5 text-sm hover:text-[#BF7F3A] transition flex items-center gap-2 nav-text"> Home 2</a></div>
                 </div>
                 <a href="about.html" class="block py-2 border-b border-[#FFD6A0] nav-text mobile-menu-item">About</a>
                 <a href="service.html"
@@ -548,48 +526,27 @@
 
     <main>
         <!-- Hero Section -->
-        <!-- Hero Section -->
-        <div class="home2-hero relative bg-cover bg-center h-screen flex items-center justify-center"
-            style="background-image: url('images/writen1 (2).jpg');">
-
-            <!-- Overlay -->
+        <div class="home2-hero relative bg-cover bg-center h-screen flex items-center justify-center">
             <div class="absolute inset-0 bg-black/40"></div>
-
-            <!-- Content -->
             <div class="relative text-center px-4 max-w-3xl">
-
                 <div
-                    class="inline-flex items-center gap-2 bg-[#FFE8D4] px-4 py-1.5 rounded-full text-[#BF7F3A] text-xs font-semibold uppercase mb-6">
-                    <i class="fas fa-seedling text-xs"></i>
-                    <span>limited autumn harvest · now available</span>
+                    class="inline-flex items-center gap-2 bg-[#FFE8D4] px-4 py-1.5 rounded-full text-[#BF7F3A] text-xs font-semibold uppercase mb-6 hero-badge">
+                    <i class="fas fa-seedling text-xs"></i> <span>limited autumn harvest · now available</span>
                 </div>
-
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">
-                    Whispers of<br><span class="text-[#FFD89C]">Wild Botanicals</span>
-                </h1>
-
-                <p class="text-base md:text-lg text-white/90 mt-4 leading-relaxed">
-                    Artisanal blends, slow-burn candles, and grounding rituals — each piece handcrafted to
-                    reconnect you with the rhythm of nature.
-                </p>
-
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">Whispers of<br><span
+                        class="text-[#FFD89C]">Wild Botanicals</span></h1>
+                <p class="text-base md:text-lg text-white/90 mt-4 leading-relaxed">Artisanal blends, slow-burn candles,
+                    and grounding rituals — each piece handcrafted to reconnect you with the rhythm of nature.</p>
                 <div class="flex flex-wrap gap-4 mt-6 justify-center">
                     <a href="#"
-                        class="bg-[#4A2E1F] hover:bg-[#6B422A] text-white font-semibold py-3 px-8 rounded-full shadow-md flex items-center gap-2 transition">
-                        Explore Collection <i class="fas fa-arrow-right"></i>
-                    </a>
-
+                        class="bg-[#4A2E1F] hover:bg-[#6B422A] text-white font-semibold py-3 px-8 rounded-full shadow-md flex items-center gap-2 transition btn-primary-dark">Explore
+                        Collection <i class="fas fa-arrow-right"></i></a>
                     <a href="#"
-                        class="border-2 border-white text-white hover:bg-white hover:text-[#4A2E1F] font-semibold py-3 px-8 rounded-full transition flex items-center gap-2">
-                        Take Ritual Quiz <i class="fas fa-spa"></i>
-                    </a>
+                        class="border-2 border-white text-white hover:bg-white hover:text-[#4A2E1F] font-semibold py-3 px-8 rounded-full transition flex items-center gap-2">Take
+                        Ritual Quiz <i class="fas fa-spa"></i></a>
                 </div>
-
             </div>
         </div>
-
-        <!-- Brand Marquee Strip -->
-
 
         <!-- ALCHEMY OF THE HARVEST -->
         <div class="herb-pattern py-16 md:py-24">
@@ -597,9 +554,8 @@
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="order-2 md:order-1">
                         <div
-                            class="inline-flex items-center gap-2 bg-[#FFE8D4] dark:bg-[#2a221c] px-4 py-1.5 rounded-full text-[#BF7F3A] text-xs font-semibold uppercase mb-4">
-                            <i class="fas fa-mortar-pestle"></i> ancestral wisdom
-                        </div>
+                            class="inline-flex items-center gap-2 bg-[#FFE8D4] dark:bg-[#1a1a1a] px-4 py-1.5 rounded-full text-[#BF7F3A] text-xs font-semibold uppercase mb-4">
+                            <i class="fas fa-mortar-pestle"></i> ancestral wisdom</div>
                         <h2 class="text-3xl md:text-4xl font-bold text-[#3E2C1C] leading-tight text-primary-dark">The
                             Alchemy of <span class="gradient-text">Slow Harvest</span></h2>
                         <p class="mt-5 text-[#5E4B34] text-secondary-dark leading-relaxed">Each full moon, we forage
@@ -619,19 +575,18 @@
                         </div>
                     </div>
                     <div class="order-1 md:order-2 relative flex justify-center">
-                        <div class="relative w-full max-w-md"><img src="images/writen1 (9).jpg" alt="apothecary bottles"
-                                class="rounded-2xl shadow-2xl border-4 border-white/40">
-                            <div
-                                class="absolute -bottom-5 -right-5 w-32 h-32 bg-[#FFD89C]/30 rounded-full blur-2xl -z-10">
-                            </div>
+                        <img src="images/writen1 (9).jpg"
+                            class="h-64 w-full object-cover rounded-2xl  border-4 border-white/40">
+                        <div class="absolute -bottom-5 -right-5 w-32 h-32 bg-[#FFD89C]/30 rounded-full blur-2xl -z-10">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
 
         <!-- SEASONAL RITUAL TIMELINE -->
-        <div class="bg-[#FFF6EA] dark:bg-[#1f1813] py-16 md:py-20">
+        <div class="bg-[#FFF6EA] dark:bg-[#0a0a0a] py-16 md:py-20">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <span class="text-[#BF7F3A] text-sm font-semibold uppercase tracking-wide"><i
                         class="far fa-calendar-alt mr-1"></i> wheel of the year</span>
@@ -640,9 +595,8 @@
                 <div class="mt-12 space-y-8">
                     <div class="timeline-item flex flex-col md:flex-row gap-6 items-center group">
                         <div
-                            class="w-16 h-16 rounded-full bg-[#FFE0B5] dark:bg-[#3d3228] flex items-center justify-center timeline-dot transition-all">
-                            <i class="fas fa-leaf text-[#BF7F3A] text-2xl"></i>
-                        </div>
+                            class="w-16 h-16 rounded-full bg-[#FFE0B5] dark:bg-[#2a2a2a] flex items-center justify-center timeline-dot transition-all">
+                            <i class="fas fa-leaf text-[#BF7F3A] text-2xl"></i></div>
                         <div class="flex-1 text-left">
                             <h3 class="text-xl font-bold text-[#4A2E1F]">Spring Awakening · Nettle & Mint Renewal</h3>
                             <p class="text-[#5E4B34] text-sm mt-1">Vitality tea blend & lymphatic oil massage ritual —
@@ -652,9 +606,8 @@
                     </div>
                     <div class="timeline-item flex flex-col md:flex-row gap-6 items-center group">
                         <div
-                            class="w-16 h-16 rounded-full bg-[#FFE0B5] dark:bg-[#3d3228] flex items-center justify-center timeline-dot transition-all">
-                            <i class="fas fa-sun text-[#BF7F3A] text-2xl"></i>
-                        </div>
+                            class="w-16 h-16 rounded-full bg-[#FFE0B5] dark:bg-[#2a2a2a] flex items-center justify-center timeline-dot transition-all">
+                            <i class="fas fa-sun text-[#BF7F3A] text-2xl"></i></div>
                         <div class="flex-1 text-left">
                             <h3 class="text-xl font-bold text-[#4A2E1F]">Solstice Fire · Smudge & Ember Ceremony</h3>
                             <p class="text-[#5E4B34] text-sm mt-1">Wildcrafted sage bundles + hand-dipped cedar candles
@@ -664,9 +617,8 @@
                     </div>
                     <div class="timeline-item flex flex-col md:flex-row gap-6 items-center group">
                         <div
-                            class="w-16 h-16 rounded-full bg-[#FFE0B5] dark:bg-[#3d3228] flex items-center justify-center timeline-dot transition-all">
-                            <i class="fas fa-moon text-[#BF7F3A] text-2xl"></i>
-                        </div>
+                            class="w-16 h-16 rounded-full bg-[#FFE0B5] dark:bg-[#2a2a2a] flex items-center justify-center timeline-dot transition-all">
+                            <i class="fas fa-moon text-[#BF7F3A] text-2xl"></i></div>
                         <div class="flex-1 text-left">
                             <h3 class="text-xl font-bold text-[#4A2E1F]">Harvest Moon · Golden Chamomile & Honey</h3>
                             <p class="text-[#5E4B34] text-sm mt-1">Calming infusion + gratitude journal ritual set,
@@ -680,45 +632,32 @@
                         all seasonal rituals <i class="fas fa-arrow-right"></i></a></div>
             </div>
         </div>
+
+        <!-- Video Section -->
         <section class="relative h-[500px] md:h-[600px] overflow-hidden">
-
-            <!-- 🎥 Background Video -->
             <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
-                <source src="images/video.mp4" type="video/mp4">
+                <source src="images/14645234_1920_1080_25fps.mp4" type="video/mp4">
             </video>
-
-            <!-- 🌑 Dark Overlay -->
             <div class="absolute inset-0 bg-black/40"></div>
-
-            <!-- 🌿 Floating Content -->
             <div class="relative z-10 h-full flex items-center justify-center px-6">
-
                 <div
-                    class="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-8 md:p-12 text-center max-w-2xl shadow-2xl">
-
-                    <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight">
-                        Enter the <span class="text-[#FFD89C]">Botanical Flow</span>
-                    </h2>
-
-                    <p class="text-[#E8DCCC] mt-4 text-sm md:text-lg">
-                        Where scent, memory, and ritual dissolve into one immersive experience.
-                    </p>
-
+                    class="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-8 md:p-12 text-center max-w-2xl shadow-2xl glass-morphism">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight">Enter the <span
+                            class="text-[#FFD89C]">Botanical Flow</span></h2>
+                    <p class="text-[#E8DCCC] mt-4 text-sm md:text-lg">Where scent, memory, and ritual dissolve into one
+                        immersive experience.</p>
                     <div class="mt-6 flex justify-center gap-4 flex-wrap">
                         <button
-                            class="bg-[#FFD89C] text-[#4A2E1F] px-6 py-2 rounded-full font-semibold hover:scale-105 transition ">
-                            Explore Ritual
-                        </button>
+                            class="bg-[#FFD89C] text-[#4A2E1F] px-6 py-2 rounded-full font-semibold hover:scale-105 transition">Explore
+                            Ritual</button>
                         <button
-                            class="border border-white/40 text-white px-6 py-2 rounded-full hover:bg-white/20 transition">
-                            Watch Story
-                        </button>
+                            class="border border-white/40 text-white px-6 py-2 rounded-full hover:bg-white/20 transition">Watch
+                            Story</button>
                     </div>
-
                 </div>
             </div>
-
         </section>
+
         <!-- Featured Collection -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
             <div class="text-center mb-8 md:mb-12"><span
@@ -732,11 +671,11 @@
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 <div
-                    class="group card-img-hover bg-white/60 dark:bg-[#2a221c]/70 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-[#FFE0B5] card-dark hover-lift">
+                    class="group card-img-hover bg-white/60 dark:bg-[#121212]/70 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-[#FFE0B5] card-dark hover-lift">
                     <div class="h-48 md:h-56 overflow-hidden relative"><img src="images/writen1 (3).jpg"
                             class="img-scale w-full h-full object-cover">
                         <div
-                            class="absolute top-3 right-3 bg-[#FFE8D4] dark:bg-[#3d3228] px-2 py-1 rounded-full text-[10px] font-bold text-[#BF7F3A]">
+                            class="absolute top-3 right-3 bg-[#FFE8D4] dark:bg-[#2a2a2a] px-2 py-1 rounded-full text-[10px] font-bold text-[#BF7F3A]">
                             limited</div>
                     </div>
                     <div class="p-4 md:p-6">
@@ -755,7 +694,7 @@
                     </div>
                 </div>
                 <div
-                    class="group card-img-hover bg-white/60 dark:bg-[#2a221c]/70 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-[#FFE0B5] card-dark hover-lift">
+                    class="group card-img-hover bg-white/60 dark:bg-[#121212]/70 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-[#FFE0B5] card-dark hover-lift">
                     <div class="h-48 md:h-56 overflow-hidden"><img src="images/writen1 (4).jpg"
                             class="img-scale w-full h-full object-cover"></div>
                     <div class="p-4 md:p-6">
@@ -769,7 +708,7 @@
                     </div>
                 </div>
                 <div
-                    class="group card-img-hover bg-white/60 dark:bg-[#2a221c]/70 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-[#FFE0B5] card-dark hover-lift">
+                    class="group card-img-hover bg-white/60 dark:bg-[#121212]/70 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-[#FFE0B5] card-dark hover-lift">
                     <div class="h-48 md:h-56 overflow-hidden"><img src="images/writen1 (5).jpg"
                             class="img-scale w-full h-full object-cover"></div>
                     <div class="p-4 md:p-6">
@@ -786,28 +725,28 @@
         </div>
 
         <!-- Community Love -->
-        <div class="bg-[#FFF6EA] dark:bg-[#1f1813] py-12 md:py-20">
+        <div class="bg-[#FFF6EA] dark:bg-[#0a0a0a] py-12 md:py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"><span
                     class="text-[#BF7F3A] text-sm font-semibold uppercase"><i class="fas fa-heart mr-1"></i> inkwhisper
                     kin</span>
                 <h2 class="text-3xl font-bold text-[#3E2C1C] mt-2 text-primary-dark">Voices from the Grove</h2>
                 <div class="grid md:grid-cols-3 gap-6 mt-12">
-                    <div class="bg-white/70 dark:bg-[#2a221c]/70 p-6 rounded-2xl border border-[#FFE0B5] card-dark"><i
+                    <div class="bg-white/70 dark:bg-[#121212]/70 p-6 rounded-2xl border border-[#FFE0B5] card-dark"><i
                             class="fas fa-quote-left text-[#BF7F3A] opacity-60 mb-3"></i>
                         <p class="italic text-[#5E4B34] text-secondary-dark">"The Wild Botanicals box transformed my
                             evenings. I've never felt so connected to plant magic."</p>
                         <div class="mt-3 font-semibold text-[#BF7F3A] text-sm">— Maya, Vermont</div>
                     </div>
-                    <div class="bg-white/70 dark:bg-[#2a221c]/70 p-6 rounded-2xl border border-[#FFE0B5] card-dark"><i
+                    <div class="bg-white/70 dark:bg-[#121212]/70 p-6 rounded-2xl border border-[#FFE0B5] card-dark"><i
                             class="fas fa-quote-left text-[#BF7F3A] opacity-60 mb-3"></i>
-                        <p class="italic text-[#5E4B34] text-secondary-dark">"The Wild Botanicals box transformed my
-                            evenings. I've never felt so connected to plant magic."</p>
+                        <p class="italic text-[#5E4B34] text-secondary-dark">"InkWhisper's rituals are like poetry for
+                            the senses. Each blend is pure intention."</p>
                         <div class="mt-3 font-semibold text-[#BF7F3A] text-sm">— Julian, Oregon</div>
                     </div>
-                    <div class="bg-white/70 dark:bg-[#2a221c]/70 p-6 rounded-2xl border border-[#FFE0B5] card-dark"><i
+                    <div class="bg-white/70 dark:bg-[#121212]/70 p-6 rounded-2xl border border-[#FFE0B5] card-dark"><i
                             class="fas fa-quote-left text-[#BF7F3A] opacity-60 mb-3"></i>
-                       <p class="italic text-[#5E4B34] text-secondary-dark">"The Wild Botanicals box transformed my
-                            evenings. I've never felt so connected to plant magic."</p>
+                        <p class="italic text-[#5E4B34] text-secondary-dark">"The lunar oil is a staple in my self-care
+                            altar. Thank you for honoring nature."</p>
                         <div class="mt-3 font-semibold text-[#BF7F3A] text-sm">— Priya, UK</div>
                     </div>
                 </div>
@@ -816,7 +755,7 @@
 
         <!-- CTA Banner -->
         <div
-            class="relative bg-gradient-to-r from-[#4A2E1F] to-[#5E3A28] dark:from-[#3d2a1c] dark:to-[#2a1f18] py-14 md:py-20 overflow-hidden">
+            class="relative bg-gradient-to-r from-[#4A2E1F] to-[#5E3A28] dark:from-[#1a1a1a] dark:to-[#0a0a0a] py-14 md:py-20 overflow-hidden">
             <div class="absolute top-0 right-0 opacity-10"><i class="fas fa-feather-alt text-9xl text-white"></i></div>
             <div class="absolute bottom-0 left-0 opacity-5"><i class="fas fa-leaf text-8xl text-white"></i></div>
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -827,9 +766,9 @@
                     blends.</p>
                 <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center max-w-md mx-auto"><input
                         type="email" placeholder="Your email address"
-                        class="px-4 md:px-5 py-2.5 md:py-3 rounded-full bg-white/90 text-[#3E2C1C] placeholder:text-[#8B694A] focus:outline-none focus:ring-2 focus:ring-[#FFD89C] flex-1 text-sm md:text-base"><button class="bg-[#FFD89C] hover:bg-[#FFE0B5] text-[#4A2E1F] force-black-text font-bold py-2.5 md:py-3 px-6 md:px-8 rounded-full transition shadow-md text-sm md:text-base">
-    Claim 15% Off
-</button></div>
+                        class="px-4 md:px-5 py-2.5 md:py-3 rounded-full bg-white/90 text-[#3E2C1C] placeholder:text-[#8B694A] focus:outline-none focus:ring-2 focus:ring-[#FFD89C] flex-1 text-sm md:text-base dark:bg-[#1a1a1a] dark:text-white dark:placeholder:text-[#8B694A]"><button
+                        class="bg-[#FFD89C] hover:bg-[#FFE0B5] text-[#4A2E1F] font-bold py-2.5 md:py-3 px-6 md:px-8 rounded-full transition shadow-md text-sm md:text-base">Claim
+                        15% Off</button></div>
                 <p class="text-[#C9BDA8] text-xs md:text-sm mt-5 md:mt-6">No spam, only botanical magic. Unsubscribe
                     anytime.</p>
             </div>
@@ -840,11 +779,10 @@
     <footer class="bg-[#FFE8D4] border-t border-[#FFDDB5] pt-10 md:pt-12 pb-6 md:pb-8 footer-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                <div class="text-center sm:text-left">
-                    <a href="index.html" class="flex items-center justify-center sm:justify-start gap-2 mb-4 group"><i
+                <div class="text-center sm:text-left"><a href="index.html"
+                        class="flex items-center justify-center sm:justify-start gap-2 mb-4 group"><i
                             class="fas fa-feather-alt text-[#BF7F3A] text-2xl transition-transform group-hover:rotate-6"></i><span
-                            class="text-[#4A2E1F] text-xl font-bold tracking-tight footer-heading">InkWhisper</span>
-                    </a>
+                            class="text-[#4A2E1F] text-xl font-bold tracking-tight footer-heading">InkWhisper</span></a>
                     <p class="text-[#6F523B] text-sm leading-relaxed text-secondary-dark">Where flora meets timeless
                         ritual. Handcrafted botanical blends for mindful living.</p>
                     <div class="flex justify-center sm:justify-start gap-4 mt-4"><a href="#"

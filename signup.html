@@ -50,29 +50,31 @@
       padding: 0.75rem;
     }
 
-    /* ========== ENHANCED DARK MODE ========== */
+    /* ========== DARK MODE - BLACK & DARK GREY BACKGROUNDS ========== */
     html.dark body {
-      background-color: #1a1410 !important;
+      background-color: #0a0a0a !important;
     }
 
     html.dark .signup-card {
-      background-color: #2a221c !important;
-      border-color: #3d3228 !important;
+      background-color: #121212 !important;
+      border-color: #2a2a2a !important;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
     }
 
     html.dark .input-field {
-      background-color: #1a1410 !important;
-      border-color: #5a4a38 !important;
+      background-color: #1a1a1a !important;
+      border-color: #3a3a3a !important;
       color: #FEF8F0 !important;
     }
 
     html.dark .input-field:focus {
       border-color: #FFCF9A !important;
       outline: none;
+      box-shadow: 0 0 0 3px rgba(255, 207, 154, 0.2);
     }
 
     html.dark .input-field::placeholder {
-      color: #b8a88c !important;
+      color: #8a7a6a !important;
     }
 
     html.dark label,
@@ -86,21 +88,25 @@
     }
 
     html.dark .divider-line {
-      background-color: #5a4a38 !important;
+      background-color: #3a3a3a !important;
     }
 
     html.dark .social-btn {
-      border-color: #5a4a38 !important;
-      background-color: #2a221c !important;
+      border-color: #3a3a3a !important;
+      background-color: #1a1a1a !important;
     }
 
     html.dark .social-btn:hover {
-      background-color: #3d3228 !important;
+      background-color: #2a2a2a !important;
       border-color: #FFCF9A !important;
     }
 
+    html.dark .social-btn span {
+      color: #FEF8F0 !important;
+    }
+
     html.dark .social-icon i {
-      color: #e8dccc !important;
+      color: #cccccc !important;
     }
 
     html.dark .accent-link {
@@ -112,17 +118,33 @@
     }
 
     html.dark .top-control-btn {
-      background-color: #2a221c !important;
+      background-color: #1a1a1a !important;
       color: #FEF8F0 !important;
-      border-color: #3d3228 !important;
+      border-color: #2a2a2a !important;
     }
 
     html.dark .top-control-btn:hover {
-      background-color: #3d3228 !important;
+      background-color: #2a2a2a !important;
     }
 
     html.dark .checkbox-custom {
       color: #e8dccc !important;
+    }
+
+    html.dark .logo-title {
+      color: #FEF8F0 !important;
+    }
+
+    html.dark .fa-google {
+      color: #FFCF9A !important;
+    }
+
+    html.dark .fa-facebook-f {
+      color: #FFCF9A !important;
+    }
+
+    html.dark .fa-apple {
+      color: #FEF8F0 !important;
     }
 
     /* RTL Support */
@@ -320,13 +342,13 @@
   <!-- TOP RIGHT CONTROLS -->
   <div class="fixed top-3 right-3 flex items-center gap-2 z-50 top-controls">
     <button id="darkModeToggle"
-      class="top-control-btn flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-medium bg-[#FFE8D4] dark:bg-[#2a221c] text-[#4A2E1F] dark:text-[#FEF8F0] shadow-md hover:bg-[#FFDDB5] dark:hover:bg-[#3d3228] transition">
+      class="top-control-btn flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-medium bg-[#FFE8D4] dark:bg-[#1a1a1a] text-[#4A2E1F] dark:text-[#FEF8F0] shadow-md hover:bg-[#FFDDB5] dark:hover:bg-[#2a2a2a] transition border border-[#FFE0B5] dark:border-[#2a2a2a]">
       <i id="darkIcon" class="fas fa-moon text-xs"></i>
       <span id="darkLabel">Dark</span>
     </button>
 
     <button id="rtlToggleBtn"
-      class="top-control-btn flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-medium bg-[#FFE8D4] dark:bg-[#2a221c] text-[#4A2E1F] dark:text-[#FEF8F0] shadow-md hover:bg-[#FFDDB5] dark:hover:bg-[#3d3228] transition">
+      class="top-control-btn flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-medium bg-[#FFE8D4] dark:bg-[#1a1a1a] text-[#4A2E1F] dark:text-[#FEF8F0] shadow-md hover:bg-[#FFDDB5] dark:hover:bg-[#2a2a2a] transition border border-[#FFE0B5] dark:border-[#2a2a2a]">
       <i id="rtlIcon" class="fas fa-globe text-xs"></i>
       <span id="rtlLabel">LTR</span>
     </button>
@@ -335,7 +357,7 @@
   <!-- Main Container -->
   <div class="signup-container">
     <!-- Sign Up Card -->
-    <div class="signup-card bg-white rounded-2xl shadow-xl border border-[#FFE0B5] dark:border-[#3d3228] transition-all">
+    <div class="signup-card bg-white rounded-2xl shadow-xl border border-[#FFE0B5] dark:border-[#2a2a2a] transition-all">
 
       <!-- Logo Area - matches About page exactly -->
       <div class="text-center mb-3 logo-section">
@@ -346,13 +368,13 @@
                 style="font-family: 'Inter', system-ui, sans-serif;">
               InkWhisper
             </h1>
-            <span class="text-[#8B694A] dark:text-[#C9BDA8] text-[0.6rem] font-semibold uppercase tracking-wider -mt-0.5 logo-subtext">
+            <span class="text-[#8B694A] dark:text-[#b8a88c] text-[0.6rem] font-semibold uppercase tracking-wider -mt-0.5 logo-subtext">
               botanical essence
             </span>
           </div>
         </a>
         <div class="mt-1.5">
-          <p class="text-[#6F523B] dark:text-[#E8DCCC] text-sm font-medium signup-subtitle"
+          <p class="text-[#6F523B] dark:text-[#e8dccc] text-sm font-medium signup-subtitle"
             style="font-family: 'Playfair Display', serif;">
             Begin your botanical journey
           </p>
@@ -368,7 +390,7 @@
             <i class="fas fa-user text-[#BF7F3A] text-[11px] mr-1"></i> Full Name
           </label>
           <input type="text" id="fullName"
-            class="input-field w-full px-3 py-2 rounded-xl border border-[#FFE0B5] dark:border-[#5a4a38] bg-[#FEF8F0] dark:bg-[#1a1410] text-[#3E2C1C] dark:text-[#FEF8F0] focus:outline-none focus:ring-2 focus:ring-[#BF7F3A]/50 focus:border-[#BF7F3A] text-sm transition"
+            class="input-field w-full px-3 py-2 rounded-xl border border-[#FFE0B5] dark:border-[#3a3a3a] bg-[#FEF8F0] dark:bg-[#1a1a1a] text-[#3E2C1C] dark:text-[#FEF8F0] focus:outline-none focus:ring-2 focus:ring-[#BF7F3A]/50 focus:border-[#BF7F3A] text-sm transition"
             placeholder="Elara Wren">
         </div>
 
@@ -378,47 +400,39 @@
             <i class="fas fa-envelope text-[#BF7F3A] text-[11px] mr-1"></i> Email
           </label>
           <input type="email" id="email"
-            class="input-field w-full px-3 py-2 rounded-xl border border-[#FFE0B5] dark:border-[#5a4a38] bg-[#FEF8F0] dark:bg-[#1a1410] text-[#3E2C1C] dark:text-[#FEF8F0] focus:outline-none focus:ring-2 focus:ring-[#BF7F3A]/50 focus:border-[#BF7F3A] text-sm transition"
+            class="input-field w-full px-3 py-2 rounded-xl border border-[#FFE0B5] dark:border-[#3a3a3a] bg-[#FEF8F0] dark:bg-[#1a1a1a] text-[#3E2C1C] dark:text-[#FEF8F0] focus:outline-none focus:ring-2 focus:ring-[#BF7F3A]/50 focus:border-[#BF7F3A] text-sm transition"
             placeholder="hello@inkwhisper.com">
         </div>
 
         <!-- Password -->
-      <div class="relative">
-  <label class="form-label block text-xs font-semibold text-[#4A2E1F] dark:text-[#FEF8F0] mb-1 tracking-wide">
-    <i class="fas fa-lock text-[#BF7F3A] text-[11px] mr-1"></i> Password
-  </label>
+        <div>
+          <label class="form-label block text-xs font-semibold text-[#4A2E1F] dark:text-[#FEF8F0] mb-1 tracking-wide">
+            <i class="fas fa-lock text-[#BF7F3A] text-[11px] mr-1"></i> Password
+          </label>
+          <input type="password" id="password"
+            class="input-field w-full px-3 py-2 rounded-xl border border-[#FFE0B5] dark:border-[#3a3a3a] bg-[#FEF8F0] dark:bg-[#1a1a1a] text-[#3E2C1C] dark:text-[#FEF8F0] focus:outline-none focus:ring-2 focus:ring-[#BF7F3A]/50 focus:border-[#BF7F3A] text-sm transition"
+            placeholder="Create a strong password">
+        </div>
 
-  <input type="password" id="password"
-    class="input-field w-full px-3 py-2 pr-10 rounded-xl border border-[#FFE0B5] dark:border-[#5a4a38] bg-[#FEF8F0] dark:bg-[#1a1410] text-[#3E2C1C] dark:text-[#FEF8F0] focus:outline-none focus:ring-2 focus:ring-[#BF7F3A]/50 focus:border-[#BF7F3A] text-sm transition"
-    placeholder="Create a strong password">
-
-  <!-- Eye Icon -->
-  <i id="togglePassword"
-     class="fas fa-eye absolute right-3 top-[36px] text-[#8B694A] dark:text-[#C9BDA8] text-sm cursor-pointer"></i>
-</div>
-
-    <div class="relative">
-  <label class="form-label block text-xs font-semibold text-[#4A2E1F] dark:text-[#FEF8F0] mb-1 tracking-wide">
-    <i class="fas fa-check-circle text-[#BF7F3A] text-[11px] mr-1"></i> Confirm Password
-  </label>
-
-  <input type="password" id="confirmPassword"
-    class="input-field w-full px-3 py-2 pr-10 rounded-xl border border-[#FFE0B5] dark:border-[#5a4a38] bg-[#FEF8F0] dark:bg-[#1a1410] text-[#3E2C1C] dark:text-[#FEF8F0] focus:outline-none focus:ring-2 focus:ring-[#BF7F3A]/50 focus:border-[#BF7F3A] text-sm transition"
-    placeholder="Confirm your password">
-
-  <i id="toggleConfirm"
-     class="fas fa-eye absolute right-3 top-[36px] text-[#8B694A] dark:text-[#C9BDA8] text-sm cursor-pointer"></i>
-</div>
+        <!-- Confirm Password -->
+        <div>
+          <label class="form-label block text-xs font-semibold text-[#4A2E1F] dark:text-[#FEF8F0] mb-1 tracking-wide">
+            <i class="fas fa-check-circle text-[#BF7F3A] text-[11px] mr-1"></i> Confirm Password
+          </label>
+          <input type="password" id="confirmPassword"
+            class="input-field w-full px-3 py-2 rounded-xl border border-[#FFE0B5] dark:border-[#3a3a3a] bg-[#FEF8F0] dark:bg-[#1a1a1a] text-[#3E2C1C] dark:text-[#FEF8F0] focus:outline-none focus:ring-2 focus:ring-[#BF7F3A]/50 focus:border-[#BF7F3A] text-sm transition"
+            placeholder="Confirm your password">
+        </div>
 
         <!-- Terms & Conditions Checkbox -->
-        <label class="checkbox-custom flex items-center gap-2 text-xs text-[#6F523B] dark:text-[#E8DCCC] cursor-pointer">
+        <label class="checkbox-custom flex items-center gap-2 text-xs text-[#6F523B] dark:text-[#e8dccc] cursor-pointer">
           <input type="checkbox" id="termsCheckbox" class="w-3.5 h-3.5 rounded border-[#FFE0B5] text-[#BF7F3A] focus:ring-[#BF7F3A] focus:ring-offset-0">
           <span class="terms-text">I agree to the <a href="#" class="text-[#BF7F3A] dark:text-[#FFCF9A] hover:underline font-medium accent-link">Terms & Conditions</a></span>
         </label>
 
         <!-- Sign Up Button -->
         <button type="submit"
-          class="login-btn w-full bg-[#4A2E1F] hover:bg-[#6B422A] dark:bg-[#5a3a28] dark:hover:bg-[#7a4f38] text-white font-semibold py-2.5 rounded-full transition shadow-md text-sm flex items-center justify-center gap-2 group">
+          class="login-btn w-full bg-[#4A2E1F] hover:bg-[#6B422A] dark:bg-[#2a2a2a] dark:hover:bg-[#3a3a3a] text-white dark:text-[#FFCF9A] font-semibold py-2.5 rounded-full transition shadow-md text-sm flex items-center justify-center gap-2 group border dark:border-[#3a3a3a]">
           <span>Create Account</span>
           <i class="fas fa-arrow-right text-xs login-btn-icon"></i>
         </button>
@@ -426,34 +440,34 @@
 
       <!-- Divider -->
       <div class="flex items-center gap-2 my-4 divider-gap">
-        <div class="flex-1 h-px bg-[#FFE0B5] dark:bg-[#5a4a38] divider-line"></div>
-        <span class="text-[10px] text-[#8B694A] dark:text-[#C9BDA8] font-medium or-text">OR SIGN UP WITH</span>
-        <div class="flex-1 h-px bg-[#FFE0B5] dark:bg-[#5a4a38] divider-line"></div>
+        <div class="flex-1 h-px bg-[#FFE0B5] dark:bg-[#3a3a3a] divider-line"></div>
+        <span class="text-[10px] text-[#8B694A] dark:text-[#b8a88c] font-medium or-text">OR SIGN UP WITH</span>
+        <div class="flex-1 h-px bg-[#FFE0B5] dark:bg-[#3a3a3a] divider-line"></div>
       </div>
 
       <!-- Social Login Buttons -->
       <div class="grid grid-cols-3 gap-2">
         <!-- Google -->
-        <button class="social-btn flex items-center justify-center gap-1.5 border border-[#FFE0B5] dark:border-[#5a4a38] py-2 rounded-full text-xs font-medium bg-white dark:bg-[#2a221c] hover:bg-[#FFF6EA] dark:hover:bg-[#3d3228] transition shadow-sm">
-          <i class="fab fa-google text-[#DB4437] text-sm"></i>
+        <button class="social-btn flex items-center justify-center gap-1.5 border border-[#FFE0B5] dark:border-[#3a3a3a] py-2 rounded-full text-xs font-medium bg-white dark:bg-[#1a1a1a] hover:bg-[#FFF6EA] dark:hover:bg-[#2a2a2a] transition shadow-sm">
+          <i class="fab fa-google text-[#DB4437] dark:text-[#FFCF9A] text-sm"></i>
           <span class="text-[11px] text-[#4A2E1F] dark:text-[#FEF8F0]">Google</span>
         </button>
         <!-- Facebook -->
-        <button class="social-btn flex items-center justify-center gap-1.5 border border-[#FFE0B5] dark:border-[#5a4a38] py-2 rounded-full text-xs font-medium bg-white dark:bg-[#2a221c] hover:bg-[#FFF6EA] dark:hover:bg-[#3d3228] transition shadow-sm">
-          <i class="fab fa-facebook-f text-[#1877F2] text-sm"></i>
+        <button class="social-btn flex items-center justify-center gap-1.5 border border-[#FFE0B5] dark:border-[#3a3a3a] py-2 rounded-full text-xs font-medium bg-white dark:bg-[#1a1a1a] hover:bg-[#FFF6EA] dark:hover:bg-[#2a2a2a] transition shadow-sm">
+          <i class="fab fa-facebook-f text-[#1877F2] dark:text-[#FFCF9A] text-sm"></i>
           <span class="text-[11px] text-[#4A2E1F] dark:text-[#FEF8F0]">Facebook</span>
         </button>
         <!-- Apple -->
-        <button class="social-btn flex items-center justify-center gap-1.5 border border-[#FFE0B5] dark:border-[#5a4a38] py-2 rounded-full text-xs font-medium bg-white dark:bg-[#2a221c] hover:bg-[#FFF6EA] dark:hover:bg-[#3d3228] transition shadow-sm">
-          <i class="fab fa-apple text-black dark:text-white text-sm"></i>
+        <button class="social-btn flex items-center justify-center gap-1.5 border border-[#FFE0B5] dark:border-[#3a3a3a] py-2 rounded-full text-xs font-medium bg-white dark:bg-[#1a1a1a] hover:bg-[#FFF6EA] dark:hover:bg-[#2a2a2a] transition shadow-sm">
+          <i class="fab fa-apple text-black dark:text-[#FEF8F0] text-sm"></i>
           <span class="text-[11px] text-[#4A2E1F] dark:text-[#FEF8F0]">Apple</span>
         </button>
       </div>
 
       <!-- Login Link -->
-      <p class="text-center text-xs text-[#6F523B] dark:text-[#E8DCCC] mt-4 login-link-text">
+      <p class="text-center text-xs text-[#6F523B] dark:text-[#e8dccc] mt-4 login-link-text">
         Already have an account?
-        <a href="Login.html" class="text-[#BF7F3A] dark:text-[#FFCF9A] font-semibold hover:underline ml-1 transition accent-link">
+        <a href="#" class="text-[#BF7F3A] dark:text-[#FFCF9A] font-semibold hover:underline ml-1 transition accent-link">
           Login <i class="fas fa-chevron-right text-[10px] rtl-flip"></i>
         </a>
       </p>
@@ -607,29 +621,6 @@
         btn.style.touchAction = 'manipulation';
       });
     })();
-    // Toggle Password
-const togglePassword = document.getElementById("togglePassword");
-const password = document.getElementById("password");
-
-togglePassword.addEventListener("click", () => {
-  const type = password.getAttribute("type") === "password" ? "text" : "password";
-  password.setAttribute("type", type);
-
-  togglePassword.classList.toggle("fa-eye");
-  togglePassword.classList.toggle("fa-eye-slash");
-});
-
-// Toggle Confirm Password
-const toggleConfirm = document.getElementById("toggleConfirm");
-const confirmPassword = document.getElementById("confirmPassword");
-
-toggleConfirm.addEventListener("click", () => {
-  const type = confirmPassword.getAttribute("type") === "password" ? "text" : "password";
-  confirmPassword.setAttribute("type", type);
-
-  toggleConfirm.classList.toggle("fa-eye");
-  toggleConfirm.classList.toggle("fa-eye-slash");
-});
   </script>
 </body>
 </html>

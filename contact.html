@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>InkWhisper | Contact – Inquiries, Bookings & Botanical Connections</title>
-    <script src="tailwind.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
-            theme: { extend: { fontFamily: { 'sans': ['Inter', 'system-ui', 'sans-serif'] } } }
+            theme: { 
+                extend: { 
+                    fontFamily: { 'sans': ['Inter', 'system-ui', 'sans-serif'] },
+                    colors: {
+                        'ink-black': '#0a0a0a',
+                        'charcoal': '#1a1a1a',
+                        'dark-charcoal': '#121212',
+                    }
+                } 
+            } 
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/jpeg" href="images/writen1 (1).jpg">
 
@@ -26,90 +33,28 @@
         html[dir="rtl"] .navbar-flex {
             flex-direction: row-reverse !important;
         }
+        html[dir="rtl"] .nav-links { order: 2; }
+        html[dir="rtl"] .logo-area { order: 3; }
+        html[dir="rtl"] .controls-area { order: 1; }
+        html[dir="rtl"] .home-dropdown { left: auto !important; right: 0 !important; }
+        html[dir="rtl"] .fa-arrow-right { transform: scaleX(-1); }
+        html[dir="rtl"] .rtl-flip { transform: scaleX(-1); }
+        html[dir="rtl"] .text-left, html[dir="rtl"] .sm\:text-left, html[dir="rtl"] .lg\:text-left { text-align: right !important; }
+        html[dir="rtl"] .space-x-6 > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 1; }
+        html[dir="rtl"] .mr-2 { margin-right: 0; margin-left: 0.5rem; }
+        html[dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+        html[dir="rtl"] .mobile-drawer { right: auto; left: 0; transform: translateX(-100%); }
+        html[dir="rtl"] .mobile-drawer.open { transform: translateX(0); }
+        html[dir="rtl"] .flex.items-center.gap-3, html[dir="rtl"] .flex.items-center.gap-2 { flex-direction: row-reverse; }
 
-        html[dir="rtl"] .nav-links {
-            order: 2;
-        }
-
-        html[dir="rtl"] .logo-area {
-            order: 3;
-        }
-
-        html[dir="rtl"] .controls-area {
-            order: 1;
-        }
-
-        html[dir="rtl"] .home-dropdown {
-            left: auto !important;
-            right: 0 !important;
-        }
-
-        html[dir="rtl"] .fa-arrow-right {
-            transform: scaleX(-1);
-        }
-
-        html[dir="rtl"] .rtl-flip {
-            transform: scaleX(-1);
-        }
-
-        html[dir="rtl"] .text-left,
-        html[dir="rtl"] .sm\:text-left,
-        html[dir="rtl"] .lg\:text-left {
-            text-align: right !important;
-        }
-
-        html[dir="rtl"] .space-x-6> :not([hidden])~ :not([hidden]) {
-            --tw-space-x-reverse: 1;
-        }
-
-        html[dir="rtl"] .flex-row-reverse-rtl {
-            flex-direction: row-reverse;
-        }
-
-        html[dir="rtl"] .mr-2 {
-            margin-right: 0;
-            margin-left: 0.5rem;
-        }
-
-        html[dir="rtl"] .ml-2 {
-            margin-left: 0;
-            margin-right: 0.5rem;
-        }
-
-        html[dir="rtl"] .gap-3 {
-            gap: 0.75rem;
-        }
-
-        /* RTL Drawer */
-        html[dir="rtl"] .mobile-drawer {
-            right: auto;
-            left: 0;
-            transform: translateX(-100%);
-        }
-
-        html[dir="rtl"] .mobile-drawer.open {
-            transform: translateX(0);
-        }
-
-        /* RTL form elements */
-        html[dir="rtl"] .flex.items-center.gap-3 {
-            flex-direction: row-reverse;
-        }
-
-        html[dir="rtl"] .flex.items-center.gap-2 {
-            flex-direction: row-reverse;
-        }
-
-        /* ========== DARK MODE ========== */
+        /* ========== DARK MODE - BLACK & DARK GREY BACKGROUNDS ========== */
         html.dark body {
-            background-color: #1a1410 !important;
+            background-color: #0a0a0a !important;
         }
-
         html.dark .nav-bar {
-            background-color: #2a221c !important;
-            border-bottom-color: #3d3228 !important;
+            background-color: #111111 !important;
+            border-bottom-color: #2a2a2a !important;
         }
-
         html.dark .nav-text,
         html.dark .footer-text,
         html.dark .dropdown-item,
@@ -128,152 +73,125 @@
         html.dark .text-\[\#5E4B34\],
         html.dark .text-\[\#6F523B\],
         html.dark .text-\[\#8B694A\],
-        html.dark p,
-        html.dark h1,
-        html.dark h2,
-        html.dark h3,
-        html.dark h4,
-        html.dark li,
-        html.dark label,
-        html.dark .leading-relaxed,
-        html.dark .newsletter-input,
-        html.dark .newsletter-input::placeholder,
-        html.dark input,
-        html.dark textarea,
-        html.dark select,
-        html.dark button span,
-        html.dark .btn-outline-dark,
-        html.dark .form-input,
-        html.dark .text-\[\#E8DCCC\],
-        html.dark .text-\[\#C9BDA8\],
-        html.dark option {
+        html.dark p, html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark li,
+        html.dark label, html.dark .leading-relaxed, html.dark .newsletter-input,
+        html.dark .newsletter-input::placeholder, html.dark input, html.dark textarea,
+        html.dark select, html.dark button span, html.dark .form-input,
+        html.dark .text-\[\#E8DCCC\], html.dark .text-\[\#C9BDA8\], html.dark option {
             color: #FEF8F0 !important;
         }
-
         html.dark .text-\[\#BF7F3A\],
-        html.dark .fa-feather-alt,
-        html.dark .fa-leaf,
-        html.dark .fa-envelope,
-        html.dark .fa-pen-fancy,
-        html.dark .fa-calendar-check,
-        html.dark .fa-clock,
-        html.dark .fa-map-marker-alt,
-        html.dark .fa-phone-alt,
-        html.dark .fa-instagram,
-        html.dark .fa-check-circle,
-        html.dark .fa-paper-plane,
-        html.dark .fa-arrow-right,
-        html.dark .fa-map-pin,
-        html.dark .fa-truck,
-        html.dark .fa-exchange-alt,
-        html.dark .fa-chalkboard-user,
-        html.dark .fa-seedling,
-        html.dark .fa-wheelchair {
+        html.dark .fa-feather-alt, html.dark .fa-leaf, html.dark .fa-envelope,
+        html.dark .fa-pen-fancy, html.dark .fa-calendar-check, html.dark .fa-clock,
+        html.dark .fa-map-marker-alt, html.dark .fa-phone-alt, html.dark .fa-instagram,
+        html.dark .fa-check-circle, html.dark .fa-paper-plane, html.dark .fa-arrow-right,
+        html.dark .fa-map-pin, html.dark .fa-truck, html.dark .fa-exchange-alt,
+        html.dark .fa-chalkboard-user, html.dark .fa-seedling, html.dark .fa-wheelchair {
             color: #FFCF9A !important;
         }
-
         html.dark .btn-primary-dark {
-            background-color: #5a3a28 !important;
-            color: #FEF8F0 !important;
+            background-color: #2a2a2a !important;
+            color: #FFCF9A !important;
+            border: 1px solid #3a3a3a;
         }
-
         html.dark .btn-primary-dark:hover {
-            background-color: #7a4f38 !important;
+            background-color: #3a3a3a !important;
         }
-
         html.dark .dropdown-bg {
-            background-color: #2a221c !important;
-            border-color: #3d3228 !important;
+            background-color: #1a1a1a !important;
+            border-color: #333 !important;
         }
-
         html.dark .dropdown-item:hover {
-            background-color: #3d3228 !important;
-            color: #FFD89C !important;
+            background-color: #2a2a2a !important;
         }
-
         html.dark .card-dark {
-            background-color: #2a221c !important;
-            border-color: #3d3228 !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            background-color: #121212 !important;
+            border-color: #2a2a2a !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
         }
-
         html.dark .footer-dark {
-            background-color: #1a1410 !important;
-            border-top-color: #3d3228 !important;
+            background-color: #0a0a0a !important;
+            border-top-color: #222 !important;
         }
-
         html.dark .border-dark {
-            border-color: #3d3228 !important;
+            border-color: #2a2a2a !important;
         }
-
         html.dark .mobile-menu-dark {
-            background-color: #2a221c !important;
+            background-color: #111111 !important;
         }
-
         html.dark .mobile-menu-item {
-            border-bottom-color: #3d3228 !important;
+            border-bottom-color: #2a2a2a !important;
             color: #FEF8F0 !important;
         }
-
         html.dark .mobile-toggle-btn {
-            background-color: #3d3228 !important;
+            background-color: #2a2a2a !important;
             color: #FEF8F0 !important;
         }
-
         html.dark .divider-color {
-            background-color: #5a4a38 !important;
+            background-color: #3a3a3a !important;
         }
-
         html.dark .hero-badge {
-            background-color: #3d3228 !important;
-            color: #FFD89C !important;
+            background-color: #1a1a1a !important;
+            color: #FFCF9A !important;
         }
-
         html.dark .social-icon {
-            color: #e8dccc !important;
+            color: #cccccc !important;
         }
-
         html.dark .social-icon:hover {
-            color: #FFD89C !important;
+            color: #FFCF9A !important;
         }
-
         html.dark .newsletter-input {
-            background-color: #2a221c !important;
-            border-color: #5a4a38 !important;
+            background-color: #1a1a1a !important;
+            border-color: #3a3a3a !important;
         }
-
         html.dark .form-input {
-            background-color: rgba(26, 20, 16, 0.85) !important;
-            border-color: #5a4a38 !important;
+            background-color: rgba(18, 18, 18, 0.9) !important;
+            border-color: #3a3a3a !important;
         }
-
         html.dark .form-input:focus {
             border-color: #FFCF9A !important;
             box-shadow: 0 0 0 3px rgba(255, 207, 154, 0.2) !important;
         }
-
         html.dark .bg-white {
-            background-color: #2a221c !important;
+            background-color: #121212 !important;
         }
-
         html.dark .bg-white\/60 {
-            background-color: rgba(42, 34, 28, 0.85) !important;
+            background-color: rgba(18, 18, 18, 0.9) !important;
         }
-
         html.dark .bg-white\/50 {
-            background-color: rgba(42, 34, 28, 0.8) !important;
+            background-color: rgba(18, 18, 18, 0.85) !important;
         }
-
-        html.dark .border-\[\#FFE0B5\] {
-            border-color: #4a3a2c !important;
+        html.dark .bg-white\/70 {
+            background-color: rgba(18, 18, 18, 0.85) !important;
         }
-
+        html.dark .bg-white\/80 {
+            background-color: rgba(18, 18, 18, 0.9) !important;
+        }
+        html.dark .border-\[\#FFE0B5\],
+        html.dark .border-\[\#FFDDB5\],
+        html.dark .border-\[\#FFD6A0\] {
+            border-color: #2a2a2a !important;
+        }
         html.dark .bg-gradient-to-br {
-            background: #1f1813 !important;
+            background: #0a0a0a !important;
         }
-
+        html.dark .contact-overlay {
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.96) 0%, rgba(10, 10, 10, 0.94) 100%) !important;
+        }
         html.dark iframe {
             opacity: 0.85;
+        }
+        html.dark .bg-\[\#FFE8D4\] {
+            background-color: #111111 !important;
+        }
+        html.dark .bg-\[\#FFD89C\] {
+            background-color: #111111 !important;
+        }
+        html.dark .bg-\[\#4A2E1F\] {
+            background-color: #1a1a1a !important;
+        }
+        html.dark .bg-\[\#FFE2B5\] {
+            background-color: #111111 !important;
         }
 
         .contact-hero {
@@ -282,33 +200,23 @@
             background-position: center 40%;
             position: relative;
         }
-
         .contact-overlay {
             background: linear-gradient(135deg, rgba(254, 248, 240, 0.92) 0%, rgba(254, 248, 240, 0.78) 100%);
         }
-
-        html.dark .contact-overlay {
-            background: linear-gradient(135deg, rgba(26, 20, 16, 0.94) 0%, rgba(26, 20, 16, 0.92) 100%);
-        }
-
         .form-input {
             transition: all 0.2s ease;
         }
-
         .form-input:focus {
             outline: none;
             border-color: #BF7F3A;
             box-shadow: 0 0 0 3px rgba(191, 127, 58, 0.1);
         }
-
         .booking-card {
             transition: all 0.35s ease;
         }
-
         .booking-card:hover {
             transform: translateY(-5px);
         }
-
         .mobile-drawer {
             position: fixed;
             top: 0;
@@ -322,132 +230,75 @@
             overflow-y: auto;
             box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
         }
-
-        .mobile-drawer.open {
-            transform: translateX(0);
-        }
-
+        .mobile-drawer.open { transform: translateX(0); }
         .drawer-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.7);
             z-index: 999;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.25s ease, visibility 0.25s ease;
         }
-
-        .drawer-overlay.open {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        body.drawer-open {
-            overflow: hidden;
-        }
-
+        .drawer-overlay.open { opacity: 1; visibility: visible; }
+        body.drawer-open { overflow: hidden; }
         html.dark .mobile-drawer {
-            background-color: #2a221c !important;
-            border-left-color: #3d3228 !important;
+            background-color: #111111 !important;
+            border-left-color: #2a2a2a !important;
         }
-
         .envelope-icon {
             animation: gentleFloat 4s ease-in-out infinite;
         }
-
         @keyframes gentleFloat {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-6px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
         }
     </style>
 </head>
-
 <body class="bg-[#FEF8F0] font-sans antialiased">
 
     <!-- ========== NAVBAR ========== -->
-    <nav class="bg-[#FFD89C] shadow-sm sticky top-0 z-50 w-full border-b border-[#FFCF8A] nav-bar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<nav class="bg-white shadow-sm sticky top-0 z-50 w-full border-b border-gray-200 nav-bar">        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="navbar-flex flex justify-between items-center h-16 md:h-20">
                 <a href="index.html" class="logo-area flex-shrink-0 flex items-center gap-2 group">
-                    <i
-                        class="fas fa-feather-alt text-[#BF7F3A] text-2xl md:text-3xl transition-transform group-hover:rotate-3"></i>
+                    <i class="fas fa-feather-alt text-[#BF7F3A] text-2xl md:text-3xl transition-transform group-hover:rotate-3"></i>
                     <div class="flex flex-col leading-tight">
-                        <span
-                            class="text-[#4A2E1F] text-xl md:text-2xl font-bold tracking-tight nav-text">InkWhisper</span>
-                        <span
-                            class="text-[#8B694A] text-[0.65rem] font-semibold uppercase tracking-wider -mt-0.5 logo-subtext">botanical
-                            essence</span>
+                        <span class="text-[#4A2E1F] text-xl md:text-2xl font-bold tracking-tight nav-text">InkWhisper</span>
+                        <span class="text-[#8B694A] text-[0.65rem] font-semibold uppercase tracking-wider -mt-0.5 logo-subtext">botanical essence</span>
                     </div>
                 </a>
-
                 <div class="nav-links hidden xl:flex items-center space-x-6 xl:space-x-8">
                     <div class="relative group">
-                        <a href="#"
-                            class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition flex items-center gap-1 nav-text">
-                            Home <i
-                                class="fas fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
-                        </a>
-                        <div
-                            class="home-dropdown absolute left-0 mt-2 w-40 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 border border-[#FFE0B5] overflow-hidden dropdown-bg">
-                            <a href="index.html"
-                                class="block px-4 py-2.5 text-sm hover:bg-[#FEF3E4] transition flex items-center gap-2 dropdown-item">
-                                <i class="fas fa-home text-[#BF7F3A] text-xs"></i> Home 1
-                            </a>
-                            <a href="home2.html"
-                                class="block px-4 py-2.5 text-sm hover:bg-[#FEF3E4] transition flex items-center gap-2 border-t border-[#FFEFDF] dropdown-item">
-                                <i class="fas fa-leaf text-[#BF7F3A] text-xs"></i> Home 2
-                            </a>
+                        <a href="#" class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition flex items-center gap-1 nav-text">Home <i class="fas fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i></a>
+                        <div class="home-dropdown absolute left-0 mt-2 w-40 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 border border-[#FFE0B5] overflow-hidden dropdown-bg">
+                            <a href="index.html" class="block px-4 py-2.5 text-sm hover:bg-[#FEF3E4] transition flex items-center gap-2 dropdown-item"> Home 1</a>
+                            <a href="home2.html" class="block px-4 py-2.5 text-sm hover:bg-[#FEF3E4] transition flex items-center gap-2 border-t border-[#FFEFDF] dropdown-item">Home 2</a>
                         </div>
                     </div>
-                    <a href="about.html"
-                        class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition nav-text">About</a>
-                    <a href="service.html"
-                        class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition nav-text">Service</a>
-                    <a href="loveLetter.html"
-                        class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition nav-text">LoveLetter</a>
-                    <a href="pricing.html"
-                        class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition nav-text">Pricing</a>
-                    <a href="writingArt.html"
-                        class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition nav-text">WritingArt</a>
-                    <a href="contact.html"
-                        class="text-[#BF7F3A] font-medium text-sm lg:text-base border-b-2 border-[#BF7F3A] pb-1 nav-text">Contact</a>
+                    <a href="about.html" class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition nav-text">About</a>
+                    <a href="service.html" class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition nav-text">Service</a>
+                    <a href="loveLetter.html" class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition nav-text">LoveLetter</a>
+                    <a href="pricing.html" class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition nav-text">Pricing</a>
+                    <a href="writingArt.html" class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition nav-text">WritingArt</a>
+                    <a href="contact.html" class="text-[#BF7F3A] font-medium text-sm lg:text-base border-b-2 border-[#BF7F3A] pb-1 nav-text">Contact</a>
                 </div>
-
                 <div class="controls-area hidden xl:flex items-center gap-3 xl:gap-4">
-                    <a href="Login.html"
-                        class="flex items-center gap-2 bg-[#4A2E1F] text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:bg-[#6B422A] transition btn-primary-dark">
-                        <span>Login</span>
-                    </a>
+                    <a href="Login.html" class="flex items-center gap-2 bg-[#4A2E1F] text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:bg-[#6B422A] transition btn-primary-dark"><span>Login</span></a>
                     <div class="h-5 w-px bg-[#D9B574] divider-color"></div>
-                    <button id="darkModeToggle"
-                        class="flex items-center gap-1.5 text-[#4A2E1F] font-medium text-sm hover:text-[#BF7F3A] transition nav-text">
+                    <button id="darkModeToggle" class="flex items-center gap-1.5 text-[#4A2E1F] font-medium text-sm hover:text-[#BF7F3A] transition nav-text">
                         <i id="darkIcon" class="fas fa-moon text-sm"></i> <span id="darkLabel">Dark</span>
                     </button>
                     <div class="h-5 w-px bg-[#D9B574] divider-color"></div>
-                    <button id="rtlToggle"
-                        class="flex items-center gap-1.5 text-[#4A2E1F] font-medium text-sm hover:text-[#BF7F3A] transition nav-text">
+                    <button id="rtlToggle" class="flex items-center gap-1.5 text-[#4A2E1F] font-medium text-sm hover:text-[#BF7F3A] transition nav-text">
                         <i id="rtlIcon" class="fas fa-globe text-sm"></i> <span id="rtlLabel">LTR</span>
                     </button>
                 </div>
-
                 <div class="flex items-center gap-3 xl:hidden">
-                    <a href="#" class="nav-text hidden xl:block"><i class="far fa-user-circle text-xl"></i></a>
-                    <button id="mobileMenuBtn"
-                        class="nav-text focus:outline-none p-2 rounded-full hover:bg-[#FFCF8A] transition">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
+                    <button id="mobileMenuBtn" class="nav-text focus:outline-none p-2 rounded-full hover:bg-[#FFCF8A] transition"><i class="fas fa-bars text-2xl"></i></button>
                 </div>
             </div>
         </div>
@@ -457,43 +308,20 @@
     <div id="mobileDrawer" class="mobile-drawer bg-[#FFE2B5] border-l border-[#FFD6A0] shadow-xl mobile-menu-dark">
         <div class="flex flex-col h-full">
             <div class="flex justify-between items-center p-5 border-b border-[#FFD6A0]">
-                <div class="flex items-center gap-2"><i class="fas fa-feather-alt text-[#BF7F3A] text-xl"></i><span
-                        class="font-bold text-[#4A2E1F] text-lg nav-text">Menu</span></div>
-                <button id="closeDrawerBtn" class="text-[#4A2E1F] hover:text-[#BF7F3A] transition text-2xl"><i
-                        class="fas fa-times"></i></button>
+                <div class="flex items-center gap-2"><i class="fas fa-feather-alt text-[#BF7F3A] text-xl"></i><span class="font-bold text-[#4A2E1F] text-lg nav-text">Menu</span></div>
+                <button id="closeDrawerBtn" class="text-[#4A2E1F] hover:text-[#BF7F3A] transition text-2xl"><i class="fas fa-times"></i></button>
             </div>
             <div class="flex-1 py-6 px-5 space-y-4 overflow-y-auto">
-                <div>
-                    <div
-                        class="flex justify-between items-center py-2 text-[#3E2C1C] font-medium border-b border-[#FFD6A0] nav-text mobile-menu-item">
-                        <span>Home</span><button id="drawerHomeBtn"><i id="drawerChevron"
-                                class="fas fa-chevron-down text-xs transition-transform"></i></button></div>
-                    <div id="drawerSubmenu" class="hidden pl-4 mt-2 space-y-2"><a href="index.html"
-                            class="block py-1.5 text-sm hover:text-[#BF7F3A] transition flex items-center gap-2 nav-text"><i
-                                class="fas fa-home text-[#BF7F3A] text-xs"></i> Home 1</a><a href="home2.html"
-                            class="block py-1.5 text-sm hover:text-[#BF7F3A] transition flex items-center gap-2 nav-text"><i
-                                class="fas fa-leaf text-[#BF7F3A] text-xs"></i> Home 2</a></div>
-                </div>
+                <div><div class="flex justify-between items-center py-2 text-[#3E2C1C] font-medium border-b border-[#FFD6A0] nav-text mobile-menu-item"><span>Home</span><button id="drawerHomeBtn"><i id="drawerChevron" class="fas fa-chevron-down text-xs transition-transform"></i></button></div>
+                <div id="drawerSubmenu" class="hidden pl-4 mt-2 space-y-2"><a href="index.html" class="block py-1.5 text-sm hover:text-[#BF7F3A] transition flex items-center gap-2 nav-text">Home 1</a><a href="home2.html" class="block py-1.5 text-sm hover:text-[#BF7F3A] transition flex items-center gap-2 nav-text"> Home 2</a></div></div>
                 <a href="about.html" class="block py-2 border-b border-[#FFD6A0] nav-text mobile-menu-item">About</a>
-                <a href="service.html"
-                    class="block py-2 border-b border-[#FFD6A0] nav-text mobile-menu-item">Service</a>
-                <a href="loveLetter.html"
-                    class="block py-2 border-b border-[#FFD6A0] nav-text mobile-menu-item">LoveLetter</a>
-                <a href="pricing.html"
-                    class="block py-2 border-b border-[#FFD6A0] nav-text mobile-menu-item">Pricing</a>
-                <a href="writingArt.html"
-                    class="block py-2 border-b border-[#FFD6A0] nav-text mobile-menu-item">WritingArt</a>
-                <a href="contact.html"
-                    class="block py-2 border-b border-[#FFD6A0] text-[#BF7F3A] font-medium nav-text mobile-menu-item">Contact</a>
-                <div class="pt-4 space-y-4"><a href="Login.html" class="flex items-center gap-2 nav-text"><i
-                            class="far fa-user-circle"></i> Login</a>
-                    <div class="flex gap-2 pt-2"><button id="drawerDarkToggle"
-                            class="flex-1 flex items-center justify-center gap-2 bg-[#FFD6A0] px-3 py-2 rounded-full text-sm font-medium transition mobile-toggle-btn"><i
-                                id="drawerDarkIcon" class="fas fa-moon text-xs"></i> <span
-                                id="drawerDarkLabel">Dark</span></button><button id="drawerRtlToggle"
-                            class="flex-1 flex items-center justify-center gap-2 bg-[#FFD6A0] px-3 py-2 rounded-full text-sm font-medium transition mobile-toggle-btn"><i
-                                class="fas fa-globe text-xs"></i> <span id="drawerRtlLabel">LTR</span></button></div>
-                </div>
+                <a href="service.html" class="block py-2 border-b border-[#FFD6A0] nav-text mobile-menu-item">Service</a>
+                <a href="loveLetter.html" class="block py-2 border-b border-[#FFD6A0] nav-text mobile-menu-item">LoveLetter</a>
+                <a href="pricing.html" class="block py-2 border-b border-[#FFD6A0] nav-text mobile-menu-item">Pricing</a>
+                <a href="writingArt.html" class="block py-2 border-b border-[#FFD6A0] nav-text mobile-menu-item">WritingArt</a>
+                <a href="contact.html" class="block py-2 border-b border-[#FFD6A0] text-[#BF7F3A] font-medium nav-text mobile-menu-item">Contact</a>
+                <div class="pt-4 space-y-4"><a href="Login.html" class="flex items-center gap-2 nav-text"><i class="far fa-user-circle"></i> Login</a>
+                <div class="flex gap-2 pt-2"><button id="drawerDarkToggle" class="flex-1 flex items-center justify-center gap-2 bg-[#FFD6A0] px-3 py-2 rounded-full text-sm font-medium transition mobile-toggle-btn"><i id="drawerDarkIcon" class="fas fa-moon text-xs"></i> <span id="drawerDarkLabel">Dark</span></button><button id="drawerRtlToggle" class="flex-1 flex items-center justify-center gap-2 bg-[#FFD6A0] px-3 py-2 rounded-full text-sm font-medium transition mobile-toggle-btn"><i class="fas fa-globe text-xs"></i> <span id="drawerRtlLabel">LTR</span></button></div></div>
             </div>
         </div>
     </div>
@@ -504,228 +332,83 @@
             <div class="contact-overlay absolute inset-0"></div>
             <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28">
                 <div class="text-center max-w-3xl mx-auto">
-                    <div
-                        class="inline-flex items-center gap-2 bg-[#FFE8D4] px-4 py-1.5 rounded-full text-[#BF7F3A] text-xs font-semibold uppercase mb-6 hero-badge">
+                    <div class="inline-flex items-center gap-2 bg-[#FFE8D4] px-4 py-1.5 rounded-full text-[#BF7F3A] text-xs font-semibold uppercase mb-6 hero-badge">
                         <i class="fas fa-envelope envelope-icon text-xs"></i> <span>reach out · we're listening</span>
                     </div>
-                    <h1
-                        class="text-4xl sm:text-5xl md:text-6xl font-bold text-[#3E2C1C] leading-tight text-primary-dark">
-                        Let's <span class="text-[#BF7F3A]">Connect</span>
-                    </h1>
-                    <p
-                        class="text-base md:text-lg text-[#5E4B34] max-w-2xl mx-auto mt-4 md:mt-6 leading-relaxed text-secondary-dark">
-                        Whether you have a question about our botanicals, wish to book a workshop, or simply want to say
-                        hello — we'd love to hear from you.
-                    </p>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-[#3E2C1C] leading-tight text-primary-dark">Let's <span class="text-[#BF7F3A]">Connect</span></h1>
+                    <p class="text-base md:text-lg text-[#5E4B34] max-w-2xl mx-auto mt-4 md:mt-6 leading-relaxed text-secondary-dark">Whether you have a question about our botanicals, wish to book a workshop, or simply want to say hello — we'd love to hear from you.</p>
                 </div>
             </div>
         </div>
 
         <!-- Contact Info Cards Row -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div
-                    class="bg-white dark:bg-[#2a221c] rounded-xl p-4 text-center shadow-md border border-[#FFE0B5] card-dark">
-                    <div
-                        class="w-10 h-10 bg-[#FFE8D4] dark:bg-[#3d3228] rounded-full flex items-center justify-center mx-auto mb-2">
-                        <i class="fas fa-map-marker-alt text-[#BF7F3A]"></i></div>
-                    <h3 class="font-semibold text-[#4A2E1F] text-primary-dark text-sm">Visit Us</h3>
-                    <p class="text-xs text-[#5E4B34] text-secondary-dark mt-1">47 Willow Lane,<br>Portland, OR 97214</p>
-                </div>
-                <div
-                    class="bg-white dark:bg-[#2a221c] rounded-xl p-4 text-center shadow-md border border-[#FFE0B5] card-dark">
-                    <div
-                        class="w-10 h-10 bg-[#FFE8D4] dark:bg-[#3d3228] rounded-full flex items-center justify-center mx-auto mb-2">
-                        <i class="fas fa-envelope text-[#BF7F3A]"></i></div>
-                    <h3 class="font-semibold text-[#4A2E1F] text-primary-dark text-sm">Email Us</h3>
-                    <p class="text-xs text-[#5E4B34] text-secondary-dark mt-1">
-                        hello@inkwhisper.com<br>studio@inkwhisper.com</p>
-                </div>
-                <div
-                    class="bg-white dark:bg-[#2a221c] rounded-xl p-4 text-center shadow-md border border-[#FFE0B5] card-dark">
-                    <div
-                        class="w-10 h-10 bg-[#FFE8D4] dark:bg-[#3d3228] rounded-full flex items-center justify-center mx-auto mb-2">
-                        <i class="fas fa-phone-alt text-[#BF7F3A]"></i></div>
-                    <h3 class="font-semibold text-[#4A2E1F] text-primary-dark text-sm">Call Us</h3>
-                    <p class="text-xs text-[#5E4B34] text-secondary-dark mt-1">+1 (503) 876-2345<br>Mon-Fri 10am-5pm PST
-                    </p>
-                </div>
-                <div
-                    class="bg-white dark:bg-[#2a221c] rounded-xl p-4 text-center shadow-md border border-[#FFE0B5] card-dark">
-                    <div
-                        class="w-10 h-10 bg-[#FFE8D4] dark:bg-[#3d3228] rounded-full flex items-center justify-center mx-auto mb-2">
-                        <i class="fab fa-instagram text-[#BF7F3A]"></i></div>
-                    <h3 class="font-semibold text-[#4A2E1F] text-primary-dark text-sm">Follow Us</h3>
-                    <p class="text-xs text-[#5E4B34] text-secondary-dark mt-1">@inkwhisper<br>daily botanical magic</p>
-                </div>
-            </div>
-        </div>
+      
 
         <!-- Contact Form + Booking Card Grid -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
                 <!-- Contact Form -->
-                <div class="bg-white/60 dark:bg-[#2a221c]/60 rounded-2xl p-6 md:p-8 border border-[#FFE0B5] card-dark">
-                    <div class="flex items-center gap-3 mb-6">
-                        <i class="fas fa-pen-fancy text-2xl text-[#BF7F3A]"></i>
-                        <h2 class="text-xl md:text-2xl font-bold text-[#3E2C1C] text-primary-dark">Send us a message
-                        </h2>
-                    </div>
-                    <p class="text-[#5E4B34] text-sm mb-6 text-secondary-dark">We'll get back to you within 24–48 hours.
-                        Your message matters to us.</p>
+                <div class="bg-white/60 dark:bg-[#121212]/90 rounded-2xl p-6 md:p-8 border border-[#FFE0B5] card-dark">
+                    <div class="flex items-center gap-3 mb-6"><i class="fas fa-pen-fancy text-2xl text-[#BF7F3A]"></i><h2 class="text-xl md:text-2xl font-bold text-[#3E2C1C] text-primary-dark">Send us a message</h2></div>
+                    <p class="text-[#5E4B34] text-sm mb-6 text-secondary-dark">We'll get back to you within 24–48 hours. Your message matters to us.</p>
                     <form id="contactForm" class="space-y-5">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">First Name *</label><input
-                                    type="text" id="firstName" required
-                                    class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1410]/80 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm">
-                            </div>
-                            <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Last Name *</label><input
-                                    type="text" id="lastName" required
-                                    class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1410]/80 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm">
-                            </div>
+                            <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">First Name *</label><input type="text" id="firstName" required class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm"></div>
+                            <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Last Name *</label><input type="text" id="lastName" required class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm"></div>
                         </div>
-                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Email Address *</label><input
-                                type="email" id="email" required
-                                class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1410]/80 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm">
-                        </div>
-                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Subject</label><select
-                                id="subject"
-                                class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1410]/80 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm">
-                                <option>General Inquiry</option>
-                                <option>Workshop Booking</option>
-                                <option>Custom Commission</option>
-                                <option>Wholesale / Partnership</option>
-                                <option>Press & Media</option>
-                            </select></div>
-                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Message *</label><textarea
-                                id="message" rows="5" required
-                                class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1410]/80 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm resize-none"></textarea>
-                        </div>
-                        <button type="submit"
-                            class="w-full bg-[#4A2E1F] hover:bg-[#6B422A] text-white font-semibold py-3 rounded-full transition shadow-md flex items-center justify-center gap-2 btn-primary-dark">Send
-                            Message <i class="fas fa-paper-plane text-sm"></i></button>
-                        <p id="formSuccess" class="text-center text-sm text-[#BF7F3A] hidden mt-3">✓ Thank you! Your
-                            message has been sent. We'll reply soon.</p>
+                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Email Address *</label><input type="email" id="email" required class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm"></div>
+                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Subject</label><select id="subject" class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm"><option>General Inquiry</option><option>Workshop Booking</option><option>Custom Commission</option><option>Wholesale / Partnership</option><option>Press & Media</option></select></div>
+                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Message *</label><textarea id="message" rows="5" required class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm resize-none"></textarea></div>
+                        <button type="submit" class="w-full bg-[#4A2E1F] hover:bg-[#6B422A] text-white font-semibold py-3 rounded-full transition shadow-md flex items-center justify-center gap-2 btn-primary-dark">Send Message <i class="fas fa-paper-plane text-sm"></i></button>
+                        <p id="formSuccess" class="text-center text-sm text-[#BF7F3A] hidden mt-3">✓ Thank you! Your message has been sent. We'll reply soon.</p>
                     </form>
                 </div>
 
                 <!-- Booking Card -->
-                <div
-                    class="booking-card bg-gradient-to-br from-[#FFF6EA] to-[#FEF0E2] dark:from-[#1f1813] dark:to-[#1a1410] rounded-2xl p-6 md:p-8 border border-[#FFE0B5] shadow-lg">
-                    <div class="flex items-center gap-3 mb-6">
-                        <i class="fas fa-calendar-check text-2xl text-[#BF7F3A]"></i>
-                        <h2 class="text-xl md:text-2xl font-bold text-[#3E2C1C] text-primary-dark">Book a Session</h2>
-                    </div>
-                    <p class="text-[#5E4B34] text-sm mb-6 text-secondary-dark">Schedule a 1-on-1 herbal consultation,
-                        private workshop, or ritual ceremony.</p>
+                <div class="booking-card bg-gradient-to-br from-[#FFF6EA] to-[#FEF0E2] dark:from-[#0a0a0a] dark:to-[#0a0a0a] rounded-2xl p-6 md:p-8 border border-[#FFE0B5] shadow-lg">
+                    <div class="flex items-center gap-3 mb-6"><i class="fas fa-calendar-check text-2xl text-[#BF7F3A]"></i><h2 class="text-xl md:text-2xl font-bold text-[#3E2C1C] text-primary-dark">Book a Session</h2></div>
+                    <p class="text-[#5E4B34] text-sm mb-6 text-secondary-dark">Schedule a 1-on-1 herbal consultation, private workshop, or ritual ceremony.</p>
                     <div class="space-y-5">
-                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Select Service
-                                *</label><select id="bookingService"
-                                class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1410]/80 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm">
-                                <option value="herbal-consultation">Herbal Consultation (30 min) - $65</option>
-                                <option value="candle-workshop">Candle Pouring Workshop (2 hrs) - $85</option>
-                                <option value="forest-bathing">Forest Bathing & Tea Ritual (3 hrs) - $95</option>
-                                <option value="private-ceremony">Private Ceremony (custom) - $250+</option>
-                                <option value="calligraphy-class">Botanical Calligraphy Class (2 hrs) - $75</option>
-                            </select></div>
-                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Preferred Date *</label><input
-                                type="date" id="bookingDate"
-                                class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1410]/80 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm">
-                        </div>
-                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Preferred Time</label><select
-                                id="bookingTime"
-                                class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1410]/80 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm">
-                                <option>10:00 AM - 11:00 AM</option>
-                                <option>11:30 AM - 12:30 PM</option>
-                                <option>1:00 PM - 2:00 PM</option>
-                                <option>2:30 PM - 3:30 PM</option>
-                                <option>4:00 PM - 5:00 PM</option>
-                                <option>Flexible - contact me</option>
-                            </select></div>
-                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Number of Guests (if
-                                applicable)</label><input type="number" id="guestCount" min="1" max="20" value="1"
-                                class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1410]/80 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm">
-                        </div>
-                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Special Requests /
-                                Notes</label><textarea id="bookingNotes" rows="3"
-                                class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1410]/80 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm resize-none"
-                                placeholder="Dietary restrictions, accessibility needs, or intentions..."></textarea>
-                        </div>
-                        <button id="bookNowBtn"
-                            class="w-full bg-[#BF7F3A] hover:bg-[#D9A56C] text-white font-semibold py-3 rounded-full transition shadow-md flex items-center justify-center gap-2">Request
-                            Booking <i class="fas fa-arrow-right text-sm"></i></button>
-                        <p id="bookingSuccess" class="text-center text-sm text-[#BF7F3A] hidden mt-3">✓ Booking request
-                            sent! We'll confirm within 24 hours.</p>
-                        <p class="text-xs text-center text-[#8B694A] mt-3">You'll receive a confirmation email with
-                            payment details.</p>
+                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Select Service *</label><select id="bookingService" class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm"><option value="herbal-consultation">Herbal Consultation (30 min) - $65</option><option value="candle-workshop">Candle Pouring Workshop (2 hrs) - $85</option><option value="forest-bathing">Forest Bathing & Tea Ritual (3 hrs) - $95</option><option value="private-ceremony">Private Ceremony (custom) - $250+</option><option value="calligraphy-class">Botanical Calligraphy Class (2 hrs) - $75</option></select></div>
+                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Preferred Date *</label><input type="date" id="bookingDate" class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm"></div>
+                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Preferred Time</label><select id="bookingTime" class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm"><option>10:00 AM - 11:00 AM</option><option>11:30 AM - 12:30 PM</option><option>1:00 PM - 2:00 PM</option><option>2:30 PM - 3:30 PM</option><option>4:00 PM - 5:00 PM</option><option>Flexible - contact me</option></select></div>
+                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Number of Guests (if applicable)</label><input type="number" id="guestCount" min="1" max="20" value="1" class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm"></div>
+                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Special Requests / Notes</label><textarea id="bookingNotes" rows="3" class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm resize-none" placeholder="Dietary restrictions, accessibility needs, or intentions..."></textarea></div>
+                        <button id="bookNowBtn" class="w-full bg-[#BF7F3A] hover:bg-[#D9A56C] text-white font-semibold py-3 rounded-full transition shadow-md flex items-center justify-center gap-2">Request Booking <i class="fas fa-arrow-right text-sm"></i></button>
+                        <p id="bookingSuccess" class="text-center text-sm text-[#BF7F3A] hidden mt-3">✓ Booking request sent! We'll confirm within 24 hours.</p>
+                        <p class="text-xs text-center text-[#8B694A] mt-3">You'll receive a confirmation email with payment details.</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Map & Studio Hours -->
-        <div
-            class="bg-gradient-to-br from-[#FFF6EA] to-[#FEF0E2] dark:from-[#1f1813] dark:to-[#1a1410] py-12 md:py-16 border-y border-[#FFE0B5] border-dark">
+        <div class="bg-gradient-to-br from-[#FFF6EA] to-[#FEF0E2] dark:from-[#0a0a0a] dark:to-[#0a0a0a] py-12 md:py-16 border-y border-[#FFE0B5] border-dark">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                    <div><span class="text-[#BF7F3A] text-xs font-semibold uppercase tracking-wider">our
-                            sanctuary</span>
-                        <h2 class="text-2xl md:text-3xl font-bold text-[#3E2C1C] mt-2 text-primary-dark">Visit Our
-                            Studio</h2>
-                        <p class="text-[#5E4B34] mt-3 leading-relaxed text-secondary-dark">Nestled in the heart of
-                            Portland's botanical district, our studio is open for appointments, workshops, and slow
-                            browsing. Come say hello — we have tea ready.</p>
+                    <div><span class="text-[#BF7F3A] text-xs font-semibold uppercase tracking-wider">our sanctuary</span>
+                        <h2 class="text-2xl md:text-3xl font-bold text-[#3E2C1C] mt-2 text-primary-dark">Visit Our Studio</h2>
+                        <p class="text-[#5E4B34] mt-3 leading-relaxed text-secondary-dark">Nestled in the heart of Portland's botanical district, our studio is open for appointments, workshops, and slow browsing. Come say hello — we have tea ready.</p>
                         <div class="mt-5 space-y-2">
-                            <div class="flex items-center gap-3 text-sm"><i class="fas fa-clock text-[#BF7F3A] w-5"></i>
-                                <span class="text-[#5E4B34]">Tuesday – Saturday: 11am – 6pm</span></div>
-                            <div class="flex items-center gap-3 text-sm"><i class="fas fa-clock text-[#BF7F3A] w-5"></i>
-                                <span class="text-[#5E4B34]">Sunday & Monday: Closed (workshops only)</span></div>
-                            <div class="flex items-center gap-3 text-sm"><i
-                                    class="fas fa-wheelchair text-[#BF7F3A] w-5"></i> <span
-                                    class="text-[#5E4B34]">Wheelchair accessible · fragrance-free zone</span></div>
-                        </div><a href="#"
-                            class="inline-flex items-center gap-2 mt-6 text-[#BF7F3A] font-medium border-b border-[#BF7F3A] pb-1 hover:gap-3 transition-all">Get
-                            directions <i class="fas fa-map-pin text-xs"></i></a>
+                            <div class="flex items-center gap-3 text-sm"><i class="fas fa-clock text-[#BF7F3A] w-5"></i><span class="text-[#5E4B34]">Tuesday – Saturday: 11am – 6pm</span></div>
+                            <div class="flex items-center gap-3 text-sm"><i class="fas fa-clock text-[#BF7F3A] w-5"></i><span class="text-[#5E4B34]">Sunday & Monday: Closed (workshops only)</span></div>
+                            <div class="flex items-center gap-3 text-sm"><i class="fas fa-wheelchair text-[#BF7F3A] w-5"></i><span class="text-[#5E4B34]">Wheelchair accessible · fragrance-free zone</span></div>
+                        </div>
+                        <a href="#" class="inline-flex items-center gap-2 mt-6 text-[#BF7F3A] font-medium border-b border-[#BF7F3A] pb-1 hover:gap-3 transition-all">Get directions <i class="fas fa-map-pin text-xs"></i></a>
                     </div>
-                    <div class="rounded-2xl overflow-hidden shadow-xl border border-[#FFE0B5] h-64 md:h-80"><iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.456789012345!2d-122.682123!3d45.512345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950c0e6a1a1a1a%3A0x123456789abcdef!2sPortland%2C%20OR!5e0!3m2!1sen!2sus!4v1699123456789!5m2!1sen!2sus"
-                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                    <div class="rounded-2xl overflow-hidden shadow-xl border border-[#FFE0B5] h-64 md:h-80"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.456789012345!2d-122.682123!3d45.512345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950c0e6a1a1a1a%3A0x123456789abcdef!2sPortland%2C%20OR!5e0!3m2!1sen!2sus!4v1699123456789!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
                 </div>
             </div>
         </div>
 
         <!-- FAQ Section -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-            <div class="text-center mb-8"><span
-                    class="text-[#BF7F3A] text-xs font-semibold uppercase tracking-wider">quick answers</span>
-                <h2 class="text-2xl font-bold text-[#3E2C1C] mt-2 text-primary-dark">Frequently Asked Questions</h2>
-            </div>
+            <div class="text-center mb-8"><span class="text-[#BF7F3A] text-xs font-semibold uppercase tracking-wider">quick answers</span><h2 class="text-2xl font-bold text-[#3E2C1C] mt-2 text-primary-dark">Frequently Asked Questions</h2></div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-white/50 dark:bg-[#2a221c]/50 rounded-xl p-4 border border-[#FFE0B5] card-dark">
-                    <h3 class="font-semibold text-[#4A2E1F] flex items-center gap-2"><i
-                            class="fas fa-truck text-[#BF7F3A] text-sm"></i> Shipping times?</h3>
-                    <p class="text-sm text-[#5E4B34] mt-1">Orders ship within 3-5 business days. US delivery takes 3-7
-                        days, Canada 7-14 days.</p>
-                </div>
-                <div class="bg-white/50 dark:bg-[#2a221c]/50 rounded-xl p-4 border border-[#FFE0B5] card-dark">
-                    <h3 class="font-semibold text-[#4A2E1F] flex items-center gap-2"><i
-                            class="fas fa-exchange-alt text-[#BF7F3A] text-sm"></i> Return policy?</h3>
-                    <p class="text-sm text-[#5E4B34] mt-1">Unused, unopened products can be returned within 14 days.
-                        Candles and oils are final sale.</p>
-                </div>
-                <div class="bg-white/50 dark:bg-[#2a221c]/50 rounded-xl p-4 border border-[#FFE0B5] card-dark">
-                    <h3 class="font-semibold text-[#4A2E1F] flex items-center gap-2"><i
-                            class="fas fa-chalkboard-user text-[#BF7F3A] text-sm"></i> Group workshop rates?</h3>
-                    <p class="text-sm text-[#5E4B34] mt-1">Yes! Groups of 6+ receive 15% off. Email us for custom
-                        corporate or private event quotes.</p>
-                </div>
-                <div class="bg-white/50 dark:bg-[#2a221c]/50 rounded-xl p-4 border border-[#FFE0B5] card-dark">
-                    <h3 class="font-semibold text-[#4A2E1F] flex items-center gap-2"><i
-                            class="fas fa-seedling text-[#BF7F3A] text-sm"></i> Wholesale inquiries?</h3>
-                    <p class="text-sm text-[#5E4B34] mt-1">We partner with select boutiques. Please reach out via the
-                        form with "Wholesale" as subject.</p>
-                </div>
+                <div class="bg-white/50 dark:bg-[#121212]/80 rounded-xl p-4 border border-[#FFE0B5] card-dark"><h3 class="font-semibold text-[#4A2E1F] flex items-center gap-2"><i class="fas fa-truck text-[#BF7F3A] text-sm"></i> Shipping times?</h3><p class="text-sm text-[#5E4B34] mt-1">Orders ship within 3-5 business days. US delivery takes 3-7 days, Canada 7-14 days.</p></div>
+                <div class="bg-white/50 dark:bg-[#121212]/80 rounded-xl p-4 border border-[#FFE0B5] card-dark"><h3 class="font-semibold text-[#4A2E1F] flex items-center gap-2"><i class="fas fa-exchange-alt text-[#BF7F3A] text-sm"></i> Return policy?</h3><p class="text-sm text-[#5E4B34] mt-1">Unused, unopened products can be returned within 14 days. Candles and oils are final sale.</p></div>
+                <div class="bg-white/50 dark:bg-[#121212]/80 rounded-xl p-4 border border-[#FFE0B5] card-dark"><h3 class="font-semibold text-[#4A2E1F] flex items-center gap-2"><i class="fas fa-chalkboard-user text-[#BF7F3A] text-sm"></i> Group workshop rates?</h3><p class="text-sm text-[#5E4B34] mt-1">Yes! Groups of 6+ receive 15% off. Email us for custom corporate or private event quotes.</p></div>
+                <div class="bg-white/50 dark:bg-[#121212]/80 rounded-xl p-4 border border-[#FFE0B5] card-dark"><h3 class="font-semibold text-[#4A2E1F] flex items-center gap-2"><i class="fas fa-seedling text-[#BF7F3A] text-sm"></i> Wholesale inquiries?</h3><p class="text-sm text-[#5E4B34] mt-1">We partner with select boutiques. Please reach out via the form with "Wholesale" as subject.</p></div>
             </div>
         </div>
     </main>
@@ -734,163 +417,106 @@
     <footer class="bg-[#FFE8D4] border-t border-[#FFDDB5] pt-10 md:pt-12 pb-6 md:pb-8 footer-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                <div class="text-center sm:text-left"><a href="index.html"
-                        class="flex items-center justify-center sm:justify-start gap-2 mb-4 group"><i
-                            class="fas fa-feather-alt text-[#BF7F3A] text-2xl transition-transform group-hover:rotate-6"></i><span
-                            class="text-[#4A2E1F] text-xl font-bold tracking-tight footer-heading">InkWhisper</span></a>
-                    <p class="text-[#6F523B] text-sm leading-relaxed text-secondary-dark">Where flora meets timeless
-                        ritual. Handcrafted botanical blends for mindful living.</p>
-                    <div class="flex justify-center sm:justify-start gap-4 mt-4"><a href="#"
-                            class="text-[#8B694A] hover:text-[#BF7F3A] transition text-xl social-icon"><i
-                                class="fab fa-instagram"></i></a><a href="#"
-                            class="text-[#8B694A] hover:text-[#BF7F3A] transition text-xl social-icon"><i
-                                class="fab fa-facebook-f"></i></a><a href="#"
-                            class="text-[#8B694A] hover:text-[#BF7F3A] transition text-xl social-icon"><i
-                                class="fab fa-pinterest-p"></i></a><a href="#"
-                            class="text-[#8B694A] hover:text-[#BF7F3A] transition text-xl social-icon"><i
-                                class="fab fa-twitter"></i></a></div>
-                </div>
-                <div class="text-center sm:text-left">
-                    <h4 class="text-[#4A2E1F] font-semibold text-lg mb-4 footer-heading">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#"
-                                class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">Home</a></li>
-                        <li><a href="#" class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">Shop
-                                New Drops</a></li>
-                        <li><a href="#"
-                                class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">Discover
-                                Rituals</a></li>
-                        <li><a href="#"
-                                class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">Collections</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="text-center sm:text-left">
-                    <h4 class="text-[#4A2E1F] font-semibold text-lg mb-4 footer-heading">Support</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">About
-                                Us</a></li>
-                        <li><a href="#"
-                                class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">Contact</a>
-                        </li>
-                        <li><a href="#"
-                                class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">FAQs</a></li>
-                        <li><a href="#"
-                                class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">Shipping &
-                                Returns</a></li>
-                    </ul>
-                </div>
-                <div class="text-center sm:text-left">
-                    <h4 class="text-[#4A2E1F] font-semibold text-lg mb-4 footer-heading">Mail Box</h4>
-                    <p class="text-[#6F523B] text-sm mb-3 text-secondary-dark">Subscribe for botanical inspiration &
-                        exclusive offers.</p>
-                    <div class="flex flex-col sm:flex-row gap-2"><input type="email" placeholder="Your email"
-                            class="px-4 py-2 rounded-full bg-white/70 border border-[#FFE0B5] focus:outline-none focus:border-[#BF7F3A] text-sm flex-1 newsletter-input">
-                    </div>
-                </div>
+                <div class="text-center sm:text-left"><a href="index.html" class="flex items-center justify-center sm:justify-start gap-2 mb-4 group"><i class="fas fa-feather-alt text-[#BF7F3A] text-2xl transition-transform group-hover:rotate-6"></i><span class="text-[#4A2E1F] text-xl font-bold tracking-tight footer-heading">InkWhisper</span></a><p class="text-[#6F523B] text-sm leading-relaxed text-secondary-dark">Where flora meets timeless ritual. Handcrafted botanical blends for mindful living.</p><div class="flex justify-center sm:justify-start gap-4 mt-4"><a href="#" class="text-[#8B694A] hover:text-[#BF7F3A] transition text-xl social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="text-[#8B694A] hover:text-[#BF7F3A] transition text-xl social-icon"><i class="fab fa-facebook-f"></i></a><a href="#" class="text-[#8B694A] hover:text-[#BF7F3A] transition text-xl social-icon"><i class="fab fa-pinterest-p"></i></a><a href="#" class="text-[#8B694A] hover:text-[#BF7F3A] transition text-xl social-icon"><i class="fab fa-twitter"></i></a></div></div>
+                <div class="text-center sm:text-left"><h4 class="text-[#4A2E1F] font-semibold text-lg mb-4 footer-heading">Quick Links</h4><ul class="space-y-2"><li><a href="#" class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">Home</a></li><li><a href="#" class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">Shop New Drops</a></li><li><a href="#" class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">Discover Rituals</a></li><li><a href="#" class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">Collections</a></li></ul></div>
+                <div class="text-center sm:text-left"><h4 class="text-[#4A2E1F] font-semibold text-lg mb-4 footer-heading">Support</h4><ul class="space-y-2"><li><a href="#" class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">About Us</a></li><li><a href="#" class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">Contact</a></li><li><a href="#" class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">FAQs</a></li><li><a href="#" class="text-[#6F523B] hover:text-[#BF7F3A] transition text-sm footer-link">Shipping & Returns</a></li></ul></div>
+                <div class="text-center sm:text-left"><h4 class="text-[#4A2E1F] font-semibold text-lg mb-4 footer-heading">Mail Box</h4><p class="text-[#6F523B] text-sm mb-3 text-secondary-dark">Subscribe for botanical inspiration & exclusive offers.</p><div class="flex flex-col sm:flex-row gap-2"><input type="email" placeholder="Your email" class="px-4 py-2 rounded-full bg-white/70 border border-[#FFE0B5] focus:outline-none focus:border-[#BF7F3A] text-sm flex-1 newsletter-input"></div></div>
             </div>
-            <div
-                class="border-t border-[#FFDDB5] mt-6 md:mt-8 pt-5 md:pt-6 text-center text-[#8B694A] text-xs footer-border">
-                <p>© 2026 InkWhisper — mindful botanicals. All rights reserved.</p>
-                <div class="flex justify-center gap-4 mt-2"><a href="#"
-                        class="hover:text-[#BF7F3A] transition footer-link">Privacy Policy</a><span>•</span><a href="#"
-                        class="hover:text-[#BF7F3A] transition footer-link">Terms of Service</a></div>
-            </div>
+            <div class="border-t border-[#FFDDB5] mt-6 md:mt-8 pt-5 md:pt-6 text-center text-[#8B694A] text-xs footer-border"><p>© 2026 InkWhisper — mindful botanicals. All rights reserved.</p><div class="flex justify-center gap-4 mt-2"><a href="#" class="hover:text-[#BF7F3A] transition footer-link">Privacy Policy</a><span>•</span><a href="#" class="hover:text-[#BF7F3A] transition footer-link">Terms of Service</a></div></div>
         </div>
     </footer>
 
     <script>
-            (function () {
-                const html = document.documentElement;
-                const darkToggle = document.getElementById('darkModeToggle');
-                const darkIcon = document.getElementById('darkIcon');
-                const darkLabel = document.getElementById('darkLabel');
-                const drawerDarkToggle = document.getElementById('drawerDarkToggle');
-                const drawerDarkIcon = document.getElementById('drawerDarkIcon');
-                const drawerDarkLabel = document.getElementById('drawerDarkLabel');
+        (function() {
+            const html = document.documentElement;
+            const darkToggle = document.getElementById('darkModeToggle');
+            const darkIcon = document.getElementById('darkIcon');
+            const darkLabel = document.getElementById('darkLabel');
+            const drawerDarkToggle = document.getElementById('drawerDarkToggle');
+            const drawerDarkIcon = document.getElementById('drawerDarkIcon');
+            const drawerDarkLabel = document.getElementById('drawerDarkLabel');
 
-                function updateDarkUI(isDark) {
-                    const iconClass = isDark ? 'fas fa-sun text-sm' : 'fas fa-moon text-sm';
-                    const label = isDark ? 'Light' : 'Dark';
-                    if (darkIcon) darkIcon.className = iconClass;
-                    if (darkLabel) darkLabel.innerText = label;
-                    if (drawerDarkIcon) drawerDarkIcon.className = iconClass.replace('text-sm', 'text-xs');
-                    if (drawerDarkLabel) drawerDarkLabel.innerText = label;
-                }
-                if (localStorage.getItem('inkwhisper_dark') === 'enabled') { html.classList.add('dark'); updateDarkUI(true); } else { updateDarkUI(false); }
-                function toggleDark() {
-                    if (html.classList.contains('dark')) { html.classList.remove('dark'); localStorage.setItem('inkwhisper_dark', 'disabled'); updateDarkUI(false); }
-                    else { html.classList.add('dark'); localStorage.setItem('inkwhisper_dark', 'enabled'); updateDarkUI(true); }
-                }
-                if (darkToggle) darkToggle.addEventListener('click', toggleDark);
-                if (drawerDarkToggle) drawerDarkToggle.addEventListener('click', toggleDark);
+            function updateDarkUI(isDark) {
+                const iconClass = isDark ? 'fas fa-sun text-sm' : 'fas fa-moon text-sm';
+                const label = isDark ? 'Light' : 'Dark';
+                if(darkIcon) darkIcon.className = iconClass;
+                if(darkLabel) darkLabel.innerText = label;
+                if(drawerDarkIcon) drawerDarkIcon.className = iconClass.replace('text-sm','text-xs');
+                if(drawerDarkLabel) drawerDarkLabel.innerText = label;
+            }
+            if(localStorage.getItem('inkwhisper_dark') === 'enabled') { html.classList.add('dark'); updateDarkUI(true); } else { updateDarkUI(false); }
+            function toggleDark() {
+                if(html.classList.contains('dark')) { html.classList.remove('dark'); localStorage.setItem('inkwhisper_dark','disabled'); updateDarkUI(false); }
+                else { html.classList.add('dark'); localStorage.setItem('inkwhisper_dark','enabled'); updateDarkUI(true); }
+            }
+            if(darkToggle) darkToggle.addEventListener('click', toggleDark);
+            if(drawerDarkToggle) drawerDarkToggle.addEventListener('click', toggleDark);
 
-                const rtlBtn = document.getElementById('rtlToggle');
-                const rtlLabelSpan = document.getElementById('rtlLabel');
-                const drawerRtlBtn = document.getElementById('drawerRtlToggle');
-                const drawerRtlLabel = document.getElementById('drawerRtlLabel');
-                const rtlIconSpan = document.getElementById('rtlIcon');
-                function setDirection(dir) {
-                    html.setAttribute('dir', dir);
-                    localStorage.setItem('inkwhisper_dir', dir);
-                    const label = dir === 'rtl' ? 'RTL' : 'LTR';
-                    if (rtlLabelSpan) rtlLabelSpan.innerText = label;
-                    if (drawerRtlLabel) drawerRtlLabel.innerText = label;
-                    if (rtlIconSpan) { if (dir === 'rtl') rtlIconSpan.classList.add('rtl-flip'); else rtlIconSpan.classList.remove('rtl-flip'); }
-                    document.body.style.display = 'none';
-                    document.body.offsetHeight;
-                    document.body.style.display = '';
-                }
-                const savedDir = localStorage.getItem('inkwhisper_dir');
-                setDirection(savedDir === 'rtl' ? 'rtl' : 'ltr');
-                function toggleRTL() { setDirection(html.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'); }
-                if (rtlBtn) rtlBtn.addEventListener('click', toggleRTL);
-                if (drawerRtlBtn) drawerRtlBtn.addEventListener('click', toggleRTL);
+            const rtlBtn = document.getElementById('rtlToggle');
+            const rtlLabelSpan = document.getElementById('rtlLabel');
+            const drawerRtlBtn = document.getElementById('drawerRtlToggle');
+            const drawerRtlLabel = document.getElementById('drawerRtlLabel');
+            const rtlIconSpan = document.getElementById('rtlIcon');
+            function setDirection(dir) {
+                html.setAttribute('dir', dir);
+                localStorage.setItem('inkwhisper_dir', dir);
+                const label = dir === 'rtl' ? 'RTL' : 'LTR';
+                if(rtlLabelSpan) rtlLabelSpan.innerText = label;
+                if(drawerRtlLabel) drawerRtlLabel.innerText = label;
+                if(rtlIconSpan) { if(dir === 'rtl') rtlIconSpan.classList.add('rtl-flip'); else rtlIconSpan.classList.remove('rtl-flip'); }
+                document.body.style.display = 'none';
+                document.body.offsetHeight;
+                document.body.style.display = '';
+            }
+            const savedDir = localStorage.getItem('inkwhisper_dir');
+            setDirection(savedDir === 'rtl' ? 'rtl' : 'ltr');
+            function toggleRTL() { setDirection(html.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'); }
+            if(rtlBtn) rtlBtn.addEventListener('click', toggleRTL);
+            if(drawerRtlBtn) drawerRtlBtn.addEventListener('click', toggleRTL);
 
-                const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-                const drawer = document.getElementById('mobileDrawer');
-                const overlay = document.getElementById('drawerOverlay');
-                const closeDrawerBtn = document.getElementById('closeDrawerBtn');
-                const body = document.body;
-                function openDrawer() { drawer.classList.add('open'); overlay.classList.add('open'); body.classList.add('drawer-open'); }
-                function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('open'); body.classList.remove('drawer-open'); }
-                if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openDrawer);
-                if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
-                if (overlay) overlay.addEventListener('click', closeDrawer);
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const drawer = document.getElementById('mobileDrawer');
+            const overlay = document.getElementById('drawerOverlay');
+            const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+            const body = document.body;
+            function openDrawer() { drawer.classList.add('open'); overlay.classList.add('open'); body.classList.add('drawer-open'); }
+            function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('open'); body.classList.remove('drawer-open'); }
+            if(mobileMenuBtn) mobileMenuBtn.addEventListener('click', openDrawer);
+            if(closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
+            if(overlay) overlay.addEventListener('click', closeDrawer);
 
-                const drawerHomeBtn = document.getElementById('drawerHomeBtn');
-                const drawerSubmenu = document.getElementById('drawerSubmenu');
-                const drawerChevron = document.getElementById('drawerChevron');
-                if (drawerHomeBtn && drawerSubmenu) {
-                    drawerHomeBtn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const hidden = drawerSubmenu.classList.contains('hidden');
-                        if (hidden) { drawerSubmenu.classList.remove('hidden'); if (drawerChevron) drawerChevron.style.transform = 'rotate(180deg)'; }
-                        else { drawerSubmenu.classList.add('hidden'); if (drawerChevron) drawerChevron.style.transform = 'rotate(0deg)'; }
-                    });
-                }
-                window.addEventListener('resize', () => { if (window.innerWidth >= 1024 && drawer.classList.contains('open')) closeDrawer(); });
+            const drawerHomeBtn = document.getElementById('drawerHomeBtn');
+            const drawerSubmenu = document.getElementById('drawerSubmenu');
+            const drawerChevron = document.getElementById('drawerChevron');
+            if(drawerHomeBtn && drawerSubmenu) {
+                drawerHomeBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const hidden = drawerSubmenu.classList.contains('hidden');
+                    if(hidden) { drawerSubmenu.classList.remove('hidden'); if(drawerChevron) drawerChevron.style.transform = 'rotate(180deg)'; }
+                    else { drawerSubmenu.classList.add('hidden'); if(drawerChevron) drawerChevron.style.transform = 'rotate(0deg)'; }
+                });
+            }
+            window.addEventListener('resize', () => { if(window.innerWidth >= 1024 && drawer.classList.contains('open')) closeDrawer(); });
 
-                const contactForm = document.getElementById('contactForm');
-                const formSuccess = document.getElementById('formSuccess');
-                if (contactForm) {
-                    contactForm.addEventListener('submit', (e) => {
-                        e.preventDefault();
-                        formSuccess.classList.remove('hidden');
-                        contactForm.reset();
-                        setTimeout(() => formSuccess.classList.add('hidden'), 4000);
-                    });
-                }
-                const bookNowBtn = document.getElementById('bookNowBtn');
-                const bookingSuccess = document.getElementById('bookingSuccess');
-                if (bookNowBtn) {
-                    bookNowBtn.addEventListener('click', () => {
-                        bookingSuccess.classList.remove('hidden');
-                        setTimeout(() => bookingSuccess.classList.add('hidden'), 4000);
-                    });
-                }
-            })();
+            const contactForm = document.getElementById('contactForm');
+            const formSuccess = document.getElementById('formSuccess');
+            if(contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    formSuccess.classList.remove('hidden');
+                    contactForm.reset();
+                    setTimeout(() => formSuccess.classList.add('hidden'), 4000);
+                });
+            }
+            const bookNowBtn = document.getElementById('bookNowBtn');
+            const bookingSuccess = document.getElementById('bookingSuccess');
+            if(bookNowBtn) {
+                bookNowBtn.addEventListener('click', () => {
+                    bookingSuccess.classList.remove('hidden');
+                    setTimeout(() => bookingSuccess.classList.add('hidden'), 4000);
+                });
+            }
+        })();
     </script>
 </body>
-
 </html>
