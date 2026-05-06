@@ -86,7 +86,8 @@
         html.dark .fa-map-marker-alt, html.dark .fa-phone-alt, html.dark .fa-instagram,
         html.dark .fa-check-circle, html.dark .fa-paper-plane, html.dark .fa-arrow-right,
         html.dark .fa-map-pin, html.dark .fa-truck, html.dark .fa-exchange-alt,
-        html.dark .fa-chalkboard-user, html.dark .fa-seedling, html.dark .fa-wheelchair {
+        html.dark .fa-chalkboard-user, html.dark .fa-seedling, html.dark .fa-wheelchair,
+        html.dark .fa-chevron-down, html.dark .fa-chevron-up {
             color: #FFCF9A !important;
         }
         html.dark .btn-primary-dark {
@@ -193,6 +194,9 @@
         html.dark .bg-\[\#FFE2B5\] {
             background-color: #111111 !important;
         }
+        html.dark .faq-accordion-content {
+            background-color: #0f0f0f !important;
+        }
 
         .contact-hero {
             background-image: url('images/writen1 (1).jpg');
@@ -257,12 +261,33 @@
             50% { transform: translateY(-6px); }
             100% { transform: translateY(0px); }
         }
+        /* FAQ Accordion styles */
+        .faq-question {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .faq-accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.33, 1, 0.68, 1);
+            background-color: transparent;
+        }
+        .faq-accordion-content.open {
+            max-height: 300px;
+        }
+        .faq-chevron {
+            transition: transform 0.25s ease;
+        }
+        .faq-item.active .faq-chevron {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 <body class="bg-[#FEF8F0] font-sans antialiased">
 
     <!-- ========== NAVBAR ========== -->
-<nav class="bg-white shadow-sm sticky top-0 z-50 w-full border-b border-gray-200 nav-bar">        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class="bg-white shadow-sm sticky top-0 z-50 w-full border-b border-gray-200 nav-bar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="navbar-flex flex justify-between items-center h-16 md:h-20">
                 <a href="index.html" class="logo-area flex-shrink-0 flex items-center gap-2 group">
                     <i class="fas fa-feather-alt text-[#BF7F3A] text-2xl md:text-3xl transition-transform group-hover:rotate-3"></i>
@@ -275,7 +300,7 @@
                     <div class="relative group">
                         <a href="#" class="text-[#3E2C1C] font-medium text-sm lg:text-base hover:text-[#BF7F3A] transition flex items-center gap-1 nav-text">Home <i class="fas fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i></a>
                         <div class="home-dropdown absolute left-0 mt-2 w-40 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 border border-[#FFE0B5] overflow-hidden dropdown-bg">
-                            <a href="index.html" class="block px-4 py-2.5 text-sm hover:bg-[#FEF3E4] transition flex items-center gap-2 dropdown-item"> Home 1</a>
+                            <a href="index.html" class="block px-4 py-2.5 text-sm hover:bg-[#FEF3E4] transition flex items-center gap-2 dropdown-item">Home 1</a>
                             <a href="home2.html" class="block px-4 py-2.5 text-sm hover:bg-[#FEF3E4] transition flex items-center gap-2 border-t border-[#FFEFDF] dropdown-item">Home 2</a>
                         </div>
                     </div>
@@ -313,7 +338,7 @@
             </div>
             <div class="flex-1 py-6 px-5 space-y-4 overflow-y-auto">
                 <div><div class="flex justify-between items-center py-2 text-[#3E2C1C] font-medium border-b border-[#FFD6A0] nav-text mobile-menu-item"><span>Home</span><button id="drawerHomeBtn"><i id="drawerChevron" class="fas fa-chevron-down text-xs transition-transform"></i></button></div>
-                <div id="drawerSubmenu" class="hidden pl-4 mt-2 space-y-2"><a href="index.html" class="block py-1.5 text-sm hover:text-[#BF7F3A] transition flex items-center gap-2 nav-text">Home 1</a><a href="home2.html" class="block py-1.5 text-sm hover:text-[#BF7F3A] transition flex items-center gap-2 nav-text"> Home 2</a></div></div>
+                <div id="drawerSubmenu" class="hidden pl-4 mt-2 space-y-2"><a href="index.html" class="block py-1.5 text-sm hover:text-[#BF7F3A] transition flex items-center gap-2 nav-text">Home 1</a><a href="home2.html" class="block py-1.5 text-sm hover:text-[#BF7F3A] transition flex items-center gap-2 nav-text">Home 2</a></div></div>
                 <a href="about.html" class="block py-2 border-b border-[#FFD6A0] nav-text mobile-menu-item">About</a>
                 <a href="service.html" class="block py-2 border-b border-[#FFD6A0] nav-text mobile-menu-item">Service</a>
                 <a href="loveLetter.html" class="block py-2 border-b border-[#FFD6A0] nav-text mobile-menu-item">LoveLetter</a>
@@ -327,10 +352,10 @@
     </div>
 
     <main>
-        <!-- Contact Hero Section -->
+        <!-- Contact Hero Section - fixed padding alignment -->
         <div class="contact-hero relative overflow-hidden">
             <div class="contact-overlay absolute inset-0"></div>
-            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28">
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
                 <div class="text-center max-w-3xl mx-auto">
                     <div class="inline-flex items-center gap-2 bg-[#FFE8D4] px-4 py-1.5 rounded-full text-[#BF7F3A] text-xs font-semibold uppercase mb-6 hero-badge">
                         <i class="fas fa-envelope envelope-icon text-xs"></i> <span>reach out · we're listening</span>
@@ -341,13 +366,9 @@
             </div>
         </div>
 
-        <!-- Contact Info Cards Row -->
-      
-
-        <!-- Contact Form + Booking Card Grid -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-                <!-- Contact Form -->
+        <!-- Contact Form Section (Only Form, No Booking) - with aligned padding -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+            <div class="max-w-3xl mx-auto">
                 <div class="bg-white/60 dark:bg-[#121212]/90 rounded-2xl p-6 md:p-8 border border-[#FFE0B5] card-dark">
                     <div class="flex items-center gap-3 mb-6"><i class="fas fa-pen-fancy text-2xl text-[#BF7F3A]"></i><h2 class="text-xl md:text-2xl font-bold text-[#3E2C1C] text-primary-dark">Send us a message</h2></div>
                     <p class="text-[#5E4B34] text-sm mb-6 text-secondary-dark">We'll get back to you within 24–48 hours. Your message matters to us.</p>
@@ -363,52 +384,99 @@
                         <p id="formSuccess" class="text-center text-sm text-[#BF7F3A] hidden mt-3">✓ Thank you! Your message has been sent. We'll reply soon.</p>
                     </form>
                 </div>
-
-                <!-- Booking Card -->
-                <div class="booking-card bg-gradient-to-br from-[#FFF6EA] to-[#FEF0E2] dark:from-[#0a0a0a] dark:to-[#0a0a0a] rounded-2xl p-6 md:p-8 border border-[#FFE0B5] shadow-lg">
-                    <div class="flex items-center gap-3 mb-6"><i class="fas fa-calendar-check text-2xl text-[#BF7F3A]"></i><h2 class="text-xl md:text-2xl font-bold text-[#3E2C1C] text-primary-dark">Book a Session</h2></div>
-                    <p class="text-[#5E4B34] text-sm mb-6 text-secondary-dark">Schedule a 1-on-1 herbal consultation, private workshop, or ritual ceremony.</p>
-                    <div class="space-y-5">
-                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Select Service *</label><select id="bookingService" class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm"><option value="herbal-consultation">Herbal Consultation (30 min) - $65</option><option value="candle-workshop">Candle Pouring Workshop (2 hrs) - $85</option><option value="forest-bathing">Forest Bathing & Tea Ritual (3 hrs) - $95</option><option value="private-ceremony">Private Ceremony (custom) - $250+</option><option value="calligraphy-class">Botanical Calligraphy Class (2 hrs) - $75</option></select></div>
-                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Preferred Date *</label><input type="date" id="bookingDate" class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm"></div>
-                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Preferred Time</label><select id="bookingTime" class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm"><option>10:00 AM - 11:00 AM</option><option>11:30 AM - 12:30 PM</option><option>1:00 PM - 2:00 PM</option><option>2:30 PM - 3:30 PM</option><option>4:00 PM - 5:00 PM</option><option>Flexible - contact me</option></select></div>
-                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Number of Guests (if applicable)</label><input type="number" id="guestCount" min="1" max="20" value="1" class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm"></div>
-                        <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Special Requests / Notes</label><textarea id="bookingNotes" rows="3" class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm resize-none" placeholder="Dietary restrictions, accessibility needs, or intentions..."></textarea></div>
-                        <button id="bookNowBtn" class="w-full bg-[#BF7F3A] hover:bg-[#D9A56C] text-white font-semibold py-3 rounded-full transition shadow-md flex items-center justify-center gap-2">Request Booking <i class="fas fa-arrow-right text-sm"></i></button>
-                        <p id="bookingSuccess" class="text-center text-sm text-[#BF7F3A] hidden mt-3">✓ Booking request sent! We'll confirm within 24 hours.</p>
-                        <p class="text-xs text-center text-[#8B694A] mt-3">You'll receive a confirmation email with payment details.</p>
-                    </div>
-                </div>
             </div>
         </div>
 
-        <!-- Map & Studio Hours -->
+        <!-- SEPARATE BOOKING SECTION - Clear heading, distinct from message form -->
         <div class="bg-gradient-to-br from-[#FFF6EA] to-[#FEF0E2] dark:from-[#0a0a0a] dark:to-[#0a0a0a] py-12 md:py-16 border-y border-[#FFE0B5] border-dark">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                    <div><span class="text-[#BF7F3A] text-xs font-semibold uppercase tracking-wider">our sanctuary</span>
-                        <h2 class="text-2xl md:text-3xl font-bold text-[#3E2C1C] mt-2 text-primary-dark">Visit Our Studio</h2>
-                        <p class="text-[#5E4B34] mt-3 leading-relaxed text-secondary-dark">Nestled in the heart of Portland's botanical district, our studio is open for appointments, workshops, and slow browsing. Come say hello — we have tea ready.</p>
-                        <div class="mt-5 space-y-2">
-                            <div class="flex items-center gap-3 text-sm"><i class="fas fa-clock text-[#BF7F3A] w-5"></i><span class="text-[#5E4B34]">Tuesday – Saturday: 11am – 6pm</span></div>
-                            <div class="flex items-center gap-3 text-sm"><i class="fas fa-clock text-[#BF7F3A] w-5"></i><span class="text-[#5E4B34]">Sunday & Monday: Closed (workshops only)</span></div>
-                            <div class="flex items-center gap-3 text-sm"><i class="fas fa-wheelchair text-[#BF7F3A] w-5"></i><span class="text-[#5E4B34]">Wheelchair accessible · fragrance-free zone</span></div>
+                <div class="text-center max-w-2xl mx-auto mb-8 md:mb-10">
+                    <span class="text-[#BF7F3A] text-xs font-semibold uppercase tracking-wider">reserve your experience</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#3E2C1C] mt-2 text-primary-dark">Book a Session</h2>
+                    <div class="w-16 h-0.5 bg-[#BF7F3A] mx-auto mt-3 rounded-full"></div>
+                    <p class="text-[#5E4B34] mt-4 text-secondary-dark">Schedule a 1-on-1 herbal consultation, private workshop, or ritual ceremony. Limited spots available.</p>
+                </div>
+                <div class="max-w-4xl mx-auto">
+                    <div class="booking-card bg-white/80 dark:bg-[#121212]/90 rounded-2xl p-6 md:p-8 border border-[#FFE0B5] shadow-xl transition-all">
+                        <div class="flex items-center gap-3 mb-6"><i class="fas fa-calendar-check text-2xl text-[#BF7F3A]"></i><h3 class="text-xl md:text-2xl font-bold text-[#3E2C1C] text-primary-dark">Request a Booking</h3></div>
+                        <div class="space-y-5">
+                            <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Select Service *</label><select id="bookingService" class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm"><option value="herbal-consultation">Herbal Consultation (30 min) - $65</option><option value="candle-workshop">Candle Pouring Workshop (2 hrs) - $85</option><option value="forest-bathing">Forest Bathing & Tea Ritual (3 hrs) - $95</option><option value="private-ceremony">Private Ceremony (custom) - $250+</option><option value="calligraphy-class">Botanical Calligraphy Class (2 hrs) - $75</option></select></div>
+                            <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Preferred Date *</label><input type="date" id="bookingDate" class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm"></div>
+                            <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Preferred Time</label><select id="bookingTime" class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm"><option>10:00 AM - 11:00 AM</option><option>11:30 AM - 12:30 PM</option><option>1:00 PM - 2:00 PM</option><option>2:30 PM - 3:30 PM</option><option>4:00 PM - 5:00 PM</option><option>Flexible - contact me</option></select></div>
+                            <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Number of Guests (if applicable)</label><input type="number" id="guestCount" min="1" max="20" value="1" class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm"></div>
+                            <div><label class="block text-sm font-medium text-[#4A2E1F] mb-1">Special Requests / Notes</label><textarea id="bookingNotes" rows="3" class="form-input w-full px-4 py-2.5 rounded-xl border border-[#FFE0B5] bg-white/80 dark:bg-[#1a1a1a]/90 text-[#3E2C1C] focus:border-[#BF7F3A] transition text-sm resize-none" placeholder="Dietary restrictions, accessibility needs, or intentions..."></textarea></div>
+                            <button id="bookNowBtn" class="w-full bg-[#BF7F3A] hover:bg-[#D9A56C] text-white font-semibold py-3 rounded-full transition shadow-md flex items-center justify-center gap-2">Request Booking <i class="fas fa-arrow-right text-sm"></i></button>
+                            <p id="bookingSuccess" class="text-center text-sm text-[#BF7F3A] hidden mt-3">✓ Booking request sent! We'll confirm within 24 hours.</p>
+                            <p class="text-xs text-center text-[#8B694A] mt-3">You'll receive a confirmation email with payment details.</p>
                         </div>
-                        <a href="#" class="inline-flex items-center gap-2 mt-6 text-[#BF7F3A] font-medium border-b border-[#BF7F3A] pb-1 hover:gap-3 transition-all">Get directions <i class="fas fa-map-pin text-xs"></i></a>
                     </div>
-                    <div class="rounded-2xl overflow-hidden shadow-xl border border-[#FFE0B5] h-64 md:h-80"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.456789012345!2d-122.682123!3d45.512345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950c0e6a1a1a1a%3A0x123456789abcdef!2sPortland%2C%20OR!5e0!3m2!1sen!2sus!4v1699123456789!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
                 </div>
             </div>
         </div>
 
-        <!-- FAQ Section -->
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-            <div class="text-center mb-8"><span class="text-[#BF7F3A] text-xs font-semibold uppercase tracking-wider">quick answers</span><h2 class="text-2xl font-bold text-[#3E2C1C] mt-2 text-primary-dark">Frequently Asked Questions</h2></div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-white/50 dark:bg-[#121212]/80 rounded-xl p-4 border border-[#FFE0B5] card-dark"><h3 class="font-semibold text-[#4A2E1F] flex items-center gap-2"><i class="fas fa-truck text-[#BF7F3A] text-sm"></i> Shipping times?</h3><p class="text-sm text-[#5E4B34] mt-1">Orders ship within 3-5 business days. US delivery takes 3-7 days, Canada 7-14 days.</p></div>
-                <div class="bg-white/50 dark:bg-[#121212]/80 rounded-xl p-4 border border-[#FFE0B5] card-dark"><h3 class="font-semibold text-[#4A2E1F] flex items-center gap-2"><i class="fas fa-exchange-alt text-[#BF7F3A] text-sm"></i> Return policy?</h3><p class="text-sm text-[#5E4B34] mt-1">Unused, unopened products can be returned within 14 days. Candles and oils are final sale.</p></div>
-                <div class="bg-white/50 dark:bg-[#121212]/80 rounded-xl p-4 border border-[#FFE0B5] card-dark"><h3 class="font-semibold text-[#4A2E1F] flex items-center gap-2"><i class="fas fa-chalkboard-user text-[#BF7F3A] text-sm"></i> Group workshop rates?</h3><p class="text-sm text-[#5E4B34] mt-1">Yes! Groups of 6+ receive 15% off. Email us for custom corporate or private event quotes.</p></div>
-                <div class="bg-white/50 dark:bg-[#121212]/80 rounded-xl p-4 border border-[#FFE0B5] card-dark"><h3 class="font-semibold text-[#4A2E1F] flex items-center gap-2"><i class="fas fa-seedling text-[#BF7F3A] text-sm"></i> Wholesale inquiries?</h3><p class="text-sm text-[#5E4B34] mt-1">We partner with select boutiques. Please reach out via the form with "Wholesale" as subject.</p></div>
+        <!-- Map & Studio Hours - fixed padding alignment -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div><span class="text-[#BF7F3A] text-xs font-semibold uppercase tracking-wider">our sanctuary</span>
+                    <h2 class="text-2xl md:text-3xl font-bold text-[#3E2C1C] mt-2 text-primary-dark">Visit Our Studio</h2>
+                    <p class="text-[#5E4B34] mt-3 leading-relaxed text-secondary-dark">Nestled in the heart of Portland's botanical district, our studio is open for appointments, workshops, and slow browsing. Come say hello — we have tea ready.</p>
+                    <div class="mt-5 space-y-2">
+                        <div class="flex items-center gap-3 text-sm"><i class="fas fa-clock text-[#BF7F3A] w-5"></i><span class="text-[#5E4B34]">Tuesday – Saturday: 11am – 6pm</span></div>
+                        <div class="flex items-center gap-3 text-sm"><i class="fas fa-clock text-[#BF7F3A] w-5"></i><span class="text-[#5E4B34]">Sunday & Monday: Closed (workshops only)</span></div>
+                        <div class="flex items-center gap-3 text-sm"><i class="fas fa-wheelchair text-[#BF7F3A] w-5"></i><span class="text-[#5E4B34]">Wheelchair accessible · fragrance-free zone</span></div>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-2 mt-6 text-[#BF7F3A] font-medium border-b border-[#BF7F3A] pb-1 hover:gap-3 transition-all">Get directions <i class="fas fa-map-pin text-xs"></i></a>
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-xl border border-[#FFE0B5] h-64 md:h-80"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.456789012345!2d-122.682123!3d45.512345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950c0e6a1a1a1a%3A0x123456789abcdef!2sPortland%2C%20OR!5e0!3m2!1sen!2sus!4v1699123456789!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+            </div>
+        </div>
+
+        <!-- FAQ Section - Accordion style -->
+        <div class="bg-gradient-to-br from-[#FFF6EA] to-[#FEF0E2] dark:from-[#0a0a0a] dark:to-[#0a0a0a] py-12 md:py-16 border-y border-[#FFE0B5] border-dark">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8 md:mb-10">
+                    <span class="text-[#BF7F3A] text-xs font-semibold uppercase tracking-wider">quick answers</span>
+                    <h2 class="text-2xl md:text-3xl font-bold text-[#3E2C1C] mt-2 text-primary-dark">Frequently Asked Questions</h2>
+                    <div class="w-16 h-0.5 bg-[#BF7F3A] mx-auto mt-3 rounded-full"></div>
+                </div>
+                <div class="space-y-3" id="faqContainer">
+                    <div class="faq-item bg-white/50 dark:bg-[#121212]/80 rounded-xl border border-[#FFE0B5] card-dark overflow-hidden">
+                        <div class="faq-question flex justify-between items-center p-4 md:p-5">
+                            <h3 class="font-semibold text-[#4A2E1F] flex items-center gap-2 text-primary-dark"><i class="fas fa-truck text-[#BF7F3A] text-sm"></i> Shipping times?</h3>
+                            <i class="fas fa-chevron-down text-[#BF7F3A] text-xs faq-chevron transition-transform"></i>
+                        </div>
+                        <div class="faq-accordion-content px-4 md:px-5 pb-0">
+                            <p class="text-sm text-[#5E4B34] pb-4 text-secondary-dark leading-relaxed">Orders ship within 3-5 business days. US delivery takes 3-7 days, Canada 7-14 days. International shipping available upon request.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item bg-white/50 dark:bg-[#121212]/80 rounded-xl border border-[#FFE0B5] card-dark overflow-hidden">
+                        <div class="faq-question flex justify-between items-center p-4 md:p-5">
+                            <h3 class="font-semibold text-[#4A2E1F] flex items-center gap-2 text-primary-dark"><i class="fas fa-exchange-alt text-[#BF7F3A] text-sm"></i> Return policy?</h3>
+                            <i class="fas fa-chevron-down text-[#BF7F3A] text-xs faq-chevron transition-transform"></i>
+                        </div>
+                        <div class="faq-accordion-content px-4 md:px-5 pb-0">
+                            <p class="text-sm text-[#5E4B34] pb-4 text-secondary-dark leading-relaxed">Unused, unopened products can be returned within 14 days. Candles and oils are final sale due to hygiene and safety standards.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item bg-white/50 dark:bg-[#121212]/80 rounded-xl border border-[#FFE0B5] card-dark overflow-hidden">
+                        <div class="faq-question flex justify-between items-center p-4 md:p-5">
+                            <h3 class="font-semibold text-[#4A2E1F] flex items-center gap-2 text-primary-dark"><i class="fas fa-chalkboard-user text-[#BF7F3A] text-sm"></i> Group workshop rates?</h3>
+                            <i class="fas fa-chevron-down text-[#BF7F3A] text-xs faq-chevron transition-transform"></i>
+                        </div>
+                        <div class="faq-accordion-content px-4 md:px-5 pb-0">
+                            <p class="text-sm text-[#5E4B34] pb-4 text-secondary-dark leading-relaxed">Yes! Groups of 6+ receive 15% off. Email us for custom corporate or private event quotes. We can host up to 20 guests.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item bg-white/50 dark:bg-[#121212]/80 rounded-xl border border-[#FFE0B5] card-dark overflow-hidden">
+                        <div class="faq-question flex justify-between items-center p-4 md:p-5">
+                            <h3 class="font-semibold text-[#4A2E1F] flex items-center gap-2 text-primary-dark"><i class="fas fa-seedling text-[#BF7F3A] text-sm"></i> Wholesale inquiries?</h3>
+                            <i class="fas fa-chevron-down text-[#BF7F3A] text-xs faq-chevron transition-transform"></i>
+                        </div>
+                        <div class="faq-accordion-content px-4 md:px-5 pb-0">
+                            <p class="text-sm text-[#5E4B34] pb-4 text-secondary-dark leading-relaxed">We partner with select boutiques and apothecaries. Please reach out via the contact form with "Wholesale" as subject, and include your store details.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -456,14 +524,12 @@
             const rtlLabelSpan = document.getElementById('rtlLabel');
             const drawerRtlBtn = document.getElementById('drawerRtlToggle');
             const drawerRtlLabel = document.getElementById('drawerRtlLabel');
-            const rtlIconSpan = document.getElementById('rtlIcon');
             function setDirection(dir) {
                 html.setAttribute('dir', dir);
                 localStorage.setItem('inkwhisper_dir', dir);
                 const label = dir === 'rtl' ? 'RTL' : 'LTR';
                 if(rtlLabelSpan) rtlLabelSpan.innerText = label;
                 if(drawerRtlLabel) drawerRtlLabel.innerText = label;
-                if(rtlIconSpan) { if(dir === 'rtl') rtlIconSpan.classList.add('rtl-flip'); else rtlIconSpan.classList.remove('rtl-flip'); }
                 document.body.style.display = 'none';
                 document.body.offsetHeight;
                 document.body.style.display = '';
@@ -516,6 +582,35 @@
                     setTimeout(() => bookingSuccess.classList.add('hidden'), 4000);
                 });
             }
+
+            // FAQ Accordion logic
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const content = item.querySelector('.faq-accordion-content');
+                const chevron = item.querySelector('.faq-chevron');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(other => {
+                        if(other !== item && other.classList.contains('active')) {
+                            other.classList.remove('active');
+                            const otherContent = other.querySelector('.faq-accordion-content');
+                            const otherChevron = other.querySelector('.faq-chevron');
+                            if(otherContent) otherContent.classList.remove('open');
+                            if(otherChevron) otherChevron.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                    if(!isActive) {
+                        item.classList.add('active');
+                        if(content) content.classList.add('open');
+                        if(chevron) chevron.style.transform = 'rotate(180deg)';
+                    } else {
+                        item.classList.remove('active');
+                        if(content) content.classList.remove('open');
+                        if(chevron) chevron.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
         })();
     </script>
 </body>
